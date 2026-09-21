@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Santos Patronos - I.E.M. María Goretti">
+
+    <title>Santos Patronos - I.E.M. María Goretti</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP
+    ====================================================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <!-- =====================================================
+         AOS
+    ====================================================== -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+
+    <!-- =====================================================
+         ESTILOS PROPIOS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    <!-- =====================================================
+         ESTILOS DE ESTA PÁGINA
+    ====================================================== -->
+
+    <style>
+        /* =====================================================
+           VARIABLES
+        ====================================================== */
+
+        :root {
+
+            --primary-red: #DC2626;
+            --primary-red-dark: #B91C1C;
+            --primary-red-light: #F87171;
+
+            --accent-blue: #1E40AF;
+            --accent-blue-dark: #1E3A8A;
+            --accent-blue-light: #3B82F6;
+
+            --background-white: #FFFFFF;
+
+            --neutral-light: #F8FAFC;
+            --neutral-gray: #E2E8F0;
+
+            --text-dark: #1E293B;
+            --text-light: #FFFFFF;
+
+            --shadow-sm:
+                0 1px 2px rgba(220, 38, 38, 0.05);
+
+            --shadow-md:
+                0 4px 6px rgba(220, 38, 38, 0.10);
+
+            --shadow-lg:
+                0 10px 15px rgba(220, 38, 38, 0.10);
+
+            --shadow-xl:
+                0 20px 25px rgba(220, 38, 38, 0.10);
+
+            --shadow-2xl:
+                0 25px 50px rgba(220, 38, 38, 0.25);
+        }
+
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ====================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                'Inter',
+                'Poppins',
+                sans-serif;
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+
+            background-color:
+                var(--background-white);
+
+            color:
+                var(--text-dark);
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ====================================================== */
+
+        .navbar {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 1050;
+
+            min-height: 75px;
+
+            background:
+                linear-gradient(135deg,
+                    var(--accent-blue) 0%,
+                    var(--accent-blue-dark) 100%);
+
+            box-shadow:
+                var(--shadow-lg);
+
+            border-bottom:
+                3px solid var(--primary-red);
+
+            overflow:
+                visible !important;
+        }
+
+
+        .navbar.scrolled {
+
+            box-shadow:
+                var(--shadow-xl);
+        }
+
+
+        .navbar-brand {
+
+            font-family:
+                'Poppins',
+                sans-serif;
+
+            font-weight:
+                700;
+
+            font-size:
+                1.4rem;
+
+            color:
+                var(--text-light) !important;
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        .navbar-brand:hover {
+
+            color:
+                var(--text-light) !important;
+
+            transform:
+                scale(1.02);
+        }
+
+
+        .logo-escudo {
+
+            width:
+                60px;
+
+            height:
+                60px;
+
+            object-fit:
+                contain;
+
+            border-radius:
+                50%;
+        }
+
+
+        .navbar-nav .nav-link {
+
+            position:
+                relative;
+
+            color:
+                var(--text-light) !important;
+
+            font-weight:
+                500;
+
+            padding:
+                0.5rem 1rem !important;
+
+            border-radius:
+                8px;
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        .navbar-nav .nav-link:hover {
+
+            background:
+                var(--primary-red);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================================
+           MENÚ DESPLEGABLE
+        ====================================================== */
+
+        .dropdown-menu {
+
+            background:
+                var(--accent-blue);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.1);
+
+            box-shadow:
+                var(--shadow-2xl);
+
+            border-radius:
+                12px;
+
+            padding:
+                0.5rem;
+        }
+
+
+        .dropdown-item {
+
+            color:
+                var(--text-light);
+
+            border-radius:
+                8px;
+
+            padding:
+                0.75rem 1rem;
+
+            transition:
+                all 0.3s ease;
+
+            font-weight:
+                500;
+        }
+
+
+        .dropdown-item:hover {
+
+            background:
+                var(--primary-red);
+
+            color:
+                var(--text-light);
+
+            transform:
+                translateX(5px);
+        }
+
+
+        /* El fondo del hero, el título/subtítulo y la muñeca ya
+           vienen de css/styles.css (mismo diseño en todas las
+           páginas institucionales del sitio). */
+
+
+        /* =====================================================
+           SECCIONES
+        ====================================================== */
+
+        .section {
+
+            padding:
+                5rem 0;
+        }
+
+
+        .section-bg-light {
+
+            background:
+                linear-gradient(135deg,
+                    var(--neutral-light) 0%,
+                    var(--background-white) 100%);
+        }
+
+
+        /* =====================================================
+           TARJETAS
+        ====================================================== */
+
+        .card-patron {
+
+            background:
+                var(--background-white);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                var(--shadow-md);
+
+            transition:
+                all 0.4s ease;
+
+            border-top:
+                4px solid var(--primary-red);
+
+            height:
+                100%;
+        }
+
+
+        .card-patron:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                var(--shadow-xl);
+        }
+
+
+        .card-body {
+
+            background:
+                transparent;
+        }
+
+
+        /* =====================================================
+           IMÁGENES DE LOS SANTOS PATRONOS
+           Presentación uniforme sin recortar las ilustraciones.
+        ====================================================== */
+
+        .imagen-patron-wrapper {
+            position: relative;
+            width: min(100%, 360px);
+            aspect-ratio: 3 / 4;
+            margin: 0 auto;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border: 1px solid rgba(30, 64, 175, 0.14);
+            border-radius: 22px;
+            box-shadow:
+                0 12px 30px rgba(30, 64, 175, 0.10),
+                0 3px 10px rgba(220, 38, 38, 0.08);
+            isolation: isolate;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        /* Detalle dorado discreto para dar una apariencia más institucional. */
+        .imagen-patron-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            border: 1px solid rgba(212, 163, 67, 0.45);
+            border-radius: 17px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .imagen-patron-wrapper:hover {
+            transform: translateY(-6px);
+            box-shadow:
+                0 18px 36px rgba(30, 64, 175, 0.14),
+                0 6px 14px rgba(220, 38, 38, 0.10);
+        }
+
+        .imagen-patron {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 14px;
+            filter: saturate(1.04) contrast(1.01);
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+
+        .imagen-patron-wrapper:hover .imagen-patron {
+            transform: scale(1.025);
+            filter: saturate(1.08) contrast(1.02);
+        }
+
+        /* =====================================================
+           BOTÓN VOLVER ARRIBA
+        ====================================================== */
+
+        .scroll-top {
+
+            position:
+                fixed;
+
+            right:
+                25px;
+
+            bottom:
+                25px;
+
+            width:
+                50px;
+
+            height:
+                50px;
+
+            border:
+                none;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--primary-red);
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                1.2rem;
+
+            cursor:
+                pointer;
+
+            z-index:
+                2000;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.25);
+
+            opacity:
+                0;
+
+            visibility:
+                hidden;
+
+            transform:
+                translateY(20px);
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        .scroll-top.show {
+
+            opacity:
+                1;
+
+            visibility:
+                visible;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .scroll-top:hover {
+
+            background:
+                var(--primary-red-dark);
+
+            transform:
+                translateY(-5px);
+        }
+
+
+        /* =====================================================
+           FECHA EN LA ESQUINA
+        ====================================================== */
+
+        .fecha-esquina {
+
+            position:
+                fixed;
+
+            left:
+                20px;
+
+            bottom:
+                20px;
+
+            background:
+                var(--primary-red);
+
+            color:
+                #ffffff;
+
+            padding:
+                10px 18px;
+
+            border-radius:
+                8px;
+
+            font-family:
+                'Poppins',
+                sans-serif;
+
+            font-size:
+                0.9rem;
+
+            font-weight:
+                600;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.20);
+
+            z-index:
+                1999;
+
+            border:
+                2px solid rgba(255, 255, 255, 0.25);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        .footer {
+
+            background:
+                linear-gradient(135deg,
+                    var(--primary-red) 0%,
+                    var(--primary-red-dark) 100%);
+
+            color:
+                var(--text-light);
+        }
+
+
+        .footer a {
+
+            color:
+                rgba(255, 255, 255, 0.85);
+
+            text-decoration:
+                none;
+        }
+
+
+        .footer a:hover {
+
+            color:
+                var(--text-light);
+
+            text-decoration:
+                underline;
+        }
+
+
+        .footer-title {
+
+            font-family:
+                'Poppins',
+                sans-serif;
+
+            font-weight:
+                700;
+        }
+
+
+        /* =====================================================
+           REDES SOCIALES
+        ====================================================== */
+
+        .social-icons a {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            width:
+                50px;
+
+            height:
+                50px;
+
+            background:
+                rgba(255, 255, 255, 0.15);
+
+            color:
+                var(--text-light);
+
+            border-radius:
+                50%;
+
+            font-size:
+                1.3rem;
+
+            margin:
+                0 0.5rem;
+
+            transition:
+                all 0.3s ease;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.2);
+        }
+
+
+        .social-icons a:hover {
+
+            background:
+                var(--text-light);
+
+            color:
+                var(--primary-red);
+
+            transform:
+                translateY(-5px);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 992px) {
+
+            .navbar-brand span {
+
+                font-size:
+                    1.4rem !important;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+
+            .section {
+
+                padding:
+                    3rem 0;
+            }
+
+
+            .imagen-patron {
+
+                height:
+                    300px;
+            }
+
+
+            .fecha-esquina {
+
+                left:
+                    10px;
+
+                bottom:
+                    10px;
+
+                font-size:
+                    0.75rem;
+
+                padding:
+                    8px 12px;
+            }
+
+
+            .scroll-top {
+
+                right:
+                    15px;
+
+                bottom:
+                    15px;
+
+                width:
+                    45px;
+
+                height:
+                    45px;
+            }
+        }
+
+
+        @media (max-width: 576px) {
+
+            .navbar-brand span {
+
+                font-size:
+                    1.1rem !important;
+            }
+
+
+            .logo-escudo {
+
+                width:
+                    50px;
+
+                height:
+                    50px;
+            }
+
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body id="inicio">
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" id="mainNavbar">
+
+        <div class="container-fluid">
+
+
+            <!-- LOGO -->
+
+            <a class="navbar-brand py-2 d-flex align-items-center" href="index.html">
+
+                <img src="ImagenesSP/LOGO IEM.png" alt="Logo María Goretti" class="logo-escudo me-2">
+
+                <span>
+
+                    I.E.M. María Goretti
+
+                </span>
+
+            </a>
+
+
+            <!-- BOTÓN MÓVIL -->
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- MENÚ -->
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <!-- INSTITUCIÓN -->
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+
+                            Institución
+
+                        </a>
+
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a class="dropdown-item" href="teleología.html">
+
+                                    Teleología
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="padre-fundador.html">
+
+                                    Fundador
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="simbolo.html">
+
+                                    Símbolos
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="Santos-patronos.html">
+
+                                    Santos Patronos
+
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+
+                    <!-- DOCUMENTOS -->
+                    <li class="nav-item dropdown nav-item-large">
+
+                        <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+
+                            Documentos
+
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a class="dropdown-item" href="documentos.html">
+                                    Documentos Institucionales
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="horario-padres.html">
+                                    Horario Padres
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+
+                    <!-- COMUNIDAD -->
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+
+                            Comunidad
+
+                        </a>
+
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a class="dropdown-item" href="obra-goretti.html">
+
+                                    Obra Gorettiana
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="pastoral.html">
+
+                                    Pastoral
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="Egresadas.html">
+
+                                    Egresadas
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="MetaApp.html">
+
+                                    MetaAPP
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item"
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w"
+                                    target="_blank" rel="noopener noreferrer">
+
+                                    PQRF
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="radio-improved.html">
+
+                                Estación Gorettiana 
+
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+
+                    <!-- PROYECTOS -->
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+
+                            Proyectos
+
+                        </a>
+
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a class="dropdown-item" href="bilinguismo.html">
+
+                                    Bilingüismo
+
+                                </a>
+                            </li>
+
+                            <!-- Próximamente: proyecto Emprendimiento <li>
+                                <a class="dropdown-item" href="emprendimiento.html">
+
+                                    Emprendimiento
+
+                                </a>
+                            </li> -->
+
+                            <li>
+                                <a class="dropdown-item" href="mujer.html">
+
+                                    Mujer Constructora
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="semillas.html">
+
+                                    Semillas de amor
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="pileo.html">
+
+                                    PILEO
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="QHERIDA.html">
+
+                                    Qherida Mujer
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="cada-minuto.html">
+
+                                    Que cada minuto cuente
+
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+
+                    <!-- BIBLIOTECA -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link px-lg-2 py-2" href="https://elibro.net/es/lc/unicesmag/inicio"
+                            target="_blank" rel="noopener noreferrer">
+
+                            Biblioteca
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- SAPRED -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link px-lg-2 py-2" href="https://cachiri.sapred.com/sapred_inicio/"
+                            target="_blank" rel="noopener noreferrer">
+
+                            SAPRED
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <header class="hero">
+
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+
+            <h1>
+                Santos Patronos
+            </h1>
+
+            <p class="hero-subtitle">
+
+                Ejemplos de fe, humildad y entrega al amor de Dios
+
+            </p>
+
+        </div>
+
+
+        <div class="hero-image-container">
+            <img class="hero-image" src="ImagenesSP/Fray.png" alt="Muñeco educativo">
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         SANTOS PATRONOS
+    ====================================================== -->
+
+    <section class="section" id="nuestros-santos-patrones">
+
+        <div class="container">
+
+
+            <!-- =================================================
+                 SANTA MARÍA GORETTI
+            ================================================== -->
+
+            <div class="row align-items-center g-4 mb-5" data-aos="fade-up">
+
+                <div class="col-lg-6">
+
+                    <div class="card-patron h-100">
+
+                        <div class="card-body p-4 p-lg-5">
+
+                            <h3 class="fw-bold mb-3" style="color: #0013c0;">
+
+                                Santa María Goretti
+
+                            </h3>
+
+
+                            <p class="text-patron" style="line-height: 1.8;">
+
+                                Santa María Goretti nació en Italia en 1890.
+                                Era una niña muy buena, alegre y obediente,
+                                que ayudaba a su mamá en la casa y cuidaba
+                                a sus hermanos. Le gustaba rezar y siempre
+                                trataba de hacer lo que agradaba a Dios.
+
+                            </p>
+
+
+                            <p class="text-muted" style="line-height: 1.8;">
+
+                                Cuando tenía 11 años, un joven quiso hacerle
+                                daño, pero ella se defendió diciendo que eso
+                                estaba mal y que no quería ofender a Dios.
+                                El joven, enojado, la hirió con un cuchillo.
+
+                            </p>
+
+
+                            <p class="text-muted" style="line-height: 1.8;">
+
+                                María fue llevada al hospital, donde sufrió
+                                mucho, pero antes de morir perdonó al joven
+                                que la había lastimado. Murió en 1902.
+
+                            </p>
+
+
+                            <p class="text-muted" style="line-height: 1.8;">
+
+                                Con el tiempo, el joven se arrepintió,
+                                pidió perdón y cambió su vida. María fue
+                                declarada santa en 1950, y hoy es recordada
+                                como ejemplo de pureza, valentía y perdón.
+
+                            </p>
+
+
+                            <div class="mt-4" style="
+                                    border-left: 3px solid #ad445e;
+                                    padding-left: 15px;
+                                ">
+
+                                <h5 class="fw-bold" style="color: #e70b42;">
+
+                                    <i class="fas fa-lightbulb me-2"></i>
+
+                                    Dato Curioso
+
+                                </h5>
+
+
+                                <p class="text-muted fst-italic">
+
+                                    La ceremonia de canonización de Santa
+                                    María Goretti en 1950 fue única. Por
+                                    primera vez, la madre de una santa,
+                                    Assunta Goretti, estuvo presente.
+                                    Además, su asesino, Alessandro Serenelli,
+                                    ya arrepentido y convertido, también
+                                    vivió para verla elevada a los altares,
+                                    un poderoso testimonio del perdón que
+                                    ella le otorgó.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-6 d-flex justify-content-center">
+
+                    <div class="imagen-patron-wrapper" data-aos="fade-left" data-aos-delay="100">
+
+                        <img src="ImagenesSP/Santa María Goretti.jpeg" alt="Santa María Goretti" class="imagen-patron" loading="lazy" decoding="async">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SAN FRANCISCO DE ASÍS
+            ================================================== -->
+
+            <div class="row align-items-center g-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+
+
+                <div class="col-lg-6 d-flex justify-content-center order-lg-1 order-2">
+
+                    <div class="imagen-patron-wrapper" data-aos="fade-right" data-aos-delay="350">
+
+                        <img src="ImagenesSP/San Francisco de Asís.jpeg" alt="San Francisco de Asís"
+                            class="imagen-patron" loading="lazy" decoding="async">
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-6 order-lg-2 order-1">
+
+                    <div class="card-patron h-100">
+
+                        <div class="card-body p-4 p-lg-5">
+
+                            <h3 class="fw-bold mb-3" style="color: #0013c0;">
+
+                                San Francisco de Asís
+
+                            </h3>
+
+
+                            <p class="text-patron" style="line-height: 1.8;">
+
+                                San Francisco de Asís nació en 1182 en Italia.
+                                Al principio fue un joven alegre al que le
+                                gustaban las fiestas y gastar dinero, pero
+                                después escuchó el llamado de Dios y decidió
+                                cambiar su vida. Renunció a sus riquezas y
+                                eligió vivir en pobreza, sirviendo a Jesús
+                                y predicando el amor de Dios.
+
+                            </p>
+
+
+                            <p class="text-muted" style="line-height: 1.8;">
+
+                                Fue amigo de los animales y veía en toda la
+                                creación la obra de Dios. Fundó la orden de
+                                los Franciscanos, y con la ayuda de Santa
+                                Clara también nació la orden de las Clarisas.
+
+                            </p>
+
+
+                            <p class="text-muted" style="line-height: 1.8;">
+
+                                Un día, al encontrarse con un leproso, venció
+                                su miedo y lo abrazó con amor, descubriendo
+                                que en él estaba Jesús. Desde entonces,
+                                San Francisco vivió con alegría, humildad
+                                y fe, enseñándonos que todos podemos ser
+                                santos si seguimos a Jesús de corazón.
+
+                            </p>
+
+
+                            <p class="text-muted fst-italic" style="line-height: 1.8;">
+
+                                <strong>
+                                    Frase célebre de San Francisco de Asís:
+                                </strong>
+
+                                “Señor, haz de mí un instrumento de tu paz.”
+
+                            </p>
+
+
+                            <div class="mt-4" style="
+                                    border-left: 3px solid #ad445e;
+                                    padding-left: 15px;
+                                ">
+
+                                <h5 class="fw-bold" style="color: #e70b42;">
+
+                                    <i class="fas fa-lightbulb me-2"></i>
+
+                                    Dato Curioso
+
+                                </h5>
+
+
+                                <p class="text-muted fst-italic">
+
+                                    San Francisco de Asís es conocido como
+                                    el santo patrono de los animales y el
+                                    medio ambiente. Creó el primer pesebre
+                                    o nacimiento navideño en 1223 para
+                                    explicar de manera sencilla la historia
+                                    del nacimiento de Jesús a la gente
+                                    del pueblo.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SANTA CLARA DE ASÍS
+            ================================================== -->
+
+            <div class="row align-items-center g-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+
+
+                <div class="col-lg-6">
+
+                    <div class="card-patron h-100">
+
+                        <div class="card-body p-4 p-lg-5">
+
+                            <h3 class="fw-bold mb-3" style="color: #0013c0;">
+
+                                Santa Clara de Asís
+
+                            </h3>
+
+
+                            <p class="text-patron" style="line-height: 1.8;">
+
+                                Santa Clara de Asís nació en 1193 en Asís,
+                                Italia, en una familia noble. Desde niña
+                                mostró un corazón compasivo hacia los pobres.
+                                Cuando conoció a San Francisco de Asís quedó
+                                profundamente inspirada por su forma sencilla
+                                y humilde de seguir a Cristo. A los 18 años
+                                decidió renunciar a su riqueza y título para
+                                vivir una vida dedicada a la oración y
+                                el servicio.
+
+                            </p>
+
+
+                            <p class="text-muted" style="line-height: 1.8;">
+
+                                Con la guía de San Francisco, fundó la Orden
+                                de las Hermanas Pobres, conocidas hoy como
+                                Las Clarisas, cuyo ideal principal era la
+                                pobreza absoluta y la confianza total en la
+                                providencia de Dios. Clara vivió una vida
+                                de profunda espiritualidad, sencillez y
+                                entrega. Falleció el 11 de agosto de 1253
+                                y fue canonizada dos años después.
+
+                            </p>
+
+
+                            <p class="text-muted fst-italic" style="line-height: 1.8;">
+
+                                <strong>
+                                    Frase célebre de Santa Clara:
+                                </strong>
+
+                                "Gracias porque me pensaste;
+                                porque me creaste, gracias."
+
+                            </p>
+
+
+                            <div class="mt-4" style="
+                                    border-left: 3px solid #ad445e;
+                                    padding-left: 15px;
+                                ">
+
+                                <h5 class="fw-bold" style="color: #e70b42;">
+
+                                    <i class="fas fa-lightbulb me-2"></i>
+
+                                    Dato Curioso
+
+                                </h5>
+
+
+                                <p class="text-muted fst-italic">
+
+                                    Durante un ataque militar contra Asís,
+                                    Santa Clara tomó el Santísimo Sacramento
+                                    y lo elevó en oración frente al enemigo.
+                                    Según la tradición, los atacantes
+                                    retrocedieron de inmediato, impresionados
+                                    y desconcertados, sin que ella ni la
+                                    comunidad sufrieran daño.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-6 d-flex justify-content-center">
+
+                    <div class="imagen-patron-wrapper" data-aos="fade-left" data-aos-delay="300">
+
+                        <img src="ImagenesSP/Santa Clara de Asís.jpeg" alt="Santa Clara de Asís" class="imagen-patron" loading="lazy" decoding="async">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SAN CARLO ACUTIS
+            ================================================== -->
+
+            <div class="row align-items-center g-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+
+
+                <div class="col-lg-6 d-flex justify-content-center order-lg-1 order-2">
+
+                    <div class="imagen-patron-wrapper" data-aos="fade-right" data-aos-delay="300">
+
+                        <img src="ImagenesSP/San Carlo Acutis.jpeg" alt="San Carlo Acutis" class="imagen-patron" loading="lazy" decoding="async">
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-6 order-lg-2 order-1">
+
+                    <div class="card-patron h-100">
+
+                        <div class="card-body p-4 p-lg-5">
+
+                            <h3 class="fw-bold mb-3" style="color: #0013c0;">
+
+                                San Carlo Acutis
+
+                            </h3>
+
+
+                            <p class="text-patron" style="line-height: 1.8;">
+
+                                Carlo Acutis nació el 3 de mayo de 1991 en
+                                Londres, Reino Unido, pero creció en Milán,
+                                Italia. Desde muy pequeño mostró una profunda
+                                fe y amor por Dios, destacándose por su
+                                especial devoción a la Eucaristía, a la que
+                                llamaba “mi autopista al cielo”. A pesar de
+                                vivir en una época moderna, Carlo supo
+                                integrar la tecnología con su espiritualidad,
+                                utilizando sus conocimientos en informática
+                                para evangelizar.
+
+                            </p>
+
+
+                            <p class="text-muted" style="line-height: 1.8;">
+
+                                Durante su vida, creó una página web donde
+                                recopiló y difundió milagros eucarísticos
+                                de todo el mundo, con el objetivo de acercar
+                                a más personas a la fe. Carlo se caracterizó
+                                por su sencillez, generosidad y preocupación
+                                por los demás, ayudando a personas necesitadas
+                                y defendiendo valores cristianos en su
+                                entorno cotidiano.
+
+                            </p>
+
+
+                            <p class="text-muted" style="line-height: 1.8;">
+
+                                Falleció el 12 de octubre de 2006 a causa
+                                de una leucemia, enfermedad que ofreció por
+                                el Papa y la Iglesia. Fue beatificado el
+                                10 de octubre de 2020, siendo reconocido
+                                como un ejemplo de santidad en la era digital.
+
+                            </p>
+
+
+                            <p class="text-muted fst-italic" style="line-height: 1.8;">
+
+                                <strong>
+                                    Frase célebre de San Carlo Acutis:
+                                </strong>
+
+                                “La Eucaristía es mi autopista al cielo.”
+
+                            </p>
+
+
+                            <div class="mt-4" style="
+                                    border-left: 3px solid #ad445e;
+                                    padding-left: 15px;
+                                ">
+
+                                <h5 class="fw-bold" style="color: #e70b42;">
+
+                                    <i class="fas fa-lightbulb me-2"></i>
+
+                                    Dato Curioso
+
+                                </h5>
+
+
+                                <p class="text-muted fst-italic">
+
+                                    Carlo Acutis es considerado el primer
+                                    “influencer de Dios”, ya que utilizó
+                                    internet y la tecnología para difundir
+                                    el mensaje cristiano, demostrando que
+                                    la santidad también es posible en el
+                                    mundo moderno.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         BOTÓN VOLVER ARRIBA
+    ====================================================== -->
+
+    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba" title="Volver arriba">
+
+        <i class="fas fa-chevron-up"></i>
+
+    </button>
+
+
+
+    <!-- =====================================================
+         FECHA
+    ====================================================== -->
+
+    <div class="fecha-esquina" id="fechaEsquina">
+
+    </div>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer text-white py-5" id="contacto">
+
+        <div class="footer-content">
+
+            <div class="container">
+
+                <div class="row g-4">
+
+
+                    <!-- INFORMACIÓN -->
+
+                    <div class="col-lg-4" data-aos="fade-up">
+
+                        <h3 class="footer-title d-flex align-items-center">
+
+                            <img src="ImagenesSP/LOGO IEM.png" alt="Escudo I.E.M. María Goretti" class="footer-logo">
+
+                            I.E.M. María Goretti
+
+                        </h3>
+
+
+                        <p class="mb-4">
+
+                            La IEM María Goretti es una obra ubicada en el
+                            Municipio de Pasto, liderada y dinamizada por
+                            los Hermanos Menores Capuchinos, que promueve
+                            la educación y formación de niñas y jóvenes
+                            con base en principios humanos, espirituales
+                            y sociales.
+
+                        </p>
+
+
+                        <div class="social-icons">
+
+                            <a href="https://www.facebook.com/people/IEM-Mar%C3%ADa-Goretti-Oficial-Pasto/61564223562211/"
+                                target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+
+                                <i class="fab fa-facebook-f"></i>
+
+                            </a>
+
+
+                            <a href="https://www.instagram.com/iemmariagoretti/" target="_blank"
+                                rel="noopener noreferrer" aria-label="Instagram">
+
+                                <i class="fab fa-instagram"></i>
+
+                            </a>
+
+
+                            <a href="https://www.youtube.com/playlist?list=PLTj569CPY9FNJQFdTpmgAVB3Fp6ReDNna"
+                                target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+
+                                <i class="fab fa-youtube"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CONTACTO -->
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+
+                        <h4 class="footer-title">
+
+                            Información de Contacto
+
+                        </h4>
+
+
+                        <div class="contact-info">
+
+                            <p>
+
+                                <i class="fas fa-map-marker-alt me-2" style="color: var(--accent-blue-light);">
+                                </i>
+
+                                Av. las Américas 15A-53
+                                <br>
+
+                                Pasto, Nariño, Colombia
+
+                            </p>
+
+
+                            <p>
+
+                                <i class="fas fa-phone me-2" style="color: var(--accent-blue-light);">
+                                </i>
+
+                                3104980939
+
+                            </p>
+
+
+                            <p>
+
+                                <i class="fas fa-envelope me-2" style="color: var(--accent-blue-light);">
+                                </i>
+
+                                mgpasto@iemmariagoretti.edu.co
+
+                            </p>
+
+
+                            <p>
+
+                                <i class="fas fa-clock me-2" style="color: var(--accent-blue-light);">
+                                </i>
+
+                                Lunes a Viernes:
+                                6:45 AM - 12:45 PM
+                                <br>
+
+                                3:00 PM - 5:00 PM
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ENLACES -->
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+
+                        <h4 class="footer-title">
+
+                            Enlaces Rápidos
+
+                        </h4>
+
+
+                        <div class="row">
+
+
+                            <div class="col-6">
+
+                                <ul class="list-unstyled">
+
+                                    <li class="mb-2">
+
+                                        <a href="#noticias">
+
+                                            <i class="fas fa-newspaper me-2" style="color: var(--accent-blue-light);">
+                                            </i>
+
+                                            Noticias
+
+                                        </a>
+
+                                    </li>
+
+
+                                    <li class="mb-2">
+
+                                        <a href="radio-improved.html">
+
+                                            <i class="fas fa-radio me-2" style="color: var(--accent-blue-light);">
+                                            </i>
+
+                                           Estación Gorettiana 
+
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <div class="col-6">
+
+                                <ul class="list-unstyled">
+
+                                    <li class="mb-2">
+
+                                        <a href="https://elibro.net/es/lc/unicesmag/inicio" target="_blank"
+                                            rel="noopener noreferrer">
+
+                                            <i class="fas fa-book me-2" style="color: var(--accent-blue-light);">
+                                            </i>
+
+                                            Biblioteca
+
+                                        </a>
+
+                                    </li>
+
+
+                                    <li class="mb-2">
+
+                                        <a href="https://cachiri.sapred.com/sapred_inicio/" target="_blank"
+                                            rel="noopener noreferrer">
+
+                                            <i class="fas fa-shield-alt me-2" style="color: var(--accent-blue-light);">
+                                            </i>
+
+                                            SAPRED
+
+                                        </a>
+
+                                    </li>
+
+
+                                    <li class="mb-2">
+
+                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w"
+                                            target="_blank" rel="noopener noreferrer">
+
+                                            <i class="fas fa-question-circle me-2"
+                                                style="color: var(--accent-blue-light);">
+                                            </i>
+
+                                            PQR
+
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <hr class="my-4" style="
+                        border-color:
+                        rgba(255, 255, 255, 0.2);
+                    ">
+
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-8">
+
+                        <p class="mb-2">
+
+                            &copy; 2026 I.E.M. María Goretti |
+                            Todos los derechos reservados
+
+                        </p>
+
+
+                        <p class="mb-0">
+
+                            <small>
+                                NIT: 900034371-9
+                            </small>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         BOOTSTRAP JS
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <!-- =====================================================
+         AOS JS
+    ====================================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js">
+    </script>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =====================================================
+           AOS
+        ====================================================== */
+
+        AOS.init({
+
+            duration: 800,
+
+            easing: 'ease-in-out',
+
+            once: true,
+
+            mirror: false
+
+        });
+
+
+
+        /* =====================================================
+           NAVBAR AL HACER SCROLL
+        ====================================================== */
+
+        window.addEventListener('scroll', function () {
+
+            const navbar =
+                document.getElementById('mainNavbar');
+
+
+            if (!navbar) {
+                return;
+            }
+
+
+            if (window.scrollY > 100) {
+
+                navbar.classList.add('scrolled');
+
+            } else {
+
+                navbar.classList.remove('scrolled');
+
+            }
+
+        });
+
+
+
+        /* =====================================================
+           BOTÓN VOLVER ARRIBA
+        ====================================================== */
+
+        const scrollTop =
+            document.getElementById('scrollTop');
+
+
+        window.addEventListener('scroll', function () {
+
+            if (!scrollTop) {
+                return;
+            }
+
+
+            if (window.scrollY > 300) {
+
+                scrollTop.classList.add('show');
+
+            } else {
+
+                scrollTop.classList.remove('show');
+
+            }
+
+        });
+
+
+        scrollTop.addEventListener('click', function () {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: 'smooth'
+
+            });
+
+        });
+
+
+
+        /* =====================================================
+           FECHA AUTOMÁTICA
+        ====================================================== */
+
+        function mostrarFecha() {
+
+            const fechaElemento =
+                document.getElementById('fechaEsquina');
+
+
+            if (!fechaElemento) {
+                return;
+            }
+
+
+            const fecha =
+                new Date();
+
+
+            const opciones = {
+
+                weekday: 'long',
+
+                year: 'numeric',
+
+                month: 'long',
+
+                day: 'numeric'
+
+            };
+
+
+            let fechaTexto =
+                fecha.toLocaleDateString(
+                    'es-CO',
+                    opciones
+                );
+
+
+            fechaTexto =
+                fechaTexto.charAt(0).toUpperCase()
+                + fechaTexto.slice(1);
+
+
+            fechaElemento.innerHTML =
+
+                '<i class="fas fa-calendar-alt me-2"></i>'
+                + fechaTexto;
+
+        }
+
+
+        mostrarFecha();
+
+
+
+        /* =====================================================
+           ENLACES INTERNOS
+        ====================================================== */
+
+        document
+            .querySelectorAll('a[href^="#"]')
+            .forEach(function (anchor) {
+
+                anchor.addEventListener(
+                    'click',
+                    function (e) {
+
+                        const href =
+                            this.getAttribute('href');
+
+
+                        if (!href || href === '#') {
+                            return;
+                        }
+
+
+                        const target =
+                            document.querySelector(href);
+
+
+                        if (!target) {
+                            return;
+                        }
+
+
+                        e.preventDefault();
+
+
+                        const navbar =
+                            document.querySelector('.navbar');
+
+
+                        const navbarHeight =
+                            navbar
+                                ? navbar.offsetHeight
+                                : 0;
+
+
+                        const targetPosition =
+                            target.offsetTop
+                            - navbarHeight
+                            - 20;
+
+
+                        window.scrollTo({
+
+                            top:
+                                targetPosition,
+
+                            behavior:
+                                'smooth'
+
+                        });
+
+                    }
+                );
+
+            });
+
+
+
+        /* =====================================================
+           EFECTO DE TARJETAS
+        ====================================================== */
+
+        document
+            .querySelectorAll('.card-patron')
+            .forEach(function (card) {
+
+                card.addEventListener(
+                    'mouseenter',
+                    function () {
+
+                        this.style.transform =
+                            'translateY(-10px) scale(1.02)';
+
+                    }
+                );
+
+
+                card.addEventListener(
+                    'mouseleave',
+                    function () {
+
+                        this.style.transform =
+                            'translateY(0) scale(1)';
+
+                    }
+                );
+
+            });
+
+    </script>
+
+</body>
+
+</html>

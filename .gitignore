@@ -1,0 +1,13 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos temporales de editores
+*.tmp
+*.bak
+*.swp
+.vscode/
+
+# Node (por si en algún momento se usa alguna herramienta de build)
+node_modules/

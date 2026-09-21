@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pastoral - I.E.M. María Goretti" />
+  <title>Pastoral - I.E.M. María Goretti</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+    crossorigin="anonymous" />
+
+  <!-- AOS Animation Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"
+    integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+    crossorigin="anonymous" />
+
+  <!-- Estilos principales (compartidos por todo el sitio: navbar, hero, footer, tarjetas...) -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Estilos propios de esta página -->
+  <style>
+
+    /* =========================================================
+   DISEÑO MODERNO - ÁREA DE PASTORAL
+
+   ========================================================= */
+
+    .pastoral-modern {
+      padding: 3.5rem 0 4.5rem;
+      background: #ffffff;
+    }
+
+    .pastoral-modern .container {
+      max-width: 1180px;
+    }
+
+    /* ---------- PRESENTACIÓN ---------- */
+
+    .pastoral-intro {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(30, 64, 175, 0.08);
+      border: 1px solid #edf1f7;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pastoral-intro::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 6px;
+      height: 100%;
+      background: var(--primary-red);
+    }
+
+    .pastoral-intro h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary-red);
+      margin-bottom: 1.25rem;
+    }
+
+    .pastoral-intro p {
+      color: #334155;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .pastoral-intro img {
+      width: 100%;
+      max-width: 430px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.15);
+    }
+
+    /* ---------- TARJETAS ---------- */
+
+    .pastoral-card {
+      height: 100%;
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 2rem;
+      border: 1px solid #e8edf5;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pastoral-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
+    }
+
+    .pastoral-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--primary-red);
+    }
+
+    .pastoral-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--primary-red);
+      margin-bottom: 1rem;
+    }
+
+    .pastoral-card p {
+      color: #334155;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    /* ---------- MISIÓN / VISIÓN ---------- */
+
+    .pastoral-feature {
+      margin-bottom: 2rem;
+    }
+
+    .pastoral-feature .pastoral-card {
+      min-height: 245px;
+    }
+
+    /* ---------- PRINCIPIOS Y OBJETIVOS ---------- */
+
+    .pastoral-list-card {
+      margin-bottom: 2rem;
+    }
+
+    .pastoral-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pastoral-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 0.75rem 0;
+      color: #334155;
+      line-height: 1.55;
+    }
+
+    .pastoral-list li+li {
+      border-top: 1px solid #eef2f7;
+    }
+
+    .pastoral-list i {
+      flex: 0 0 28px;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-blue);
+      background: #eff6ff;
+      border-radius: 50%;
+      margin-top: 2px;
+    }
+
+    /* ---------- LÍNEAS DE ACCIÓN ---------- */
+
+    .pastoral-action {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+    }
+
+    .pastoral-action h3 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pastoral-action h3::before {
+      content: "\f0c3";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 1rem;
+      color: var(--accent-blue);
+      background: #eff6ff;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pastoral-action p {
+      max-width: 1050px;
+    }
+
+    /* ---------- INTEGRANTES ---------- */
+
+    .pastoral-integrantes {
+      text-align: center;
+      padding-top: 0.5rem;
+    }
+
+    .pastoral-integrantes-title {
+      font-family: 'Poppins', sans-serif;
+      color: var(--primary-red);
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .pastoral-person {
+      display: inline-block;
+      min-width: 330px;
+      max-width: 430px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.4rem 2rem;
+      border-top: 5px solid var(--primary-red);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.10);
+    }
+
+    .pastoral-person h6 {
+      color: var(--text-dark);
+      font-size: 1rem;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .pastoral-person h6::before {
+      content: "\f508";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      display: block;
+      color: var(--accent-blue);
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ---------- BOTÓN VER MÁS ---------- */
+
+    .pastoral-more {
+      margin-top: 1.5rem;
+    }
+
+    .pastoral-more .btn-hero {
+      background: var(--primary-red);
+      color: #ffffff;
+      padding: 0.8rem 1.7rem;
+      border-radius: 50px;
+      box-shadow: 0 8px 20px rgba(220, 38, 38, 0.22);
+    }
+
+    .pastoral-more .btn-hero:hover {
+      background: var(--primary-red-dark);
+      color: #ffffff;
+      transform: translateY(-3px);
+    }
+
+    /* ---------- SEPARACIÓN ENTRE BLOQUES ---------- */
+
+    .pastoral-modern .row {
+      --bs-gutter-y: 1.5rem;
+    }
+
+    /* ---------- CELULAR ---------- */
+
+    @media (max-width: 768px) {
+
+      .pastoral-modern {
+        padding: 2.5rem 0 3.5rem;
+      }
+
+      .pastoral-intro {
+        padding: 1.5rem;
+        border-radius: 18px;
+      }
+
+      .pastoral-intro h3 {
+        font-size: 1.7rem;
+      }
+
+      .pastoral-intro img {
+        max-width: 100%;
+        height: 230px;
+        margin-top: 1rem;
+      }
+
+      .pastoral-card {
+        padding: 1.5rem;
+        border-radius: 18px;
+      }
+
+      .pastoral-card h3 {
+        font-size: 1.35rem;
+      }
+
+      .pastoral-feature .pastoral-card {
+        min-height: auto;
+      }
+
+      .pastoral-person {
+        min-width: 0;
+        width: 100%;
+        max-width: 380px;
+      }
+
+      .pastoral-integrantes-title {
+        font-size: 1.7rem;
+      }
+    }
+
+    /* El centrado del título/subtítulo y el tamaño de la
+       muñeca ya vienen de css/styles.css (mismo diseño en
+       todas las páginas institucionales del sitio). */
+  </style>
+
+</head>
+
+<body id="inicio">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" id="mainNavbar">
+      <div class="container-fluid">
+        <!-- Logo añadido como imagen -->
+        <a class="navbar-brand py-2 d-flex align-items-center" href="index.html">
+          <img src="imagenes/logo-iem.png" alt="Logo María Goretti" class="logo-escudo me-2">
+          <span>I.E.M. María Goretti</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav"> <!-- Alineado a la derecha -->
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown nav-item-large">
+              <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+                aria-expanded="false">Institución</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="teleología.html">Teleología</a></li>
+                <li><a class="dropdown-item" href="padre-fundador.html">Fundador</a></li>
+                <li><a class="dropdown-item" href="simbolo.html">Símbolos</a></li>
+                <li><a class="dropdown-item" href="Santos-patronos.html">Santos Patronos</a></li>
+              </ul>
+            </li>
+
+            <!-- DOCUMENTOS -->
+            <li class="nav-item dropdown nav-item-large">
+
+              <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+
+                Documentos
+
+              </a>
+
+              <ul class="dropdown-menu">
+
+                <li>
+                  <a class="dropdown-item" href="documentos.html">
+                    Documentos Institucionales
+                  </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="horario-padres.html">
+                    Horario Padres
+                  </a>
+                </li>
+
+              </ul>
+
+            </li>
+
+            <li class="nav-item dropdown nav-item-large">
+              <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+                aria-expanded="false">Comunidad</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="obra-goretti.html">Obra Gorettiana</a></li>
+                <li><a class="dropdown-item" href="pastoral.html">Pastoral</a></li>
+                <li><a class="dropdown-item" href="Egresadas.html">Egresadas</a></li>
+                <li><a class="dropdown-item" href="MetaApp.html">MetaAPP</a></li>
+                <li>
+                  <a class="dropdown-item"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w"
+                    target="_blank">
+                    PQRF
+                  </a>
+                </li>
+                <li><a class="dropdown-item" href="radio-improved.html">Estación Gorettiana</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown nav-item-large">
+              <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+                aria-expanded="false">Proyectos</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="bilinguismo.html">Bilingüismo</a></li>
+                <!-- Próximamente: proyecto Emprendimiento <li><a class="dropdown-item" href="emprendimiento.html">Emprendimiento</a></li> -->
+                <!--<li><a class="dropdown-item" href="estilos.html">Estilos de vida Saludable</a></li>
+              <li><a class="dropdown-item" href="huella.html">Dejando Huella</a></li>
+              <li><a class="dropdown-item" href="más_mente.html">Mas mente y corazón</a></li>-->
+                <li><a class="dropdown-item" href="mujer.html">Mujer Constructora</a></li>
+                <li><a class="dropdown-item" href="semillas.html">Semillas de amor</a></li>
+                <li><a class="dropdown-item" href="pileo.html">PILEO</a></li>
+                <li><a class="dropdown-item" href="QHERIDA.html">Qherida Mujer</a></li>
+                <li><a class="dropdown-item" href="cada-minuto.html">Que cada minuto cuente</a></li>
+              </ul>
+            </li>
+            <li class="nav-item nav-item-large">
+              <a class="nav-link px-lg-2 py-2" href="https://elibro.net/es/lc/unicesmag/inicio" target="_blank">
+                Biblioteca
+              </a>
+            </li>
+            <li class="nav-item nav-item-large">
+              <a class="nav-link px-lg-2 py-2" href="https://cachiri.sapred.com/sapred_inicio/" target="_blank">
+                SAPRED
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero position-relative">
+
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+
+        <h1>Área de Pastoral</h1>
+
+        <p class="hero-subtitle">
+          Formación espiritual y humana inspirada en la espiritualidad franciscana
+        </p>
+
+      </div>
+
+      <!-- MUÑECA DE PASTORAL -->
+      <div class="hero-image-container" data-aos="fade-left" data-aos-duration="1000">
+
+        <img class="hero-image" src="imagenes/muñeca-pastoral.png" alt="Representación del Área de Pastoral">
+
+      </div>
+
+    </header>
+
+    <!-- =========================================================
+     CONTENIDO DEL ÁREA DE PASTORAL
+     ========================================================= -->
+
+    <section class="pastoral-modern">
+
+      <div class="container">
+
+        <!-- ================= PRESENTACIÓN ================= -->
+
+        <div class="pastoral-intro" data-aos="fade-up">
+
+          <div class="row align-items-center g-4">
+
+            <div class="col-lg-7">
+
+              <h3>
+                <i class="fas fa-users me-2"></i>
+                PRESENTACIÓN
+              </h3>
+
+              <p style="text-align: justify;">
+                El Área de Pastoral de la Institución Educativa Municipal María Goretti orienta su acción formativa
+                desde
+                la espiritualidad franciscana, promoviendo el desarrollo integral de la comunidad educativa mediante
+                experiencias de fe, formación humana y compromiso social.
+              </p>
+
+              <p style="text-align: justify;">
+                Durante el año 2026, la Pastoral continúa consolidándose como eje transversal de la vida
+                institucional,
+                acompañando a estudiantes, familias, docentes y personal administrativo en su crecimiento espiritual,
+                emocional y comunitario.
+              </p>
+
+            </div>
+
+            <div class="col-lg-5 text-center">
+
+              <img src="imagenes/pastoral.webp" alt="Proyecto PILEO" class="img-fluid">
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================= MISIÓN / VISIÓN ================= -->
+
+        <div class="row pastoral-feature g-4">
+
+          <!-- MISIÓN -->
+
+          <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="pastoral-card">
+
+              <h3>
+                <i class="fas fa-bullseye me-2"></i>
+                MISIÓN
+              </h3>
+
+              <p style="text-align: justify;">
+                El Área de Pastoral de la Institución Educativa María Goretti tiene como misión acompañar
+                integralmente a la comunidad educativa, promoviendo procesos de formación humana y espiritual
+                inspirados en el Evangelio y en la espiritualidad franciscana, que permitan fortalecer los valores
+                institucionales, la sana convivencia y el compromiso con la construcción de una sociedad más justa,
+                fraterna y solidaria.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- VISIÓN -->
+
+          <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="pastoral-card">
+
+              <h3>
+                <i class="fas fa-eye me-2"></i>
+                VISIÓN
+              </h3>
+
+              <p style="text-align: justify;">
+                Para el año 2026, el Área de Pastoral busca consolidarse como un espacio dinamizador de la vida
+                institucional, reconocido por su acompañamiento cercano, sus procesos formativos significativos y su
+                capacidad de integrar la fe, la vida y la educación, formando personas con sentido humano, espíritu
+                crítico y compromiso cristiano.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================= PRINCIPIOS / OBJETIVOS ================= -->
+
+        <div class="row g-4">
+
+          <!-- PRINCIPIOS ORIENTADORES -->
+
+          <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="pastoral-card pastoral-list-card">
+
+              <h3>
+                <i class="fas fa-compass me-2"></i>
+                PRINCIPIOS ORIENTADORES
+              </h3>
+
+              <ul class="pastoral-list">
+
+                <li>
+                  <i class="fas fa-dove"></i>
+                  <span>Espiritualidad franciscana</span>
+                </li>
+
+                <li>
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>Formación integral</span>
+                </li>
+
+                <li>
+                  <i class="fas fa-cross"></i>
+                  <span>Evangelización desde la vida</span>
+                </li>
+
+                <li>
+                  <i class="fas fa-hands-helping"></i>
+                  <span>Acompañamiento cercano</span>
+                </li>
+
+                <li>
+                  <i class="fas fa-dove"></i>
+                  <span>Promoción de la paz y la reconciliación</span>
+                </li>
+
+                <li>
+                  <i class="fas fa-hand-holding-heart"></i>
+                  <span>Solidaridad y servicio</span>
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+
+          <!-- OBJETIVOS PASTORALES -->
+
+          <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="400">
+
+            <div class="pastoral-card pastoral-list-card">
+
+              <h3>
+                <i class="fas fa-bullseye me-2"></i>
+                OBJETIVOS PASTORALES
+              </h3>
+
+              <ul class="pastoral-list">
+
+                <li>
+                  <i class="fas fa-hands-helping"></i>
+                  <span>
+                    Acompañar integralmente a las estudiantes, favoreciendo su crecimiento humano,
+                    espiritual y emocional.
+                  </span>
+                </li>
+
+                <li>
+                  <i class="fas fa-church"></i>
+                  <span>
+                    Promover una vivencia celebrativa de la fe, en coherencia con los tiempos litúrgicos
+                    y el carisma franciscano.
+                  </span>
+                </li>
+
+                <li>
+                  <i class="fas fa-users"></i>
+                  <span>
+                    Fortalecer los procesos formativos con las familias, generando espacios de orientación
+                    y crecimiento.
+                  </span>
+                </li>
+
+                <li>
+                  <i class="fas fa-user-friends"></i>
+                  <span>
+                    Vincular egresadas y líderes en los procesos pastorales y sociales.
+                  </span>
+                </li>
+
+                <li>
+                  <i class="fas fa-chalkboard-teacher"></i>
+                  <span>
+                    Acompañar a docentes y personal institucional en su formación humana y cristiana
+                  </span>
+                </li>
+
+                <li>
+                  <i class="fas fa-hand-holding-heart"></i>
+                  <span>
+                    Promover la acción social y solidaria, fortaleciendo el compromiso con los más necesitados.
+                  </span>
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================= LÍNEAS DE ACCIÓN ================= -->
+
+        <div class="pastoral-card pastoral-action" data-aos="fade-up" data-aos-delay="500">
+
+          <h3>
+            LÍNEAS DE ACCIÓN PASTORAL
+          </h3>
+
+          <p style="text-align: justify;">
+            Las líneas de acción pastoral se centran en el acompañamiento y formación integral de estudiantes y
+            familias, promoviendo el desarrollo socioemocional y la sana convivencia. Se fortalecen la vida de fe y
+            la espiritualidad mediante celebraciones litúrgicas y espacios de oración, así como la formación de las
+            familias a través de la Escuela de Padres. Además, se impulsa la proyección social y la solidaridad, la
+            animación institucional con sentido pastoral y la vida sacramental, favoreciendo una vivencia auténtica de
+            la fe y el compromiso cristiano.
+          </p>
+
+        </div>
+
+
+        <!-- ================= INTEGRANTES ================= -->
+
+        <div class="pastoral-integrantes" data-aos="fade-up">
+
+          <h3 class="pastoral-integrantes-title">
+            <i class="fas fa-users me-2"></i>
+            Integrantes
+          </h3>
+
+
+          <div class="pastoral-person">
+
+            <h6 class="fw-semibold">
+
+              Jesús Alejandro Del Castillo Rincón<br>
+
+              Director de Pastoral
+
+            </h6>
+
+          </div>
+
+
+          <!-- VER MÁS -->
+
+          <div class="pastoral-more" data-aos="fade-up" data-aos-delay="200">
+
+            <a href="https://gorettipastoral.blogspot.com/" target="_blank" class="btn-hero">
+
+              <i class="fas fa-book-open me-2"></i>
+              Ver más
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- Footer -->
+    <footer class="footer text-white py-5" id="contacto">
+      <div class="footer-content">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-4" data-aos="fade-up">
+              <h3 class="footer-title d-flex align-items-center">
+                <img src="imagenes/logo-iem.png" alt="Escudo I.E.M. María Goretti" class="footer-logo">
+                I.E.M. María Goretti
+              </h3>
+              <p class="mb-4">La IEM María Goretti es una obra ubicada en el Municipio de Pasto, liderada y dinamizada
+                por
+                los Hermanos Menores Capuchinos, que promueve la educación y formación de niñas y jóvenes con base en
+                principios humanos, espirituales y sociales.</p>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/people/IEM-Mar%C3%ADa-Goretti-Oficial-Pasto/61564223562211/"
+                  target="_blank" aria-label="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/iemmariagoretti/" target="_blank" aria-label="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLTj569CPY9FNJQFdTpmgAVB3Fp6ReDNna" target="_blank"
+                  aria-label="YouTube">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+              <h4 class="footer-title">Información de Contacto</h4>
+              <div class="contact-info">
+                <p>
+                  <i class="fas fa-map-marker-alt me-2" style="color: var(--accent-blue-light);"></i>
+                  Av. las Américas 15A-53<br>
+                  Pasto, Nariño, Colombia
+                </p>
+                <p>
+                  <i class="fas fa-phone me-2" style="color: var(--accent-blue-light);"></i>
+                  3104980939
+                </p>
+                <p>
+                  <i class="fas fa-envelope me-2" style="color: var(--accent-blue-light);"></i>
+                  mgpasto@iemmariagoretti.edu.co
+                </p>
+                <p>
+                  <i class="fas fa-clock me-2" style="color: var(--accent-blue-light);"></i>
+                  Lunes a Viernes: 6:45 AM - 12:45 PM<br>
+                  3:00 PM - 5:00 PM <br>
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+              <h4 class="footer-title">Enlaces Rápidos</h4>
+              <div class="row">
+                <div class="col-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-2">
+                      <a href="#noticias">
+                        <i class="fas fa-newspaper me-2" style="color: var(--accent-blue-light);"></i>Noticias
+                      </a>
+                    </li>
+                    <li class="mb-2">
+                      <a href="radio-improved.html">
+                        <i class="fas fa-radio me-2" style="color: var(--accent-blue-light);"></i>Estación Gorettiana
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-2">
+                      <a href="https://elibro.net/es/lc/unicesmag/inicio">
+                        <i class="fas fa-book me-2" style="color: var(--accent-blue-light);"></i>Biblioteca
+                      </a>
+                    </li>
+                    <li class="mb-2">
+                      <a href="https://cachiri.sapred.com/sapred_inicio/">
+                        <i class="fas fa-shield-alt me-2" style="color: var(--accent-blue-light);"></i>SAPRED
+                      </a>
+                    </li>
+                    <li class="mb-2">
+                      <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w">
+                        <i class="fas fa-question-circle me-2" style="color: var(--accent-blue-light);"></i>PQRF
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.2);">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <p class="mb-2">&copy; 2026 I.E.M. María Goretti | Todos los derechos reservados</p>
+              <p class="mb-0"><small>NIT: 900034371-9</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"></script>
+
+    <script src="script.js?v=2" defer></script>
+    <!-- Esquema de datos estructurados para SEO -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "School",
+    "name": "Institución Educativa Municipal María Goretti",
+    "alternateName": "I.E.M. María Goretti",
+    "description": "Institución educativa comprometida con la formación integral de mujeres líderes, fundamentada en valores cristianos y excelencia académica.",
+    "url": "https://iemmariagoretti.edu.co",
+    "logo": "https://iemmariagoretti.edu.co/imagenes/maria goretti escudo.png",
+    "image": "https://iemmariagoretti.edu.co/imagenes/maria goretti escudo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrera 22F N° 12 - 48 Parque de Santiago",
+      "addressLocality": "Pasto",
+      "addressRegion": "Nariño",
+      "addressCountry": "Colombia"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+57-3145249771",
+      "contactType": "Customer Service",
+      "email": "isfaedu@gmail.com",
+      "areaServed": "CO",
+      "availableLanguage": ["Spanish"]
+    },
+    "sameAs": [
+      "https://www.facebook.com/people/IEM-Mar%C3%ADa-Goretti-Oficial-Pasto/61564223562211/",
+      "https://x.com/iemmariagoretti",
+      "https://www.instagram.com/iemmariagoretti/",
+      "https://www.youtube.com/playlist?list=PLTj569CPY9FNJQFdTpmgAVB3Fp6ReDNna"
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "07:00",
+        "closes": "16:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ]
+  }
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,2136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Padre Guillermo de Castellana - I.E.M. María Goretti">
+
+  <title>Padre Fundador - I.E.M. María Goretti</title>
+
+  <!-- =====================================================
+       GOOGLE FONTS
+       ===================================================== -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- =====================================================
+       BOOTSTRAP
+       ===================================================== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+
+  <!-- =====================================================
+       FONT AWESOME
+       ===================================================== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous">
+
+  <!-- =====================================================
+       AOS
+       ===================================================== -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" crossorigin="anonymous">
+
+  <!-- =====================================================
+       ESTILOS GENERALES DEL SITIO
+       ===================================================== -->
+  <link rel="stylesheet" href="css/styles.css">
+
+
+  <!-- =====================================================
+       ESTILOS ESPECÍFICOS DE ESTA PÁGINA
+       ===================================================== -->
+  <style>
+    /* =====================================================
+       VARIABLES
+       ===================================================== */
+
+    :root {
+      --primary-red: #DC2626;
+      --primary-red-dark: #B91C1C;
+      --primary-red-light: #F87171;
+
+      --accent-blue: #1E40AF;
+      --accent-blue-dark: #1E3A8A;
+      --accent-blue-light: #3B82F6;
+
+      --background-white: #FFFFFF;
+      --neutral-light: #F8FAFC;
+      --neutral-gray: #E2E8F0;
+
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+
+      /* Compatibilidad con estilos existentes */
+      --accent-red: #DC2626;
+      --primary-blue: #1E40AF;
+
+      --shadow-sm: 0 1px 2px 0 rgba(220, 38, 38, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(220, 38, 38, 0.10);
+      --shadow-lg: 0 10px 15px -3px rgba(220, 38, 38, 0.10);
+      --shadow-xl: 0 20px 25px -5px rgba(220, 38, 38, 0.10);
+      --shadow-2xl: 0 25px 50px -12px rgba(220, 38, 38, 0.25);
+    }
+
+
+    /* =====================================================
+       CONFIGURACIÓN GENERAL
+       ===================================================== */
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', 'Poppins', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-color: var(--background-white);
+      color: var(--text-dark);
+    }
+
+
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
+    #mainNavbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 70px;
+
+      background: linear-gradient(135deg,
+          var(--accent-blue) 0%,
+          var(--accent-blue-dark) 100%) !important;
+
+      border-bottom: 3px solid var(--primary-red);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.20);
+
+      z-index: 9999;
+
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+
+    /* Contenedor del navbar */
+
+    #mainNavbar .container-fluid {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+    }
+
+
+    /* =====================================================
+       LOGO
+       ===================================================== */
+
+
+    #mainNavbar .logo-escudo {
+      width: 55px !important;
+      height: 55px !important;
+
+      object-fit: contain !important;
+      object-position: center center !important;
+
+      display: block;
+      flex-shrink: 0;
+
+      border-radius: 50% !important;
+
+      background-color: transparent !important;
+      padding: 0 !important;
+
+      border: none !important;
+
+      margin-right: 10px !important;
+
+      transform: none !important;
+    }
+
+    /* =====================================================
+       NOMBRE DE LA INSTITUCIÓN
+       ===================================================== */
+
+    #mainNavbar .navbar-brand {
+      display: flex !important;
+      align-items: center !important;
+
+      height: 70px;
+
+      padding-top: 5px !important;
+      padding-bottom: 5px !important;
+
+      margin-right: 20px;
+
+      color: #FFFFFF !important;
+
+      text-decoration: none;
+
+      white-space: nowrap;
+    }
+
+    #mainNavbar .navbar-brand span {
+      font-family: 'Poppins', sans-serif;
+
+      font-size: 1.35rem !important;
+
+      font-weight: 700 !important;
+
+      line-height: 1.2;
+
+      color: #FFFFFF !important;
+
+      white-space: nowrap;
+    }
+
+
+    /* Efecto al pasar el mouse */
+
+    #mainNavbar .navbar-brand:hover {
+      color: #FFFFFF !important;
+      transform: none !important;
+    }
+
+
+    /* =====================================================
+       LINKS DEL NAVBAR
+       ===================================================== */
+
+    #mainNavbar .navbar-nav {
+      align-items: center;
+    }
+
+    #mainNavbar .nav-link {
+      color: #FFFFFF !important;
+
+      font-family: 'Inter', sans-serif;
+
+      font-weight: 500;
+
+      padding: 0.6rem 0.75rem !important;
+
+      border-radius: 8px;
+
+      transition: all 0.3s ease;
+
+      white-space: nowrap;
+
+      font-size: 1.15rem;
+    }
+
+    #mainNavbar .nav-link:hover {
+      background-color: var(--primary-red) !important;
+
+      color: #FFFFFF !important;
+
+      transform: translateY(-1px);
+    }
+
+
+    /* =====================================================
+       MENÚ DESPLEGABLE
+       ===================================================== */
+
+    #mainNavbar .dropdown-menu {
+      background: var(--accent-blue);
+
+      border: 1px solid rgba(255, 255, 255, 0.15);
+
+      box-shadow: var(--shadow-2xl);
+
+      border-radius: 12px;
+
+      padding: 0.5rem;
+
+      z-index: 10000;
+    }
+
+    #mainNavbar .dropdown-item {
+      color: #FFFFFF;
+
+      border-radius: 8px;
+
+      padding: 0.7rem 1rem;
+
+      font-weight: 500;
+
+      transition: all 0.3s ease;
+    }
+
+    #mainNavbar .dropdown-item:hover {
+      background: var(--primary-red);
+
+      color: #FFFFFF;
+
+      transform: translateX(4px);
+    }
+
+
+    /* =====================================================
+       BOTÓN MENÚ CELULAR
+       ===================================================== */
+
+    #mainNavbar .navbar-toggler {
+      border: 1px solid rgba(255, 255, 255, 0.6);
+
+      padding: 0.45rem 0.65rem;
+
+      box-shadow: none;
+    }
+
+    #mainNavbar .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.25);
+    }
+
+
+    /* El fondo del hero (.hero), el título/subtítulo y la
+       muñeca (.hero-image-container / .hero-image) ya vienen
+       de css/styles.css, igual que en el resto de páginas
+       institucionales del sitio. Se baja un poco la muñeca de
+       esta página en particular porque su parte superior
+       (la cola de cabello) quedaba muy pegada al borde del
+       banner y se veía cortada. */
+    .hero-image {
+      margin-top: 40px;
+    }
+
+
+    /* =====================================================
+       BOTÓN HERO
+       ===================================================== */
+
+    .btn-hero {
+      padding: 1rem 2rem;
+
+      font-size: 1.1rem;
+
+      font-weight: 600;
+
+      border-radius: 50px;
+
+      border: none;
+
+      transition: all 0.3s ease;
+
+      text-decoration: none;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 0.5rem;
+
+      box-shadow: var(--shadow-lg);
+
+      background: var(--background-white);
+
+      color: var(--primary-red);
+    }
+
+    .btn-hero:hover {
+      transform: translateY(-3px);
+
+      box-shadow: var(--shadow-2xl);
+
+      background: var(--primary-red);
+
+      color: var(--text-light);
+    }
+
+
+    /* =====================================================
+       SECCIONES
+       ===================================================== */
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-bg-light {
+      background:
+        linear-gradient(135deg,
+          var(--neutral-light) 0%,
+          var(--background-white) 100%);
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+
+      font-size: clamp(2rem, 4vw, 3rem);
+
+      font-weight: 700;
+
+      text-align: center;
+
+      margin-bottom: 1rem;
+
+      color: var(--primary-red);
+
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+
+      position: absolute;
+
+      bottom: -10px;
+
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 80px;
+
+      height: 4px;
+
+      background: var(--accent-blue);
+
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+
+      font-size: 1.2rem;
+
+      color: var(--text-dark);
+
+      margin-bottom: 3rem;
+
+      opacity: 0.9;
+    }
+
+
+    /* =====================================================
+       TARJETAS
+       ===================================================== */
+
+    .card-modern {
+      background: var(--background-white);
+
+      border-radius: 20px;
+
+      padding: 2rem;
+
+      box-shadow: var(--shadow-md);
+
+      transition: all 0.4s ease;
+
+      border-top: 4px solid var(--primary-red);
+    }
+
+    .card-modern:hover {
+      transform: translateY(-10px);
+
+      box-shadow: var(--shadow-xl);
+    }
+
+
+    /* =====================================================
+       IMÁGENES
+       ===================================================== */
+
+    img {
+      border-radius: 15px;
+    }
+
+
+    /* =====================================================
+       IMÁGENES DEL PADRE FUNDADOR
+       ===================================================== */
+
+    .founder-image-wrapper-left,
+    .founder-image-wrapper-right {
+      height: 300px;
+
+      width: 100%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background-color: var(--neutral-light);
+
+      border-radius: 15px;
+
+      box-shadow: var(--shadow-md);
+
+      overflow: hidden;
+    }
+
+    .founder-image-wrapper-left img,
+    .founder-image-wrapper-right img {
+      max-height: 100%;
+
+      max-width: 100%;
+
+      width: auto;
+
+      height: auto;
+
+      object-fit: contain;
+
+      border-radius: 10px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+
+    .footer {
+      position: relative;
+      overflow: hidden;
+
+      background:
+        linear-gradient(135deg,
+          var(--primary-red) 0%,
+          #c91f22 48%,
+          var(--primary-red-dark) 72%,
+          #d46a6a 100%);
+
+      color: var(--text-light);
+    }
+
+
+    /* =====================================================
+   DIFUMINADO BLANCO
+   ===================================================== */
+
+    .footer::after {
+      content: '';
+
+      position: absolute;
+
+      /* Ubicación del difuminado */
+      right: -8%;
+      bottom: -35%;
+
+      /* Tamaño */
+      width: 55%;
+      height: 75%;
+
+      /* Efecto de luz blanca difuminada */
+      background:
+        radial-gradient(ellipse at center,
+          rgba(255, 255, 255, 0.42) 0%,
+          rgba(255, 255, 255, 0.22) 35%,
+          rgba(255, 255, 255, 0.08) 58%,
+          transparent 75%);
+
+      filter: blur(20px);
+
+      pointer-events: none;
+
+      z-index: 0;
+    }
+
+
+    /* =====================================================
+   CONTENIDO SOBRE EL DIFUMINADO
+   ===================================================== */
+
+    .footer-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.85);
+
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--text-light);
+
+      text-decoration: underline;
+    }
+
+    /* =====================================================
+   LOGO DEL PIE DE PÁGINA
+   ===================================================== */
+    .footer-logo {
+      width: 55px;
+      height: 55px;
+
+      min-width: 55px;
+      min-height: 55px;
+
+      object-fit: contain !important;
+      object-position: center center;
+
+      display: block;
+      flex-shrink: 0;
+
+      margin-right: 1rem;
+
+      border-radius: 50% !important;
+
+      background: transparent !important;
+      padding: 0 !important;
+
+      border: none !important;
+
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    /* =====================================================
+       REDES SOCIALES
+       ===================================================== */
+
+    .social-icons a {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      width: 50px;
+
+      height: 50px;
+
+      background: var(--primary-red);
+
+      color: var(--text-light);
+
+      border-radius: 50%;
+
+      font-size: 1.3rem;
+
+      margin: 0 0.5rem;
+
+      transition: all 0.3s ease;
+
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .social-icons a:hover {
+      background: var(--text-light);
+
+      color: var(--primary-red);
+
+      transform: translateY(-5px);
+
+      box-shadow: var(--shadow-lg);
+    }
+
+
+    /* =====================================================
+       BOTÓN VOLVER ARRIBA
+       ===================================================== */
+
+    .scroll-top {
+      position: fixed;
+
+      bottom: 2rem;
+
+      right: 2rem;
+
+      width: 60px;
+
+      height: 60px;
+
+      background: var(--primary-red);
+
+      color: var(--text-light);
+
+      border: none;
+
+      border-radius: 50%;
+
+      font-size: 1.5rem;
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition: all 0.3s ease;
+
+      z-index: 1000;
+
+      box-shadow: var(--shadow-lg);
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      background: var(--text-light);
+
+      color: var(--primary-red);
+
+      transform: translateY(-5px);
+
+      box-shadow: var(--shadow-2xl);
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+       ===================================================== */
+
+    @media (max-width: 991.98px) {
+
+      #mainNavbar {
+        min-height: 65px;
+      }
+
+      #mainNavbar .container-fluid {
+        min-height: 65px;
+      }
+
+      #mainNavbar .navbar-brand {
+        height: 65px;
+      }
+
+      #mainNavbar .navbar-brand span {
+        font-size: 1.15rem !important;
+      }
+
+      #mainNavbar .navbar-collapse {
+        background: var(--accent-blue-dark);
+
+        margin-top: 5px;
+
+        padding: 0.75rem;
+
+        border-radius: 0 0 12px 12px;
+      }
+
+      #mainNavbar .navbar-nav {
+        align-items: stretch;
+      }
+
+      #mainNavbar .nav-link {
+        width: 100%;
+      }
+    }
+
+
+    @media (max-width: 768px) {
+
+      #mainNavbar .logo-escudo {
+        width: 45px !important;
+        height: 45px !important;
+
+        min-width: 45px !important;
+        min-height: 45px !important;
+
+        max-width: 45px !important;
+        max-height: 45px !important;
+      }
+
+      #mainNavbar {
+        min-height: 60px;
+      }
+
+      #mainNavbar .container-fluid {
+        min-height: 60px;
+      }
+
+      #mainNavbar .navbar-brand {
+        height: 60px;
+
+        margin-right: 5px;
+      }
+
+      #mainNavbar .navbar-brand span {
+        font-size: 1rem !important;
+
+        white-space: normal;
+      }
+
+      .section {
+        padding: 3rem 0;
+      }
+
+      .founder-image-wrapper-left,
+      .founder-image-wrapper-right {
+        height: 300px;
+
+        max-width: 300px;
+
+        margin: 0 auto;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+
+      #mainNavbar .navbar-brand span {
+        font-size: 0.9rem !important;
+      }
+    }
+  </style>
+
+
+  <!-- =====================================================
+       ESTANDARIZACIÓN VISUAL INSTITUCIONAL
+       Aplicada de forma consistente sin modificar contenido
+       ni funcionalidad.
+       ===================================================== -->
+  <style id="estandarizacion-visual-institucional">
+    :root {
+      --primary-red: #DC2626;
+      --primary-red-dark: #B91C1C;
+      --primary-red-light: #F87171;
+      --accent-blue: #1E40AF;
+      --accent-blue-dark: #1E3A8A;
+      --accent-blue-light: #3B82F6;
+      --background-white: #FFFFFF;
+      --neutral-light: #F8FAFC;
+      --neutral-gray: #E2E8F0;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --section-space: 5rem;
+      --section-space-mobile: 3rem;
+      --radius-card: 16px;
+      --footer-border: 3px solid var(--primary-red-dark);
+    }
+
+    /* BASE TIPOGRÁFICA Y ESPACIADO */
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--background-white);
+    }
+
+    .section {
+      padding: var(--section-space) 0;
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--primary-red);
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      color: var(--text-dark);
+    }
+
+    .section p,
+    .card-modern p,
+    .institutional-card p,
+    .about-section p {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    /* NAVBAR UNIFICADO */
+    #mainNavbar,
+    .navbar.fixed-top {
+      min-height: 70px;
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-dark) 100%) !important;
+      border-bottom: 3px solid var(--primary-red) !important;
+    }
+
+    #mainNavbar .container-fluid,
+    .navbar.fixed-top .container-fluid {
+      min-height: 70px;
+      align-items: center;
+    }
+
+    #mainNavbar .logo-escudo,
+    .navbar.fixed-top .logo-escudo {
+      width: 55px !important;
+      height: 55px !important;
+      object-fit: contain !important;
+      object-position: center center;
+      border-radius: 50% !important;
+      padding: 0 !important;
+      border: none !important;
+      background: transparent !important;
+      flex-shrink: 0;
+    }
+
+    #mainNavbar .navbar-brand,
+    .navbar.fixed-top .navbar-brand {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      color: var(--text-light) !important;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    #mainNavbar .navbar-brand span,
+    .navbar.fixed-top .navbar-brand span {
+      font-size: 1.35rem !important;
+      font-weight: 700 !important;
+      line-height: 1.2;
+      color: var(--text-light) !important;
+    }
+
+    #mainNavbar .nav-link,
+    .navbar.fixed-top .nav-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem !important;
+      font-weight: 600;
+      padding: 0.6rem 0.75rem !important;
+      border-radius: 8px;
+    }
+
+    #mainNavbar .dropdown-menu,
+    .navbar.fixed-top .dropdown-menu {
+      background: var(--accent-blue) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 0.5rem;
+    }
+
+    #mainNavbar .dropdown-item,
+    .navbar.fixed-top .dropdown-item {
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 8px;
+    }
+
+
+    /* TARJETAS Y ELEMENTOS VISUALES */
+    .card-modern {
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      border-top: 4px solid var(--primary-red);
+    }
+
+    .institutional-card {
+      border-radius: var(--radius-card);
+    }
+
+    /* FOOTER UNIFICADO */
+    .footer {
+      position: relative;
+      margin-top: 0 !important;
+      border-top: var(--footer-border) !important;
+      background:
+        linear-gradient(135deg,
+          var(--primary-red) 0%,
+          #c91f22 48%,
+          var(--primary-red-dark) 72%,
+          #d46a6a 100%) !important;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .footer .container {
+      padding-top: 3rem !important;
+      padding-bottom: 1.5rem !important;
+    }
+
+    .footer .row.g-4 {
+      row-gap: 2.5rem;
+    }
+
+    .footer .footer-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.35rem !important;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1.5rem !important;
+      color: var(--text-light);
+    }
+
+    .footer .footer-logo,
+    .footer-logo {
+      width: 55px !important;
+      height: 55px !important;
+      min-width: 55px !important;
+      min-height: 55px !important;
+      object-fit: contain !important;
+      object-position: center center;
+      border-radius: 50% !important;
+      background: transparent !important;
+      padding: 0 !important;
+      border: none !important;
+      margin-right: 1rem !important;
+      flex-shrink: 0;
+    }
+
+    .footer p,
+    .footer li,
+    .footer a {
+      font-size: 0.95rem !important;
+      line-height: 1.6;
+    }
+
+    .footer .footer-description {
+      max-width: 440px;
+      margin-bottom: 1.75rem !important;
+    }
+
+    .footer .contact-info p {
+      margin-bottom: 0.85rem !important;
+    }
+
+    .footer .list-unstyled li {
+      margin-bottom: 0.75rem !important;
+    }
+
+    .footer hr {
+      margin-top: 1.5rem !important;
+      margin-bottom: 1rem !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
+      opacity: 1;
+    }
+
+    .social-icons {
+      gap: 0.75rem;
+    }
+
+    .social-icons a {
+      width: 50px !important;
+      height: 50px !important;
+      margin: 0 !important;
+      border-radius: 50%;
+      font-size: 1.15rem !important;
+      border: 2px solid rgba(255, 255, 255, 0.25) !important;
+    }
+
+    /* BOTÓN VOLVER ARRIBA */
+    .scroll-top {
+      width: 54px !important;
+      height: 54px !important;
+      font-size: 1.25rem !important;
+    }
+
+    @media (max-width: 991.98px) {
+
+      #mainNavbar,
+      .navbar.fixed-top,
+      #mainNavbar .container-fluid,
+      .navbar.fixed-top .container-fluid,
+      #mainNavbar .navbar-brand,
+      .navbar.fixed-top .navbar-brand {
+        min-height: 65px;
+      }
+
+      #mainNavbar .navbar-brand span,
+      .navbar.fixed-top .navbar-brand span {
+        font-size: 1.15rem !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: var(--section-space-mobile) 0;
+      }
+
+      .section-title {
+        font-size: clamp(1.9rem, 8vw, 2.5rem);
+      }
+
+      .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      #mainNavbar,
+      .navbar.fixed-top,
+      #mainNavbar .container-fluid,
+      .navbar.fixed-top .container-fluid,
+      #mainNavbar .navbar-brand,
+      .navbar.fixed-top .navbar-brand {
+        min-height: 60px;
+      }
+
+      #mainNavbar .logo-escudo,
+      .navbar.fixed-top .logo-escudo {
+        width: 45px !important;
+        height: 45px !important;
+      }
+
+      #mainNavbar .navbar-brand span,
+      .navbar.fixed-top .navbar-brand span {
+        font-size: 1rem !important;
+      }
+
+      .footer .container {
+        padding-top: 2.5rem !important;
+        padding-bottom: 1.25rem !important;
+      }
+
+      .footer .footer-title {
+        font-size: 1.2rem !important;
+        margin-bottom: 1.25rem !important;
+      }
+
+      .footer p,
+      .footer li,
+      .footer a {
+        font-size: 0.9rem !important;
+      }
+
+      .footer .footer-logo,
+      .footer-logo {
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+      }
+
+      .social-icons a {
+        width: 46px !important;
+        height: 46px !important;
+      }
+    }
+  </style>
+
+</head>
+
+
+<body id="inicio">
+
+
+  <!-- =====================================================
+       NAVBAR
+       ===================================================== -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" id="mainNavbar">
+
+    <div class="container-fluid">
+
+      <!-- LOGO + NOMBRE -->
+
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+
+        <img src="imagenes/logo-iem.png" alt="Logo María Goretti" class="logo-escudo">
+
+        <span>
+          I.E.M. María Goretti
+        </span>
+
+      </a>
+
+
+      <!-- BOTÓN PARA CELULAR -->
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+
+      <!-- MENÚ -->
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
+        <ul class="navbar-nav">
+
+          <!-- INSTITUCIÓN -->
+
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+
+              Institución
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" href="teleología.html">
+                  Teleología
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="padre-fundador.html">
+                  Fundador
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="simbolo.html">
+                  Símbolos
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="Santos-patronos.html">
+                  Santos Patronos
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- DOCUMENTOS -->
+          <li class="nav-item dropdown nav-item-large">
+
+            <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+
+              Documentos
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" href="documentos.html">
+                  Documentos Institucionales
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="horario-padres.html">
+                  Horario Padres
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+          <!-- COMUNIDAD -->
+
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+
+              Comunidad
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" href="obra-goretti.html">
+                  Obra Gorettiana
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="pastoral.html">
+                  Pastoral
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="Egresadas.html">
+                  Egresadas
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="MetaApp.html">
+                  MetaAPP
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w"
+                  target="_blank">
+                  PQRF
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="radio-improved.html">
+                  Estación Gorettiana 
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- PROYECTOS -->
+
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+
+              Proyectos
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" href="bilinguismo.html">
+                  Bilingüismo
+                </a>
+              </li>
+
+              <!-- Próximamente: proyecto Emprendimiento <li>
+                <a class="dropdown-item" href="emprendimiento.html">
+                  Emprendimiento
+                </a>
+              </li> -->
+
+              <li>
+                <a class="dropdown-item" href="mujer.html">
+                  Mujer Constructora
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="semillas.html">
+                  Semillas de amor
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="pileo.html">
+                  PILEO
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="QHERIDA.html">
+                  Qherida Mujer
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="cada-minuto.html">
+                  Que cada minuto cuente
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- BIBLIOTECA -->
+
+          <li class="nav-item">
+
+            <a class="nav-link" href="https://elibro.net/es/lc/unicesmag/inicio" target="_blank">
+
+              Biblioteca
+
+            </a>
+
+          </li>
+
+
+          <!-- SAPRED -->
+
+          <li class="nav-item">
+
+            <a class="nav-link" href="https://cachiri.sapred.com/sapred_inicio/" target="_blank">
+
+              SAPRED
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <header class="hero">
+
+    <!-- TEXTO DEL HERO -->
+    <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+
+      <h1>
+        Padre Guillermo de Castellana
+      </h1>
+
+      <p class="hero-subtitle">
+        Fundador de la I.E.M. María Goretti
+      </p>
+
+    </div>
+
+
+    <!-- IMAGEN DE LA ESTUDIANTE -->
+    <div class="hero-image-container" data-aos="fade-left" data-aos-duration="1000">
+
+      <img class="hero-image" src="ImagenesF/portada.png" alt="Estudiante I.E.M. María Goretti">
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       SECCIÓN SOBRE EL PADRE FUNDADOR
+       ===================================================== -->
+
+  <section class="section section-bg-light about-section" id="about">
+
+    <div class="container">
+
+      <div class="row g-5 align-items-start">
+
+
+        <!-- =================================================
+             IMAGEN IZQUIERDA
+             ================================================= -->
+
+        <div class="col-12 col-lg-3 order-lg-1 d-flex justify-content-center" data-aos="fade-right">
+
+          <div class="founder-image-wrapper-left">
+
+            <img src="ImagenesF/padre-guillermo.jpg" alt="Padre Guillermo de Castellana" class="img-fluid rounded">
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TEXTO PRINCIPAL
+             ================================================= -->
+
+        <div class="col-12 col-lg-6 order-lg-2" data-aos="fade-up">
+
+          <div class="content-wrapper">
+
+
+            <h2 class="section-title">
+              Padre Guillermo de Castellana
+            </h2>
+
+
+            <p class="lead mb-4">
+
+              En 1937, un 29 de junio recibe la Ordenación Sacerdotal,
+              su vida como religioso y sacerdote se caracterizó por su
+              fiel observancia de la disciplina, de los deberes de
+              comunidad, por su gran espíritu de oración y de trabajo.
+
+            </p>
+
+
+            <p>
+
+              Pero siempre inquieto por capacitarse, se doctoró en
+              Filosofía y Ciencias Sociológicas en la Universidad
+              Internacional La Gregoriana de Roma; su tesis tituló:
+              "Las bases filosóficas del Comunismo, en el pensamiento
+              de su más grande crítico".
+
+            </p>
+
+
+            <p>
+
+              Participa además en tres congresos internacionales de
+              Filosofía así: En Roma Italia en 1944; Mendoza -
+              Argentina 1947, donde hace su disertación "El Comunismo
+              Científico destruye la personalidad"; en Barcelona -
+              España 1949 habla de "La Metafísica en el Comunismo".
+              En estos tiempos desempeño el cargo de Director de
+              estudios de Filosofía y Sociología en Salemi y luego en
+              Plermo. Además, su sensibilidad y celo apostólico, lo
+              habían llevado a organizar en Salemi, un oratorio con
+              el fin de educar y orientar a muchas niñas. Pero
+              trasladado a Palermo continúa su obra en un barrio muy
+              pobre llamado Danisini. Ahí fue un verdadero apóstol y
+              padre con niñas de escasos recursos, a quienes asistía
+              espiritualmente con sus conferencias sobre religión,
+              moral, cultura y materialmente brindándoles alimentación
+              en un restaurante.
+
+            </p>
+
+
+            <p>
+
+              Es memorable el entusiasmo con que preparó a este grupo
+              de niñas de su oratorio y vestidas de las mejores galas,
+              las llevó hasta Roma a presenciar la canonización de
+              Santa María Goretti.
+
+            </p>
+
+
+            <!-- =============================================
+                 FUNDADOR DE
+                 ============================================= -->
+
+            <div class="mt-5">
+
+              <h4 style="
+                  color: var(--accent-red);
+                  font-weight: 700;
+                ">
+
+                Fundador de:
+
+              </h4>
+
+
+              <ul class="list-unstyled">
+
+                <li class="mb-2">
+
+                  <i class="fas fa-check-circle me-2" style="color: var(--primary-blue);">
+                  </i>
+
+                  La Asociación Escolar María Goretti
+
+                </li>
+
+
+                <li class="mb-2">
+
+                  <i class="fas fa-check-circle me-2" style="color: var(--primary-blue);">
+                  </i>
+
+                  La I.E.M. María Goretti
+
+                </li>
+
+
+                <li class="mb-2">
+
+                  <i class="fas fa-check-circle me-2" style="color: var(--primary-blue);">
+                  </i>
+
+                  La Universidad CESMAG
+
+                </li>
+
+
+                <li class="mb-2">
+
+                  <i class="fas fa-check-circle me-2" style="color: var(--primary-blue);">
+                  </i>
+
+                  Iniciador y promotor de la Filosofía
+                  Personalizante y Humanizadora
+
+                </li>
+
+
+                <li class="mb-2">
+
+                  <i class="fas fa-check-circle me-2" style="color: var(--primary-blue);">
+                  </i>
+
+                  Promotor del desarrollo humano integral de la
+                  niñez y de la juventud femenina
+
+                </li>
+
+              </ul>
+
+            </div>
+
+
+            <!-- =============================================
+                 OBRAS
+                 ============================================= -->
+
+            <div class="mt-5">
+
+              <h4 style="
+                  color: var(--accent-red);
+                  font-weight: 700;
+                ">
+
+                Obras
+
+              </h4>
+
+
+              <div class="row">
+
+
+                <!-- COLUMNA 1 -->
+
+                <div class="col-md-6">
+
+                  <ul class="list-unstyled">
+
+                    <li class="mb-2">
+
+                      <i class="fas fa-book me-2" style="color: var(--primary-blue);">
+                      </i>
+
+                      Angelicalmente Pura
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                      <i class="fas fa-book me-2" style="color: var(--primary-blue);">
+                      </i>
+
+                      Un desconocido en el Club
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                      <i class="fas fa-book me-2" style="color: var(--primary-blue);">
+                      </i>
+
+                      Bellas Leyendas Cristiana
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                      <i class="fas fa-book me-2" style="color: var(--primary-blue);">
+                      </i>
+
+                      Flor Ensangrentada
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                      <i class="fas fa-book me-2" style="color: var(--primary-blue);">
+                      </i>
+
+                      Las bienaventuranzas de la mujer
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                      <i class="fas fa-book me-2" style="color: var(--primary-blue);">
+                      </i>
+
+                      Normas para una niña bien educada
+
+                    </li>
+
+                  </ul>
+
+                </div>
+
+
+                <!-- COLUMNA 2 -->
+
+                <div class="col-md-6">
+
+                  <ul class="list-unstyled">
+
+                    <li class="mb-2">
+
+                      <i class="fas fa-book me-2" style="color: var(--primary-blue);">
+                      </i>
+
+                      Recetas para ser Feliz
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                      <i class="fas fa-book me-2" style="color: var(--primary-blue);">
+                      </i>
+
+                      Novena a Santa María Goretti
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                      <i class="fas fa-book me-2" style="color: var(--primary-blue);">
+                      </i>
+
+                      Catecismo de la cultura Franciscana
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                      <i class="fas fa-book me-2" style="color: var(--primary-blue);">
+                      </i>
+
+                      La vida del Cristiano es una vida de espera
+
+                    </li>
+
+
+                    <li class="mb-2">
+
+                      <i class="fas fa-book me-2" style="color: var(--primary-blue);">
+                      </i>
+
+                      Filosofía Personalizante y Humanizadora
+
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             IMAGEN DERECHA
+             ================================================= -->
+
+        <div class="col-12 col-lg-3 order-lg-3 d-flex justify-content-center" data-aos="fade-left">
+
+          <div class="founder-image-wrapper-right">
+
+            <img src="ImagenesF/P. Guillermo.jpg" alt="Otra foto del Padre Fundador" class="img-fluid rounded">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="footer text-white py-2" id="contacto">
+
+    <div class="footer-content">
+
+      <div class="container">
+
+        <div class="row g-4">
+
+
+          <!-- COLUMNA 1 -->
+
+          <div class="col-lg-4" data-aos="fade-up">
+
+            <h3 class="footer-title d-flex align-items-center">
+
+              <img src="imagenes/logo-iem.png" alt="Escudo I.E.M. María Goretti" class="footer-logo">
+
+              I.E.M. María Goretti
+
+            </h3>
+
+
+            <p class="mb-4">
+
+              La IEM María Goretti es una obra ubicada en el
+              Municipio de Pasto, liderada y dinamizada por los
+              Hermanos Menores Capuchinos, que promueve la educación
+              y formación de niñas y jóvenes con base en principios
+              humanos, espirituales y sociales.
+
+            </p>
+
+
+            <!-- REDES SOCIALES -->
+
+            <div class="social-icons">
+
+              <a href="https://www.facebook.com/people/IEM-Mar%C3%ADa-Goretti-Oficial-Pasto/61564223562211/"
+                target="_blank" aria-label="Facebook">
+
+                <i class="fab fa-facebook-f"></i>
+
+              </a>
+
+
+              <a href="https://www.instagram.com/iemmariagoretti/" target="_blank" aria-label="Instagram">
+
+                <i class="fab fa-instagram"></i>
+
+              </a>
+
+
+              <a href="https://www.youtube.com/playlist?list=PLTj569CPY9FNJQFdTpmgAVB3Fp6ReDNna" target="_blank"
+                aria-label="YouTube">
+
+                <i class="fab fa-youtube"></i>
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <!-- COLUMNA 2 -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+
+            <h4 class="footer-title">
+              Información de Contacto
+            </h4>
+
+
+            <div class="contact-info">
+
+              <p>
+
+                <i class="fas fa-map-marker-alt me-2" style="color: var(--accent-blue-light);">
+                </i>
+
+                Av. las Américas 15A-53<br>
+
+                Pasto, Nariño, Colombia
+
+              </p>
+
+
+              <p>
+
+                <i class="fas fa-phone me-2" style="color: var(--accent-blue-light);">
+                </i>
+
+                3104980939
+
+              </p>
+
+
+              <p>
+
+                <i class="fas fa-envelope me-2" style="color: var(--accent-blue-light);">
+                </i>
+
+                mgpasto@iemmariagoretti.edu.co
+
+              </p>
+
+
+              <p>
+
+                <i class="fas fa-clock me-2" style="color: var(--accent-blue-light);">
+                </i>
+
+                Lunes a Viernes: 6:45 AM - 12:45 PM
+                3:00 PM - 5:00 PM
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- COLUMNA 3 -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+
+            <h4 class="footer-title">
+              Enlaces Rápidos
+            </h4>
+
+
+            <div class="row">
+
+
+              <!-- ENLACES 1 -->
+
+              <div class="col-6">
+
+                <ul class="list-unstyled">
+
+                  <li class="mb-2">
+
+                    <a href="#noticias">
+
+                      <i class="fas fa-newspaper me-2" style="color: var(--accent-blue-light);">
+                      </i>
+
+                      Noticias
+
+                    </a>
+
+                  </li>
+
+
+                  <li class="mb-2">
+
+                    <a href="radio-improved.html">
+
+                      <i class="fas fa-radio me-2" style="color: var(--accent-blue-light);">
+                      </i>
+
+                      Estación Gorettiana
+
+                    </a>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+
+              <!-- ENLACES 2 -->
+
+              <div class="col-6">
+
+                <ul class="list-unstyled">
+
+                  <li class="mb-2">
+
+                    <a href="https://elibro.net/es/lc/unicesmag/inicio">
+
+                      <i class="fas fa-book me-2" style="color: var(--accent-blue-light);">
+                      </i>
+
+                      Biblioteca
+
+                    </a>
+
+                  </li>
+
+
+                  <li class="mb-2">
+
+                    <a href="https://cachiri.sapred.com/sapred_inicio/">
+
+                      <i class="fas fa-shield-alt me-2" style="color: var(--accent-blue-light);">
+                      </i>
+
+                      SAPRED
+
+                    </a>
+
+                  </li>
+
+
+                  <li class="mb-2">
+
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w">
+
+                      <i class="fas fa-question-circle me-2" style="color: var(--accent-blue-light);">
+                      </i>
+
+                      PQR
+
+                    </a>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- LÍNEA -->
+
+        <hr class="my-4" style="
+            border-color:
+            rgba(255, 255, 255, 0.2);
+          ">
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="row align-items-center">
+
+          <div class="col-md-8">
+
+            <p class="mb-2">
+
+              &copy; 2026 I.E.M. María Goretti |
+              Todos los derechos reservados
+
+            </p>
+
+            <p class="mb-0">
+
+              <small>
+                NIT: 900034371-9
+              </small>
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       BOTÓN VOLVER ARRIBA
+       ===================================================== -->
+
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+
+    <i class="fas fa-chevron-up"></i>
+
+  </button>
+
+
+  <!-- =====================================================
+       AOS
+       ===================================================== -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous">
+  </script>
+
+
+  <!-- =====================================================
+       BOOTSTRAP JAVASCRIPT
+       ===================================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+
+  <!-- =====================================================
+       SCRIPT DEL SITIO
+       ===================================================== -->
+
+  <script src="script.js?v=2" defer></script>
+
+
+  <!-- =====================================================
+       SEO
+       ===================================================== -->
+
+  <script type="application/ld+json">
+
+  {
+    "@context": "https://schema.org",
+
+    "@type": "School",
+
+    "name": "Institución Educativa Municipal María Goretti",
+
+    "alternateName": "I.E.M. María Goretti",
+
+    "description": "Institución educativa comprometida con la formación integral de mujeres líderes, fundamentada en valores cristianos y excelencia académica.",
+
+    "url": "https://iemmariagoretti.edu.co",
+
+    "logo": "https://iemmariagoretti.edu.co/imagenes/maria goretti escudo.png",
+
+    "image": "https://iemmariagoretti.edu.co/imagenes/maria goretti escudo.png",
+
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrera 22F N° 12 - 48 Parque de Santiago",
+      "addressLocality": "Pasto",
+      "addressRegion": "Nariño",
+      "addressCountry": "Colombia"
+    },
+
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+57-3145249771",
+      "contactType": "Customer Service",
+      "email": "isfaedu@gmail.com",
+      "areaServed": "CO",
+      "availableLanguage": ["Spanish"]
+    },
+
+    "sameAs": [
+      "https://www.facebook.com/people/IEM-Mar%C3%ADa-Goretti-Oficial-Pasto/61564223562211/",
+      "https://x.com/iemmariagoretti",
+      "https://www.instagram.com/iemmariagoretti/",
+      "https://www.youtube.com/playlist?list=PLTj569CPY9FNJQFdTpmgAVB3Fp6ReDNna"
+    ],
+
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+
+        "opens": "07:00",
+        "closes": "16:00"
+      },
+
+      {
+        "@type": "OpeningHoursSpecification",
+
+        "dayOfWeek": "Saturday",
+
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ]
+  }
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Proyecto Que cada minuto cuente - I.E.M. María Goretti" />
+  <title>Que cada minuto cuente - I.E.M. María Goretti</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    onerror="this.href='css/bootstrap.min.css'" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    onerror="this.href='css/fontawesome.min.css'" />
+
+  <!-- AOS Animation Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <!-- Estilos principales (fondo del hero, navbar, footer, tarjetas...) -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Estilos propios de esta página -->
+  <style>
+    .proyecto-card {
+      height: 100%;
+    }
+
+    .proyecto-card .card-icon {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      border-radius: 14px;
+      background: #eff6ff;
+      color: var(--accent-blue);
+      font-size: 1.4rem;
+    }
+
+    .proyecto-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-red);
+      margin-bottom: 0.75rem;
+    }
+
+    .proyecto-card p {
+      text-align: justify;
+      color: var(--text-dark);
+      margin: 0 0 1rem;
+    }
+
+    .proyecto-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .proyecto-foto {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .proyecto-frase {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+  </style>
+
+</head>
+
+<body id="inicio">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" id="mainNavbar">
+    <div class="container-fluid">
+      <!-- Logo añadido como imagen -->
+      <a class="navbar-brand py-2 d-flex align-items-center" href="index.html">
+        <img src="imagenes/logo-iem.png" alt="Logo María Goretti" class="logo-escudo me-2">
+        <span>I.E.M. María Goretti</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+
+          <li class="nav-item dropdown nav-item-large">
+            <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+              aria-expanded="false">Institución</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="teleología.html">Teleología</a></li>
+              <li><a class="dropdown-item" href="padre-fundador.html">Fundador</a></li>
+              <li><a class="dropdown-item" href="simbolo.html">Símbolos</a></li>
+              <li><a class="dropdown-item" href="Santos-patronos.html">Santos Patronos</a></li>
+            </ul>
+          </li>
+
+          <!-- DOCUMENTOS -->
+          <li class="nav-item dropdown nav-item-large">
+            <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Documentos
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="documentos.html">
+                  Documentos Institucionales
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="horario-padres.html">
+                  Horario Padres
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown nav-item-large">
+            <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+              aria-expanded="false">Comunidad</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="obra-goretti.html">Obra Gorettiana</a></li>
+              <li><a class="dropdown-item" href="pastoral.html">Pastoral</a></li>
+              <li><a class="dropdown-item" href="Egresadas.html">Egresadas</a></li>
+              <li><a class="dropdown-item" href="MetaApp.html">MetaAPP</a></li>
+              <li>
+                <a class="dropdown-item"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w"
+                  target="_blank">
+                  PQRF
+                </a>
+              </li>
+              <li><a class="dropdown-item" href="radio-improved.html">Estación Gorettiana</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown nav-item-large">
+            <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+              aria-expanded="false">Proyectos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="bilinguismo.html">Bilingüismo</a></li>
+              <!-- Próximamente: proyecto Emprendimiento <li><a class="dropdown-item" href="emprendimiento.html">Emprendimiento</a></li> -->
+              <li><a class="dropdown-item" href="mujer.html">Mujer Constructora</a></li>
+              <li><a class="dropdown-item" href="semillas.html">Semillas de amor</a></li>
+              <li><a class="dropdown-item" href="pileo.html">PILEO</a></li>
+              <li><a class="dropdown-item" href="QHERIDA.html">Qherida Mujer</a></li>
+              <li><a class="dropdown-item" href="cada-minuto.html">Que cada minuto cuente</a></li>
+            </ul>
+          </li>
+          <li class="nav-item nav-item-large">
+            <a class="nav-link px-lg-2 py-2" href="https://elibro.net/es/lc/unicesmag/inicio" target="_blank">
+              Biblioteca
+            </a>
+          </li>
+          <li class="nav-item nav-item-large">
+            <a class="nav-link px-lg-2 py-2" href="https://cachiri.sapred.com/sapred_inicio/" target="_blank">
+              SAPRED
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero position-relative">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1>Que cada minuto cuente</h1>
+      <p class="hero-subtitle">Talento, arte y deporte al servicio de la formación integral gorettiana</p>
+    </div>
+
+    <div class="hero-image-container" data-aos="fade-left" data-aos-duration="1000">
+      <img class="hero-image" src="ImagenesCM/muneco-cada-minuto.png"
+        alt="Muñeca alusiva al proyecto Que cada minuto cuente">
+    </div>
+  </header>
+
+  <!-- Contenido -->
+  <main>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="row g-4 align-items-stretch">
+
+          <div class="col-12 col-lg-8" data-aos="fade-right">
+            <div class="card-modern proyecto-card">
+              <div class="card-icon"><i class="fas fa-medal"></i></div>
+              <h3>Talento deportivo y artístico</h3>
+              <p>
+                En la IEM María Goretti, las estudiantes se han destacado con sus talentos deportivos en
+                competencias regionales y nacionales.
+              </p>
+              <p>
+                Por otro lado, el grupo de Música y Danza ACHALAY y el colectivo coreográfico PROYECCIÓN GORETTI
+                son actividades que resaltan, muestran y proyectan a nivel nacional e internacional la identidad
+                cultural y artística de nuestra región nariñense y del folclor colombiano, sin desconocer el
+                folclor andino de nuestra bella Sur América.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-4 d-flex align-items-center" data-aos="fade-left">
+            <img src="ImagenesCM/cada-minuto.webp" alt="Estudiante del grupo de danza folclórica ACHALAY"
+              class="proyecto-foto">
+          </div>
+
+        </div>
+
+        <div class="row g-4 align-items-stretch mt-2">
+
+          <div class="col-12" data-aos="fade-up">
+            <div class="card-modern proyecto-card">
+              <div class="card-icon"><i class="fas fa-heart-circle-check"></i></div>
+              <h3>Formación integral</h3>
+              <p>
+                Este recorrido es evidencia del gran alcance del proyecto y es el compromiso que nos motiva a
+                continuar con la formación integral de nuestras estudiantes, para fortalecer valores y minimizar
+                el estrés provocado por la mala utilización de la tecnología y las problemáticas sociales.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Integrantes -->
+    <section class="section section-bg-light" id="integrantes">
+      <div class="container">
+
+        <h2 class="section-title">Integrantes</h2>
+
+        <div class="row justify-content-center g-3">
+
+          <div class="col-md-3 col-sm-6" data-aos="fade-up">
+            <div class="card-modern text-center">
+              <h6 class="fw-semibold m-0">Yovany Zúñiga</h6>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6" data-aos="fade-up">
+            <div class="card-modern text-center">
+              <h6 class="fw-semibold m-0">Carlos Caicedo</h6>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6" data-aos="fade-up">
+            <div class="card-modern text-center">
+              <h6 class="fw-semibold m-0">José Leytón</h6>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6" data-aos="fade-up">
+            <div class="card-modern text-center">
+              <h6 class="fw-semibold m-0">Gina Suárez</h6>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="container text-center mt-5">
+          <div class="card-modern proyecto-frase">
+            <h5 class="fw-semibold m-0">
+              El proyecto &ldquo;Que cada minuto cuente&rdquo; fortalece la formación integral de las estudiantes
+              a través del arte y el deporte, promoviendo talentos, valores y la identidad cultural con
+              proyección nacional e internacional.
+            </h5>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer text-white" id="contacto">
+    <div class="footer-content">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4" data-aos="fade-up">
+            <h3 class="footer-title d-flex align-items-center">
+              <img src="imagenes/logo-iem.png" alt="Escudo I.E.M. María Goretti" class="footer-logo">
+              I.E.M. María Goretti
+            </h3>
+            <p class="mb-4 footer-description">La IEM María Goretti es una obra ubicada en el Municipio de Pasto,
+              liderada y dinamizada por los Hermanos Menores Capuchinos, que promueve la educación y formación de
+              niñas y jóvenes con base en principios humanos, espirituales y sociales.</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/people/IEM-Mar%C3%ADa-Goretti-Oficial-Pasto/61564223562211/"
+                target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/iemmariagoretti/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.youtube.com/playlist?list=PLTj569CPY9FNJQFdTpmgAVB3Fp6ReDNna" target="_blank"
+                aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="footer-title">Información de Contacto</h4>
+            <div class="contact-info">
+              <p>
+                <i class="fas fa-map-marker-alt me-2" style="color: var(--accent-blue-light);"></i>
+                Av. las Américas 15A-53<br>
+                Pasto, Nariño, Colombia
+              </p>
+              <p>
+                <i class="fas fa-phone me-2" style="color: var(--accent-blue-light);"></i>
+                3104980939
+              </p>
+              <p>
+                <i class="fas fa-envelope me-2" style="color: var(--accent-blue-light);"></i>
+                mgpasto@iemmariagoretti.edu.co
+              </p>
+              <p>
+                <i class="fas fa-clock me-2" style="color: var(--accent-blue-light);"></i>
+                Lunes a Viernes: 6:45 AM - 12:45 PM<br>
+                3:00 PM - 5:00 PM
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <h4 class="footer-title">Enlaces Rápidos</h4>
+            <div class="row">
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a href="#noticias">
+                      <i class="fas fa-newspaper me-2" style="color: var(--accent-blue-light);"></i>Noticias
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="radio-improved.html">
+                      <i class="fas fa-radio me-2" style="color: var(--accent-blue-light);"></i>Estación Gorettiana
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a href="https://elibro.net/es/lc/unicesmag/inicio">
+                      <i class="fas fa-book me-2" style="color: var(--accent-blue-light);"></i>Biblioteca
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://cachiri.sapred.com/sapred_inicio/">
+                      <i class="fas fa-shield-alt me-2" style="color: var(--accent-blue-light);"></i>SAPRED
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w">
+                      <i class="fas fa-question-circle me-2" style="color: var(--accent-blue-light);"></i>PQR
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.2);">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <p class="mb-2">&copy; 2026 I.E.M. María Goretti | Todos los derechos reservados</p>
+            <p class="mb-0"><small>NIT: 900034371-9</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+
+    window.addEventListener('scroll', function () {
+      const navbar = document.getElementById('mainNavbar');
+      const scrollTop = document.getElementById('scrollTop');
+
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+        scrollTop.classList.add('visible');
+      } else {
+        navbar.classList.remove('scrolled');
+        scrollTop.classList.remove('visible');
+      }
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId.length > 1) {
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = target.offsetTop - navbarHeight - 20;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    document.getElementById('scrollTop').addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+
+</html>

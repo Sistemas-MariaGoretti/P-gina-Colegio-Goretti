@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="I.E.M. María Goretti - Educación con valores" />
+
+  <title>I.E.M. María Goretti | Sitio Web Oficial | Pasto, Nariño</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous" />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+    crossorigin="anonymous" />
+
+  <!-- AOS Animation Library -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    rel="stylesheet"
+    integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+    crossorigin="anonymous" />
+
+  <!-- Estilos principales -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- =========================================================
+       AJUSTES DE SEGURIDAD PARA LA NAVBAR
+       No elimina ni modifica el contenido existente.
+       Evita barras de desplazamiento internas en escritorio.
+       ========================================================= -->
+  <style>
+
+    /* =========================================================
+       NAVBAR - ESTRUCTURA GENERAL
+       ========================================================= */
+
+    #mainNavbar {
+      width: 100%;
+      min-height: 70px;
+      z-index: 1030;
+
+      /*
+       * Importante:
+       * Evita que aparezca una barra vertical dentro
+       * de la barra azul en computadores.
+       */
+      overflow: visible !important;
+    }
+
+    #mainNavbar .container-fluid {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+    }
+
+    #mainNavbar .navbar-brand {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    #mainNavbar .logo-escudo {
+      width: 55px;
+      height: 55px;
+      max-width: 55px;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    #mainNavbar .navbar-collapse {
+      overflow: visible !important;
+    }
+
+    #mainNavbar .navbar-nav {
+      align-items: center;
+    }
+
+    #mainNavbar .nav-item {
+      flex-shrink: 0;
+    }
+
+    /* =========================================================
+       EVITAR BARRAS INTERNAS EN ESCRITORIO
+       ========================================================= */
+
+    @media (min-width: 992px) {
+
+      #mainNavbar,
+      #mainNavbar .container-fluid,
+      #mainNavbar .navbar-collapse,
+      #mainNavbar .navbar-nav {
+        overflow: visible !important;
+      }
+
+      #mainNavbar .navbar-collapse {
+        max-height: none !important;
+      }
+
+    }
+
+    /* =========================================================
+       COMPORTAMIENTO EN CELULARES
+       En móvil sí permitimos desplazamiento del menú si
+       la pantalla es demasiado pequeña.
+       ========================================================= */
+
+    @media (max-width: 991.98px) {
+
+      #mainNavbar {
+        min-height: 65px;
+      }
+
+      #mainNavbar .container-fluid {
+        min-height: 65px;
+      }
+
+      #mainNavbar .logo-escudo {
+        width: 45px;
+        height: 45px;
+        max-width: 45px;
+      }
+
+      #mainNavbar .navbar-brand span {
+        font-size: 1.25rem !important;
+      }
+
+      #mainNavbar .navbar-collapse {
+        max-height: calc(100vh - 65px);
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+      }
+
+    }
+
+    /* =========================================================
+       CARRUSEL
+       ========================================================= */
+
+    #contenedor-convocatorias1 .card img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .carousel_colegio {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 100%;
+      transition: transform 0.6s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Texto carrusel */
+    .texto-carrusel {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.24);
+      color: white;
+      padding: 18px 30px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      text-align: center;
+      max-width: 1000px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Botones */
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.7);
+      color: #333;
+      border: none;
+      font-size: 28px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+
+    .prev {
+      left: 20px;
+    }
+
+    .next {
+      right: 20px;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background: #004aad;
+      color: white;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+  </style>
+
+</head>
+
+<body id="inicio">
+
+  <!-- =========================================================
+       NAVBAR
+       ========================================================= -->
+
+  <nav
+    class="navbar navbar-expand-lg navbar-dark fixed-top"
+    role="navigation"
+    id="mainNavbar">
+
+    <div class="container-fluid">
+
+      <!-- Logo -->
+      <a
+        class="navbar-brand py-2 d-flex align-items-center"
+        href="index.html">
+
+        <img
+          src="imagenes/logo-iem.png"
+          alt="Logo María Goretti"
+          class="logo-escudo me-2">
+
+        <span>
+          I.E.M. María Goretti
+        </span>
+
+      </a>
+
+      <!-- Botón móvil -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Alternar navegación">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <!-- Menú -->
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarNav">
+
+        <ul class="navbar-nav">
+
+          <!-- =================================================
+               INSTITUCIÓN
+               ================================================= -->
+
+          <li class="nav-item dropdown nav-item-large">
+
+            <a
+              class="nav-link dropdown-toggle px-lg-2 py-2"
+              href="#"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+
+              Institución
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" href="teleología.html">
+                  Teleología
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="padre-fundador.html">
+                  Fundador
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="simbolo.html">
+                  Símbolos
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="Santos-patronos.html">
+                  Santos Patronos
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- =================================================
+               DOCUMENTOS
+               ================================================= -->
+
+          <li class="nav-item dropdown nav-item-large">
+
+            <a
+              class="nav-link dropdown-toggle px-lg-2 py-2"
+              href="#"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+
+              Documentos
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <!-- DOCUMENTOS INSTITUCIONALES -->
+
+              <li>
+
+                <a
+                  class="dropdown-item"
+                  href="documentos.html">
+
+                  Documentos Institucionales
+
+                </a>
+
+              </li>
+
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+
+              <!-- HORARIO DE PADRES -->
+
+              <li>
+
+                <a
+                  class="dropdown-item"
+                  href="horario-padres.html">
+
+                  Horario de Atención a Padres
+
+                </a>
+
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- =================================================
+               COMUNIDAD
+               ================================================= -->
+
+          <li class="nav-item dropdown nav-item-large">
+
+            <a
+              class="nav-link dropdown-toggle px-lg-2 py-2"
+              href="#"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+
+              Comunidad
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" href="obra-goretti.html">
+                  Obra Gorettiana
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="pastoral.html">
+                  Pastoral
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="Egresadas.html">
+                  Egresadas
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="MetaApp.html">
+                  MetaAPP
+                </a>
+              </li>
+
+              <li>
+
+                <a
+                  class="dropdown-item"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
+                  PQRF
+
+                </a>
+
+              </li>
+
+              <li>
+
+                <a
+                  class="dropdown-item"
+                  href="radio-improved.html">
+
+                  Estación Goretiana
+
+                </a>
+
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- =================================================
+               PROYECTOS
+               ================================================= -->
+
+          <li class="nav-item dropdown nav-item-large">
+
+            <a
+              class="nav-link dropdown-toggle px-lg-2 py-2"
+              href="#"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+
+              Proyectos
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" href="bilinguismo.html">
+                  Bilingüismo
+                </a>
+              </li>
+
+              <!-- Próximamente: proyecto Emprendimiento <li>
+                <a class="dropdown-item" href="emprendimiento.html">
+                  Emprendimiento
+                </a>
+              </li> -->
+
+              <!--
+              <li>
+                <a class="dropdown-item" href="estilos.html">
+                  Estilos de vida Saludable
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="huella.html">
+                  Dejando Huella
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="más_mente.html">
+                  Mas mente y corazón
+                </a>
+              </li>
+              -->
+
+              <li>
+                <a class="dropdown-item" href="mujer.html">
+                  Mujer Constructora
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="semillas.html">
+                  Semillas de amor
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="pileo.html">
+                  PILEO
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="QHERIDA.html">
+                  Qherida Mujer
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="cada-minuto.html">
+                  Que cada minuto cuente
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- =================================================
+               BIBLIOTECA
+               ================================================= -->
+
+          <li class="nav-item nav-item-large">
+
+            <a
+              class="nav-link px-lg-2 py-2"
+              href="https://elibro.net/es/lc/unicesmag/inicio"
+              target="_blank"
+              rel="noopener noreferrer">
+
+              Biblioteca
+
+            </a>
+
+          </li>
+
+
+          <!-- =================================================
+               SAPRED
+               ================================================= -->
+
+          <li class="nav-item nav-item-large">
+
+            <a
+              class="nav-link px-lg-2 py-2"
+              href="https://cachiri.sapred.com/sapred_inicio/"
+              target="_blank"
+              rel="noopener noreferrer">
+
+              SAPRED
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================================================
+       CARRUSEL
+       ========================================================= -->
+
+  <section class="carousel_colegio">
+
+    <div class="slides" id="slides">
+
+      <div class="slide">
+
+        <img
+          src="imagenes/PRIMERA.jpeg"
+          alt="Actividad de la I.E.M. María Goretti">
+
+      </div>
+
+      <div class="slide">
+
+        <img
+          src="imagenes/SEGUNDA.jpeg"
+          alt="Actividad de la I.E.M. María Goretti">
+
+      </div>
+
+      <div class="slide">
+
+        <img
+          src="imagenes/TERCERA.jpeg"
+          alt="Actividad de la I.E.M. María Goretti">
+
+      </div>
+
+      <div class="slide">
+
+        <img
+          src="imagenes/CUARTA.jpeg"
+          alt="Actividad de la I.E.M. María Goretti">
+
+      </div>
+
+      <div class="slide">
+
+        <img
+          src="imagenes/CINCO.jpeg"
+          alt="Actividad de la I.E.M. María Goretti">
+
+      </div>
+
+    </div>
+
+
+    <div class="texto-carrusel">
+
+      "Educar una mujer es educar una familia,<br>
+      Educar una familia es educar una sociedad."
+
+    </div>
+
+
+    <button
+      class="prev"
+      onclick="mover(-1)"
+      aria-label="Imagen anterior">
+
+      ❮
+
+    </button>
+
+
+    <button
+      class="next"
+      onclick="mover(1)"
+      aria-label="Imagen siguiente">
+
+      ❯
+
+    </button>
+
+  </section>
+
+
+  <!-- =========================================================
+       JAVASCRIPT DEL CARRUSEL
+       ========================================================= -->
+
+  <script>
+
+    let indice = 0;
+
+    const slides = document.getElementById("slides");
+
+    const total = slides.children.length;
+
+    let autoplay;
+
+
+    function iniciarAutoplay() {
+
+      autoplay = setInterval(() => {
+
+        mover(1, true);
+
+      }, 5000);
+
+    }
+
+
+    function mover(direccion, automatico = false) {
+
+      /*
+       * Si el movimiento es manual,
+       * reinicia el autoplay.
+       */
+
+      if (!automatico) {
+
+        clearInterval(autoplay);
+
+        iniciarAutoplay();
+
+      }
+
+
+      indice += direccion;
+
+
+      if (indice < 0) {
+
+        indice = total - 1;
+
+      }
+
+
+      if (indice >= total) {
+
+        indice = 0;
+
+      }
+
+
+      slides.style.transform =
+        `translateX(-${indice * 100}%)`;
+
+    }
+
+
+    // Iniciar carrusel al cargar
+
+    iniciarAutoplay();
+
+  </script>
+
+
+  <!-- =========================================================
+       ÚLTIMAS NOTICIAS
+       ========================================================= -->
+
+  <section
+    class="section section-bg-light"
+    id="noticias">
+
+    <div class="container">
+
+      <div class="row mb-5">
+
+        <div class="col-12 text-center">
+
+          <h2 class="section-title">
+            Últimas Noticias
+          </h2>
+
+          <p class="section-subtitle">
+            Mantente al día con las novedades de nuestra comunidad.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div
+        class="row g-4"
+        id="contenedor-noticias1">
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       COMUNICADOS
+       ========================================================= -->
+
+  <section
+    class="section section-bg-light"
+    id="curriculares">
+
+    <div class="container">
+
+      <div class="row mb-5">
+
+        <div class="col-12 text-center">
+
+          <h2 class="section-title">
+            Comunicados
+          </h2>
+
+        </div>
+
+      </div>
+
+      <div
+        class="row g-4"
+        id="contenedor-curriculares">
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       CONVOCATORIAS
+       ========================================================= -->
+
+  <section
+    class="section section-bg-light"
+    id="convocatorias">
+
+    <div class="container">
+
+      <div class="row mb-5">
+
+        <div class="col-12 text-center">
+
+          <h2 class="section-title">
+            Convocatorias e<br>
+            Invitaciones
+          </h2>
+
+        </div>
+
+      </div>
+
+      <div
+        class="row g-4"
+        id="contenedor-convocatorias1">
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       CELEBRACIONES
+       ========================================================= -->
+
+  <section
+    class="section section-bg-light"
+    id="celebraciones">
+
+    <div class="container">
+
+      <div class="row mb-5">
+
+        <div class="col-12 text-center">
+
+          <h2 class="section-title">
+            Celebraciones y Conmemoraciones
+          </h2>
+
+        </div>
+
+      </div>
+
+      <div
+        class="row"
+        id="contenedor-celebraciones">
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       MISIÓN, VISIÓN Y POLÍTICAS DE CALIDAD
+       ========================================================= -->
+
+  <section
+    class="section"
+    id="mision-vision-calidad"
+    style="background-color: #f8f9fa;">
+
+    <div class="container">
+
+      <div class="row mb-5">
+
+        <div class="col-12 text-center">
+
+          <h2 class="section-title">
+            Misión, Visión y Políticas de Calidad
+          </h2>
+
+          <p class="section-subtitle">
+            Pilares de nuestro Proyecto Educativo Institucional
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="row g-4">
+
+        <!-- =================================================
+             MISIÓN
+             ================================================= -->
+
+        <div
+          class="col-md-6 col-lg-4"
+          data-aos="fade-up"
+          data-aos-delay="100">
+
+          <div class="card-modern h-100">
+
+            <div class="card-body p-4">
+
+              <h4
+                class="fw-bold mb-3 text-center"
+                style="color: var(--primary-red);">
+
+                Misión
+
+              </h4>
+
+
+              <p class="text-muted">
+
+                Formamos a la niñez y juventud femenina de los sectores populares,
+                fundamentados en la Filosofía Personalizante y Humanizadora, para
+                construir una sociedad más humana y justa.
+
+              </p>
+
+
+              <div
+                class="text-center mt-4 d-flex justify-content-center gap-2">
+
+                <img
+                  src="imagenes/mision-iem.png"
+                  alt="Ilustración de Misión 1"
+                  class="img-fluid rounded"
+                  style="max-height:150px; width:auto;">
+
+                <img
+                  src="imagenes/mision.png"
+                  alt="Ilustración de Misión 2"
+                  class="img-fluid rounded"
+                  style="max-height:150px; width:auto;">
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             VISIÓN
+             ================================================= -->
+
+        <div
+          class="col-md-6 col-lg-4"
+          data-aos="fade-up"
+          data-aos-delay="200">
+
+          <div class="card-modern h-100">
+
+            <div class="card-body p-4">
+
+              <h4
+                class="fw-bold mb-3 text-center"
+                style="color: var(--accent-blue);">
+
+                Visión
+
+              </h4>
+
+
+              <p class="text-muted">
+
+                Seremos reconocidos por la proyección de nuestras estudiantes y la formación
+                al estilo del Enfoque Personalizante y Política de Calidad.
+
+              </p>
+
+
+              <p class="text-muted mt-2">
+
+                Estamos comprometidos con el fortalecimiento de la significatividad,
+                pertenencia, inclusión y eficiencia de nuestro proyecto Educativo
+                Institucional, la calidez de la comunidad educativa y el mejoramiento
+                continuo de nuestros procesos Humanizador.
+
+              </p>
+
+
+              <div
+                class="text-center mt-4 d-flex justify-content-center gap-2">
+
+                <img
+                  src="imagenes/vision.png"
+                  alt="Ilustración de Visión 1"
+                  class="img-fluid rounded"
+                  style="max-height:210px; width:auto;">
+
+                <img
+                  src="imagenes/vision-1.png"
+                  alt="Ilustración de Visión 2"
+                  class="img-fluid rounded"
+                  style="max-height:210px; width:auto;">
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             POLÍTICAS DE CALIDAD
+             ================================================= -->
+
+        <div
+          class="col-md-6 col-lg-4"
+          data-aos="fade-up"
+          data-aos-delay="300">
+
+          <div class="card-modern h-100">
+
+            <div class="card-body p-4">
+
+              <h4
+                class="fw-bold mb-3 text-center"
+                style="color: var(--primary-red);">
+
+                Políticas de Calidad
+
+              </h4>
+
+
+              <ul
+                class="text-muted mb-0"
+                style="padding-left:1.2rem; line-height:1.7;">
+
+                <li>
+                  Garantizar una formación integral con enfoque personalizante y humanizador.
+                </li>
+
+                <li>
+                  Promover la inclusión, equidad y pertinencia en todos los procesos educativos.
+                </li>
+
+                <li>
+                  Fomentar el mejoramiento continuo mediante la evaluación y retroalimentación.
+                </li>
+
+                <li>
+                  Fortalecer la participación activa de la comunidad educativa.
+                </li>
+
+                <li>
+                  Asegurar entornos seguros, afectivos y estimulantes para el aprendizaje.
+                </li>
+
+              </ul>
+
+
+              <div
+                class="text-center mt-4 d-flex justify-content-center gap-2">
+
+                <img
+                  src="imagenes/politicas-de-calidad.png"
+                  alt="Ilustración de Políticas 1"
+                  class="img-fluid rounded"
+                  style="max-height:250px; width:auto;">
+
+                <img
+                  src="imagenes/politicas-de-calidad-1.png"
+                  alt="Ilustración de Políticas 2"
+                  class="img-fluid rounded"
+                  style="max-height:250px; width:auto;">
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       INSTITUCIONES GORETTIANAS
+       ========================================================= -->
+
+  <section
+    class="section section-bg-light"
+    id="instituciones">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div
+          class="col-12"
+          data-aos="fade-up">
+        </div>
+
+      </div>
+
+
+      <div class="row justify-content-center">
+
+        <div
+          class="col-12"
+          data-aos="fade-up"
+          data-aos-delay="200">
+
+          <div class="card-modern text-center">
+
+            <div class="card-body p-5">
+
+              <img
+                src="imagenes/amg.png"
+                alt="Asociación Escolar María Goretti"
+                class="mb-4"
+                style="max-width: 120px; border-radius: 20px;">
+
+
+              <h3 class="mb-4">
+                Entidades Gorettianas
+              </h3>
+
+
+              <p class="lead mb-4">
+
+                Entidades que conforman nuestra red educativa comprometida
+                con la formación integral de las nuevas generaciones.
+
+              </p>
+
+
+              <div
+                class="d-flex entidades-scroll justify-content-center gap-4 mb-4">
+
+
+                <!-- =================================================
+                     GRUPO AEMG
+                     ================================================= -->
+
+                <div class="text-center">
+
+                  <a
+                    href="https://www.grupoaemg.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visitar Grupo AEMG">
+
+                    <img
+                      src="imagenes/amg.png"
+                      alt="Grupo AEMG"
+                      class="link-image">
+
+                  </a>
+
+                  <p class="mt-2">
+                    Grupo AEMG
+                  </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     UNIDAD DE SALUD
+                     ================================================= -->
+
+                <div class="text-center">
+
+                  <a
+                    href="https://www.facebook.com/unidaddesalud.mariagoretti"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visitar Unidad de Salud Maria Goretti">
+
+                    <img
+                      src="imagenes/unidad-de-salud.jpg"
+                      alt="Unidad de Salud Maria Goretti"
+                      class="link-image">
+
+                  </a>
+
+                  <p class="mt-2">
+                    Unidad de Salud Maria Goretti
+                  </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     INSTITUTO SAN FRANCISCO DE ASÍS
+                     ================================================= -->
+
+                <div class="text-center">
+
+                  <a
+                    href="https://www.isfapasto.edu.co/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visitar Instituto San Francisco de Asís">
+
+                    <img
+                      src="imagenes/Instituto-San-Francisco.png"
+                      alt="Instituto San Francisco de Asís"
+                      class="link-image">
+
+                  </a>
+
+                  <p class="mt-2">
+                    Instituto San Francisco de Asís
+                  </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     UNIVERSIDAD CESMAG
+                     ================================================= -->
+
+                <div class="text-center">
+
+                  <a
+                    href="https://www.unicesmag.edu.co/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visitar Universidad CESMAG">
+
+                    <img
+                      src="imagenes/universidad-cesmag.png"
+                      alt="Universidad CESMAG"
+                      class="link-image">
+
+                  </a>
+
+                  <p class="mt-2">
+                    Universidad CESMAG
+                  </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     HERMANOS MENORES CAPUCHINOS
+                     ================================================= -->
+
+                <div class="text-center">
+
+                  <a
+                    href="https://www.capuchinoscolombia.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visitar Orden de Hermanos Menores Capuchinos">
+
+                    <img
+                      src="imagenes/hermanos-capuchinos.webp"
+                      alt="Orden de Hermanos Menores Capuchinos"
+                      class="link-image">
+
+                  </a>
+
+                  <p class="mt-2">
+                    Orden de Hermanos Menores Capuchinos
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer
+    class="footer text-white py-5"
+    id="contacto">
+
+    <div class="footer-content">
+
+      <div class="container">
+
+        <div class="row g-4">
+
+
+          <!-- =================================================
+               INFORMACIÓN INSTITUCIONAL
+               ================================================= -->
+
+          <div
+            class="col-lg-4"
+            data-aos="fade-up">
+
+            <h3 class="footer-title d-flex align-items-center">
+
+              <img
+                src="imagenes/logo-iem.png"
+                alt="Escudo I.E.M. María Goretti"
+                class="footer-logo">
+
+              I.E.M. María Goretti
+
+            </h3>
+
+
+            <p class="mb-4">
+
+              La IEM María Goretti es una obra ubicada en el Municipio de Pasto,
+              liderada y dinamizada por los Hermanos Menores Capuchinos, que promueve
+              la educación y formación de niñas y jóvenes con base en principios
+              humanos, espirituales y sociales.
+
+            </p>
+
+
+            <div class="social-icons">
+
+              <a
+                href="https://www.facebook.com/people/IEM-Mar%C3%ADa-Goretti-Oficial-Pasto/61564223562211/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook">
+
+                <i class="fab fa-facebook-f"></i>
+
+              </a>
+
+
+              <a
+                href="https://www.instagram.com/iemmariagoretti/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram">
+
+                <i class="fab fa-instagram"></i>
+
+              </a>
+
+
+              <a
+                href="https://www.youtube.com/playlist?list=PLTj569CPY9FNJQFdTpmgAVB3Fp6ReDNna"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube">
+
+                <i class="fab fa-youtube"></i>
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               INFORMACIÓN DE CONTACTO
+               ================================================= -->
+
+          <div
+            class="col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="200">
+
+            <h4 class="footer-title">
+              Información de Contacto
+            </h4>
+
+
+            <div class="contact-info">
+
+              <p>
+
+                <i
+                  class="fas fa-map-marker-alt me-2"
+                  style="color: var(--accent-blue-light);">
+                </i>
+
+                Av. las Américas 15A-53<br>
+                Pasto, Nariño, Colombia
+
+              </p>
+
+
+              <p>
+
+                <i
+                  class="fas fa-phone me-2"
+                  style="color: var(--accent-blue-light);">
+                </i>
+
+                3104980939
+
+              </p>
+
+
+              <p>
+
+                <i
+                  class="fas fa-envelope me-2"
+                  style="color: var(--accent-blue-light);">
+                </i>
+
+                mgpasto@iemmariagoretti.edu.co
+
+              </p>
+
+
+              <p>
+
+                <i
+                  class="fas fa-clock me-2"
+                  style="color: var(--accent-blue-light);">
+                </i>
+
+                Lunes a Viernes: 6:45 AM - 12:45 PM
+                3:00 PM - 5:00 PM <br>
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               ENLACES RÁPIDOS
+               ================================================= -->
+
+          <div
+            class="col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="400">
+
+            <h4 class="footer-title">
+              Enlaces Rápidos
+            </h4>
+
+
+            <div class="row">
+
+
+              <div class="col-6">
+
+                <ul class="list-unstyled">
+
+                  <li class="mb-2">
+
+                    <a href="#noticias">
+
+                      <i
+                        class="fas fa-newspaper me-2"
+                        style="color: var(--accent-blue-light);">
+                      </i>
+
+                      Noticias
+
+                    </a>
+
+                  </li>
+
+
+                  <li class="mb-2">
+
+                    <a href="radio-improved.html">
+
+                      <i
+                        class="fas fa-radio me-2"
+                        style="color: var(--accent-blue-light);">
+                      </i>
+
+                      Estación Gorettiana
+
+                    </a>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+
+              <div class="col-6">
+
+                <ul class="list-unstyled">
+
+
+                  <li class="mb-2">
+
+                    <a
+                      href="https://elibro.net/es/lc/unicesmag/inicio"
+                      target="_blank"
+                      rel="noopener noreferrer">
+
+                      <i
+                        class="fas fa-book me-2"
+                        style="color: var(--accent-blue-light);">
+                      </i>
+
+                      Biblioteca
+
+                    </a>
+
+                  </li>
+
+
+                  <li class="mb-2">
+
+                    <a
+                      href="https://cachiri.sapred.com/sapred_inicio/"
+                      target="_blank"
+                      rel="noopener noreferrer">
+
+                      <i
+                        class="fas fa-shield-alt me-2"
+                        style="color: var(--accent-blue-light);">
+                      </i>
+
+                      SAPRED
+
+                    </a>
+
+                  </li>
+
+
+                  <li class="mb-2">
+
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w"
+                      target="_blank"
+                      rel="noopener noreferrer">
+
+                      <i
+                        class="fas fa-question-circle me-2"
+                        style="color: var(--accent-blue-light);">
+                      </i>
+
+                      PQRF
+
+                    </a>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Línea separadora -->
+
+        <hr
+          class="my-4"
+          style="border-color: rgba(255, 255, 255, 0.2);">
+
+
+        <!-- Copyright -->
+
+        <div class="row align-items-center">
+
+          <div class="col-md-8">
+
+            <p class="mb-2">
+
+              &copy; 2026 I.E.M. María Goretti |
+              Todos los derechos reservados
+
+            </p>
+
+
+            <p class="mb-0">
+
+              <small>
+                NIT: 900034371-9
+              </small>
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================================================
+       BOTÓN VOLVER ARRIBA
+       ========================================================= -->
+
+  <button
+    class="scroll-top"
+    id="scrollTop"
+    aria-label="Volver arriba">
+
+    <i class="fas fa-chevron-up"></i>
+
+  </button>
+
+
+  <!-- =========================================================
+       SCRIPTS
+       ========================================================= -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+    integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+    crossorigin="anonymous">
+  </script>
+
+
+  <script src="script.js?v=2" defer></script>
+
+
+  <!-- =========================================================
+       ESQUEMA DE DATOS ESTRUCTURADOS PARA SEO
+       ========================================================= -->
+
+  <script type="application/ld+json">
+
+  {
+    "@context": "https://schema.org",
+
+    "@type": "School",
+
+    "name": "Institución Educativa Municipal María Goretti",
+
+    "alternateName": "I.E.M. María Goretti",
+
+    "description": "Institución educativa comprometida con la formación integral de mujeres líderes, fundamentada en valores cristianos y excelencia académica.",
+
+    "url": "https://iemmariagoretti.edu.co",
+
+    "logo": "https://iemmariagoretti.edu.co/imagenes/logo-iem.png",
+
+    "image": "https://iemmariagoretti.edu.co/imagenes/logo-iem.png",
+
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrera 22F N° 12 - 48 Parque de Santiago",
+      "addressLocality": "Pasto",
+      "addressRegion": "Nariño",
+      "addressCountry": "Colombia"
+    },
+
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+57-3145249771",
+      "contactType": "Customer Service",
+      "email": "isfaedu@gmail.com",
+      "areaServed": "CO",
+      "availableLanguage": ["Spanish"]
+    },
+
+    "sameAs": [
+      "https://www.facebook.com/people/IEM-Mar%C3%ADa-Goretti-Oficial-Pasto/61564223562211/",
+      "https://x.com/iemmariagoretti",
+      "https://www.instagram.com/iemmariagoretti/",
+      "https://www.youtube.com/playlist?list=PLTj569CPY9FNJQFdTpmgAVB3Fp6ReDNna"
+    ],
+
+    "openingHoursSpecification": [
+
+      {
+        "@type": "OpeningHoursSpecification",
+
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+
+        "opens": "07:00",
+        "closes": "16:00"
+      },
+
+      {
+        "@type": "OpeningHoursSpecification",
+
+        "dayOfWeek": "Saturday",
+
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+
+    ]
+
+  }
+
+  </script>
+
+</body>
+
+</html>

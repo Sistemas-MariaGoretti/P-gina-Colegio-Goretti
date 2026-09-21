@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Teleología Institucional - I.E.M. María Goretti" />
+  <title>Teleología - I.E.M. María Goretti</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    onerror="this.href='css/bootstrap.min.css'" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    onerror="this.href='css/fontawesome.min.css'" />
+
+  <!-- AOS Animation Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <!-- Estilos Modernos -->
+  <style>
+    :root {
+      /* Paleta de colores - ROJO como primario */
+      --primary-red: #DC2626;
+      --primary-red-dark: #B91C1C;
+      --primary-red-light: #F87171;
+      --accent-blue: #1E40AF;
+      --accent-blue-dark: #1E3A8A;
+      --accent-blue-light: #3B82F6;
+      --background-white: #FFFFFF;
+      --neutral-light: #F8FAFC;
+      --neutral-gray: #E2E8F0;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+
+      /* Sombras con rojo */
+      --shadow-sm: 0 1px 2px 0 rgba(220, 38, 38, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(220, 38, 38, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(220, 38, 38, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(220, 38, 38, 0.1);
+      --shadow-2xl: 0 25px 50px -12px rgba(220, 38, 38, 0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      background-color: var(--background-white);
+      color: var(--text-dark);
+    }
+
+    /* Logo colegio */
+    .logo-escudo {
+      height: 45px;
+      width: 45px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-dark) 100%);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 3px solid var(--primary-red);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: var(--shadow-xl);
+    }
+
+    .navbar-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--text-light) !important;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+      color: var(--text-light) !important;
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--text-light) !important;
+      font-weight: 500;
+      padding: 0.5rem 1rem !important;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .navbar-nav .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-red);
+      transition: left 0.5s ease;
+    }
+
+    .navbar-nav .nav-link:hover::before {
+      left: 100%;
+    }
+
+    .navbar-nav .nav-link:hover {
+      background: var(--primary-red);
+      transform: translateY(-2px);
+      color: var(--text-light) !important;
+    }
+
+    .dropdown-menu {
+      background: var(--accent-blue);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-2xl);
+      border-radius: 12px;
+      padding: 0.5rem;
+    }
+
+    .dropdown-item {
+      color: var(--text-light);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .dropdown-item:hover {
+      background: var(--primary-red);
+      color: var(--text-light);
+      transform: translateX(5px);
+    }
+
+    /* Secciones */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-bg-light {
+      background: linear-gradient(135deg, var(--neutral-light) 0%, var(--background-white) 100%);
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary-red);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent-blue);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      margin-bottom: 3rem;
+      opacity: 0.9;
+    }
+
+    /* Tarjetas modernas */
+    .card-modern {
+      background: var(--background-white);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      transition: all 0.4s ease;
+      border-top: 4px solid var(--primary-red);
+    }
+
+    .card-modern:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Imágenes */
+    img {
+      border-radius: 15px;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Galería de imágenes de la sección de teleología: altura controlada */
+    /* Imágenes de Teleología */
+    .about-section .row.g-4.mb-5 img {
+      width: 75%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+
+      .footer {
+        background:
+          linear-gradient(160deg,
+            var(--primary-red) 0%,
+            #c91f22 55%,
+            #d96f6f 100%);
+      }
+
+      .footer::after {
+        right: -35%;
+        bottom: -20%;
+
+        width: 110%;
+        height: 50%;
+
+        opacity: 0.75;
+      }
+
+      .footer .container {
+        padding-top: 2.5rem;
+      }
+
+      .footer-title {
+        margin-bottom: 1.5rem;
+      }
+
+      .social-icons a {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+      }
+
+      .footer .contact-info p {
+        line-height: 1.6;
+      }
+    }
+
+    /* =========================================================
+   FOOTER - DISEÑO INSTITUCIONAL
+   ========================================================= */
+
+    .footer {
+      position: relative;
+      overflow: hidden;
+      margin-top: 18px;
+      border-top: none;
+
+      background:
+        linear-gradient(135deg,
+          var(--primary-red) 0%,
+          #c91f22 48%,
+          var(--primary-red-dark) 72%,
+          #d46a6a 100%);
+
+      color: var(--text-light);
+    }
+
+    /* Difuminado blanco en la parte inferior derecha */
+    .footer::after {
+      content: '';
+      position: absolute;
+      right: -8%;
+      bottom: -35%;
+      width: 55%;
+      height: 75%;
+
+      background:
+        radial-gradient(ellipse at center,
+          rgba(255, 255, 255, 0.42) 0%,
+          rgba(255, 255, 255, 0.22) 35%,
+          rgba(255, 255, 255, 0.08) 58%,
+          transparent 75%);
+
+      filter: blur(20px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Mantiene todo el contenido por encima del difuminado */
+    .footer-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.90);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #ffffff;
+      text-decoration: none;
+      transform: translateX(3px);
+    }
+
+    .footer-title {
+      position: relative;
+
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+
+      margin-bottom: 1.8rem;
+
+      color: #ffffff;
+    }
+
+    /* Línea blanca */
+    .footer-title::before {
+      content: '';
+      position: absolute;
+
+      left: 0;
+      bottom: -0.65rem;
+
+      width: 70px;
+      height: 4px;
+
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+    }
+
+    /* Pequeño detalle azul */
+    .footer-title::after {
+      content: '';
+      position: absolute;
+
+      left: 0;
+      bottom: -0.65rem;
+
+      width: 68px;
+      height: 4px;
+
+      background:
+        linear-gradient(90deg,
+          #ffffff 0%,
+          #ffffff 58%,
+          var(--accent-blue-light) 58%,
+          var(--accent-blue-light) 100%);
+
+      border-radius: 10px;
+    }
+
+    .footer .container {
+      position: relative;
+      z-index: 1;
+
+      padding-top: 3.5rem;
+      padding-bottom: 1.2rem;
+    }
+
+    .footer .row.g-4 {
+      row-gap: 2.5rem;
+    }
+
+    .footer-description {
+      max-width: 440px;
+      line-height: 1.7;
+      margin-bottom: 2rem !important;
+    }
+
+    .footer .contact-info p {
+      display: flex;
+      align-items: flex-start;
+
+      gap: 0.55rem;
+
+      margin-bottom: 1rem;
+
+      line-height: 1.7;
+    }
+
+    .footer .contact-info p i {
+      margin-top: 0.3rem;
+      min-width: 18px;
+    }
+
+    .footer .list-unstyled li {
+      margin-bottom: 0.8rem !important;
+    }
+
+    .footer .list-unstyled a {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 58px;
+      height: 58px;
+
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-light);
+
+      border-radius: 50%;
+      font-size: 1.3rem;
+
+      margin: 0;
+
+      border: 2px solid rgba(255, 255, 255, 0.25);
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+
+      border-color: rgba(255, 255, 255, 0.55);
+
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Scroll to top */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: var(--primary-red);
+      color: var(--text-light);
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      background: var(--text-light);
+      color: var(--primary-red);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-2xl);
+    }
+
+
+    /* =========================================================
+                    IDENTIDAD INSTITUCIONAL
+       ========================================================= */
+
+    .about-section {
+      padding: 4rem 0;
+    }
+
+    .about-section .row.g-4.mb-5 {
+      margin-bottom: 3rem !important;
+    }
+
+    .about-section .row.g-4.mb-5 img {
+      width: 75%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px !important;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .about-section .row.g-4.mb-5 img:hover {
+      transform: translateY(-4px);
+    }
+
+    .institutional-card {
+      position: relative;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(30, 64, 175, 0.10);
+      border-radius: 14px;
+      padding: 1.5rem 1.6rem;
+      box-shadow: 0 5px 18px rgba(30, 64, 175, 0.07);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .institutional-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 55px;
+      height: 4px;
+      background: var(--primary-red);
+      border-radius: 0 0 5px 0;
+    }
+
+    .institutional-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(30, 64, 175, 0.11);
+      border-color: rgba(220, 38, 38, 0.18);
+    }
+
+    .institutional-title {
+      color: var(--text-dark);
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+      position: relative;
+    }
+
+    .institutional-title::after {
+      content: '';
+      display: block;
+      width: 38px;
+      height: 2px;
+      background: var(--primary-red);
+      margin-top: 7px;
+      border-radius: 3px;
+    }
+
+    .institutional-card p {
+      color: var(--text-dark);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+
+    .institutional-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .institutional-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      color: var(--text-dark);
+      font-size: 0.91rem;
+      line-height: 1.5;
+      padding: 0.4rem 0;
+      transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+    .institutional-list li:hover {
+      transform: translateX(4px);
+    }
+
+    .institutional-list li i {
+      width: 18px;
+      min-width: 18px;
+      text-align: center;
+      margin-top: 3px;
+      color: var(--accent-blue) !important;
+    }
+
+    .institutional-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 3rem;
+      row-gap: 0.2rem;
+    }
+
+    .quality-policy {
+      border-left: 4px solid var(--primary-red);
+      padding-left: 1.2rem;
+    }
+
+    .value-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.38rem 0;
+      font-size: 0.91rem;
+      color: var(--text-dark);
+      transition: transform 0.25s ease;
+    }
+
+    .value-item:hover {
+      transform: translateX(4px);
+    }
+
+    .value-item i {
+      color: var(--accent-blue);
+      width: 18px;
+      text-align: center;
+    }
+
+    .principle-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      padding: 0.38rem 0;
+      color: var(--text-dark);
+      font-size: 0.91rem;
+      line-height: 1.5;
+    }
+
+    .principle-number {
+      color: var(--primary-red);
+      font-weight: 700;
+      min-width: 24px;
+    }
+
+    .institutional-section-spacing {
+      margin-bottom: 2.4rem;
+    }
+
+    /* Footer compacto, manteniendo el diseño original */
+    .footer {
+      font-size: 0.9rem;
+    }
+
+    .footer .container {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer .footer-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .footer p,
+    .footer li,
+    .footer a {
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .footer .contact-info p {
+      margin-bottom: 0.7rem;
+    }
+
+    .footer .social-icons a {
+      width: 42px;
+      height: 42px;
+      font-size: 1.05rem;
+      margin: 0 0.25rem;
+    }
+
+    .footer hr {
+      margin-top: 1.2rem !important;
+      margin-bottom: 0.8rem !important;
+    }
+
+    .footer .footer-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 50%;
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .footer .footer-description {
+      max-width: 360px;
+    }
+
+    .scroll-top {
+      width: 54px;
+      height: 54px;
+      font-size: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-section {
+        padding: 3rem 0;
+      }
+
+      .about-section .row.g-4.mb-5 img {
+        width: 90%;
+        height: 220px;
+      }
+
+      .institutional-card {
+        padding: 1.3rem;
+      }
+
+      .institutional-title {
+        font-size: 1.1rem;
+      }
+
+      .institutional-items {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .institutional-section-spacing {
+        margin-bottom: 1.7rem;
+      }
+
+      .footer .footer-logo {
+        width: 38px;
+        height: 38px;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- =====================================================
+       ESTANDARIZACIÓN VISUAL INSTITUCIONAL
+       Aplicada de forma consistente sin modificar contenido
+       ni funcionalidad.
+       ===================================================== -->
+  <style id="estandarizacion-visual-institucional">
+    :root {
+      --primary-red: #DC2626;
+      --primary-red-dark: #B91C1C;
+      --primary-red-light: #F87171;
+      --accent-blue: #1E40AF;
+      --accent-blue-dark: #1E3A8A;
+      --accent-blue-light: #3B82F6;
+      --background-white: #FFFFFF;
+      --neutral-light: #F8FAFC;
+      --neutral-gray: #E2E8F0;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --section-space: 5rem;
+      --section-space-mobile: 3rem;
+      --radius-card: 16px;
+      --footer-border: 3px solid var(--primary-red-dark);
+    }
+
+    /* BASE TIPOGRÁFICA Y ESPACIADO */
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--background-white);
+    }
+
+    .section {
+      padding: var(--section-space) 0;
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--primary-red);
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      color: var(--text-dark);
+    }
+
+    .section p,
+    .card-modern p,
+    .institutional-card p,
+    .about-section p {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    /* NAVBAR UNIFICADO */
+    #mainNavbar,
+    .navbar.fixed-top {
+      min-height: 70px;
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-dark) 100%) !important;
+      border-bottom: 3px solid var(--primary-red) !important;
+    }
+
+    #mainNavbar .container-fluid,
+    .navbar.fixed-top .container-fluid {
+      min-height: 70px;
+      align-items: center;
+    }
+
+    #mainNavbar .logo-escudo,
+    .navbar.fixed-top .logo-escudo {
+      width: 55px !important;
+      height: 55px !important;
+      object-fit: contain !important;
+      object-position: center center;
+      border-radius: 50% !important;
+      padding: 0 !important;
+      border: none !important;
+      background: transparent !important;
+      flex-shrink: 0;
+    }
+
+    #mainNavbar .navbar-brand,
+    .navbar.fixed-top .navbar-brand {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      color: var(--text-light) !important;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    #mainNavbar .navbar-brand span,
+    .navbar.fixed-top .navbar-brand span {
+      font-size: 1.35rem !important;
+      font-weight: 700 !important;
+      line-height: 1.2;
+      color: var(--text-light) !important;
+    }
+
+    #mainNavbar .nav-link,
+    .navbar.fixed-top .nav-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem !important;
+      font-weight: 600;
+      padding: 0.6rem 0.75rem !important;
+      border-radius: 8px;
+    }
+
+    #mainNavbar .dropdown-menu,
+    .navbar.fixed-top .dropdown-menu {
+      background: var(--accent-blue) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 0.5rem;
+    }
+
+    #mainNavbar .dropdown-item,
+    .navbar.fixed-top .dropdown-item {
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 8px;
+    }
+
+    /* TARJETAS Y ELEMENTOS VISUALES */
+    .card-modern {
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      border-top: 4px solid var(--primary-red);
+    }
+
+    .institutional-card {
+      border-radius: var(--radius-card);
+    }
+
+    /* FOOTER UNIFICADO */
+    .footer {
+      position: relative;
+      margin-top: 0 !important;
+      border-top: var(--footer-border) !important;
+      background:
+        linear-gradient(135deg,
+          var(--primary-red) 0%,
+          #c91f22 48%,
+          var(--primary-red-dark) 72%,
+          #d46a6a 100%) !important;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .footer .container {
+      padding-top: 3rem !important;
+      padding-bottom: 1.5rem !important;
+    }
+
+    .footer .row.g-4 {
+      row-gap: 2.5rem;
+    }
+
+    .footer .footer-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.35rem !important;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1.5rem !important;
+      color: var(--text-light);
+    }
+
+    .footer .footer-logo,
+    .footer-logo {
+      width: 55px !important;
+      height: 55px !important;
+      min-width: 55px !important;
+      min-height: 55px !important;
+      object-fit: contain !important;
+      object-position: center center;
+      border-radius: 50% !important;
+      background: transparent !important;
+      padding: 0 !important;
+      border: none !important;
+      margin-right: 1rem !important;
+      flex-shrink: 0;
+    }
+
+    .footer p,
+    .footer li,
+    .footer a {
+      font-size: 0.95rem !important;
+      line-height: 1.6;
+    }
+
+    .footer .footer-description {
+      max-width: 440px;
+      margin-bottom: 1.75rem !important;
+    }
+
+    .footer .contact-info p {
+      margin-bottom: 0.85rem !important;
+    }
+
+    .footer .list-unstyled li {
+      margin-bottom: 0.75rem !important;
+    }
+
+    .footer hr {
+      margin-top: 1.5rem !important;
+      margin-bottom: 1rem !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
+      opacity: 1;
+    }
+
+    .social-icons {
+      gap: 0.75rem;
+    }
+
+    .social-icons a {
+      width: 50px !important;
+      height: 50px !important;
+      margin: 0 !important;
+      border-radius: 50%;
+      font-size: 1.15rem !important;
+      border: 2px solid rgba(255, 255, 255, 0.25) !important;
+    }
+
+    /* BOTÓN VOLVER ARRIBA */
+    .scroll-top {
+      width: 54px !important;
+      height: 54px !important;
+      font-size: 1.25rem !important;
+    }
+
+    @media (max-width: 991.98px) {
+
+      #mainNavbar,
+      .navbar.fixed-top,
+      #mainNavbar .container-fluid,
+      .navbar.fixed-top .container-fluid,
+      #mainNavbar .navbar-brand,
+      .navbar.fixed-top .navbar-brand {
+        min-height: 65px;
+      }
+
+      #mainNavbar .navbar-brand span,
+      .navbar.fixed-top .navbar-brand span {
+        font-size: 1.15rem !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: var(--section-space-mobile) 0;
+      }
+
+      .section-title {
+        font-size: clamp(1.9rem, 8vw, 2.5rem);
+      }
+
+      .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      #mainNavbar,
+      .navbar.fixed-top,
+      #mainNavbar .container-fluid,
+      .navbar.fixed-top .container-fluid,
+      #mainNavbar .navbar-brand,
+      .navbar.fixed-top .navbar-brand {
+        min-height: 60px;
+      }
+
+      #mainNavbar .logo-escudo,
+      .navbar.fixed-top .logo-escudo {
+        width: 45px !important;
+        height: 45px !important;
+      }
+
+      #mainNavbar .navbar-brand span,
+      .navbar.fixed-top .navbar-brand span {
+        font-size: 1rem !important;
+      }
+
+      .footer .container {
+        padding-top: 2.5rem !important;
+        padding-bottom: 1.25rem !important;
+      }
+
+      .footer .footer-title {
+        font-size: 1.2rem !important;
+        margin-bottom: 1.25rem !important;
+      }
+
+      .footer p,
+      .footer li,
+      .footer a {
+        font-size: 0.9rem !important;
+      }
+
+      .footer .footer-logo,
+      .footer-logo {
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+      }
+
+      .social-icons a {
+        width: 46px !important;
+        height: 46px !important;
+      }
+    }
+  </style>
+
+
+  <!-- El fondo del hero y el tamaño de la muñeca usan ahora
+       el mismo sistema compartido de css/styles.css que el
+       resto de páginas institucionales (.hero / .hero-image-container
+       / .hero-image), para que todas las portadas se vean iguales. -->
+
+</head>
+
+<body id="inicio">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" id="mainNavbar">
+    <div class="container-fluid">
+      <!-- Logo añadido como imagen -->
+      <a class="navbar-brand py-2 d-flex align-items-center" href="index.html">
+        <img src="imagenes/logo-iem.png" alt="Logo María Goretti" class="logo-escudo me-2">
+        <span>I.E.M. María Goretti</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+
+
+          <li class="nav-item dropdown nav-item-large">
+            <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+              aria-expanded="false">Institución</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="teleología.html">Teleología</a></li>
+              <li><a class="dropdown-item" href="padre-fundador.html">Fundador</a></li>
+              <li><a class="dropdown-item" href="simbolo.html">Símbolos</a></li>
+              <li><a class="dropdown-item" href="Santos-patronos.html">Santos Patronos</a></li>
+            </ul>
+          </li>
+
+          <!-- DOCUMENTOS -->
+          <li class="nav-item dropdown nav-item-large">
+
+            <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+
+              Documentos
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" href="documentos.html">
+                  Documentos Institucionales
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="horario-padres.html">
+                  Horario Padres
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+          <li class="nav-item dropdown nav-item-large">
+            <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+              aria-expanded="false">Comunidad</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="obra-goretti.html">Obra Gorettiana</a></li>
+              <li><a class="dropdown-item" href="pastoral.html">Pastoral</a></li>
+              <li><a class="dropdown-item" href="Egresadas.html">Egresadas</a></li>
+              <li><a class="dropdown-item" href="MetaApp.html">MetaAPP</a></li>
+              <li>
+                <a class="dropdown-item"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w"
+                  target="_blank">
+                  PQRF
+                </a>
+              </li>
+              <li><a class="dropdown-item" href="radio-improved.html">Estación Gorettiana</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown nav-item-large">
+            <a class="nav-link dropdown-toggle px-lg-2 py-2" href="#" data-bs-toggle="dropdown"
+              aria-expanded="false">Proyectos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="bilinguismo.html">Bilingüismo</a></li>
+              <!-- Próximamente: proyecto Emprendimiento <li><a class="dropdown-item" href="emprendimiento.html">Emprendimiento</a></li> -->
+              <li><a class="dropdown-item" href="mujer.html">Mujer Constructora</a></li>
+              <li><a class="dropdown-item" href="semillas.html">Semillas de amor</a></li>
+              <li><a class="dropdown-item" href="pileo.html">PILEO</a></li>
+              <li><a class="dropdown-item" href="QHERIDA.html">Qherida Mujer</a></li>
+              <li><a class="dropdown-item" href="cada-minuto.html">Que cada minuto cuente</a></li>
+            </ul>
+          </li>
+          <li class="nav-item nav-item-large">
+            <a class="nav-link px-lg-2 py-2" href="https://elibro.net/es/lc/unicesmag/inicio" target="_blank">
+              Biblioteca
+            </a>
+          </li>
+          <li class="nav-item nav-item-large">
+            <a class="nav-link px-lg-2 py-2" href="https://cachiri.sapred.com/sapred_inicio/" target="_blank">
+              SAPRED
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero position-relative">
+    <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+      <h1>Teleología Institucional</h1>
+      <p class="hero-subtitle">Formación integral con valores humanos y cristianos</p>
+    </div>
+
+    <!-- Muñeca de Teleología: fondo transparente -->
+    <div class="hero-image-container" data-aos="fade-left" data-aos-duration="1000">
+      <img class="hero-image" src="ImagenesT/portada.png" alt="Niña representando la formación cristiana y escolar">
+    </div>
+  </header>
+
+  <!-- Sección Teleología -->
+  <section class="section section-bg-light about-section" id="teologia">
+    <div class="container">
+
+      <!-- Galería -->
+      <div class="row g-4 mb-5">
+        <div class="col-12 col-md-6" data-aos="fade-right">
+          <img src="ImagenesT/teologia (1).JPG" class="img-fluid rounded shadow-lg" alt="Teología 1">
+        </div>
+        <div class="col-12 col-md-6" data-aos="fade-left">
+          <img src="ImagenesT/teologia (2).JPG" class="img-fluid rounded shadow-lg" alt="Teología 2">
+        </div>
+      </div>
+
+      <!-- Misión y Visión -->
+      <div class="row g-4 institutional-section-spacing">
+        <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="institutional-card">
+            <h4 class="institutional-title">Misión</h4>
+            <p>Formamos a la niñez y juventud femenina de los sectores populares, fundamentados en la Filosofía
+              Personalizante y Humanizadora, para construir una sociedad más humana y justa.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="institutional-card">
+            <h4 class="institutional-title">Visión</h4>
+            <p>Seremos reconocidos por la proyección de nuestras estudiantes y la formación al estilo del Enfoque
+              Personalizante y Humanizador.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Factores Clave -->
+      <div class="institutional-card institutional-section-spacing" data-aos="fade-up" data-aos-delay="300">
+        <h4 class="institutional-title">Factores Clave de Éxito</h4>
+        <div class="institutional-items">
+          <ul class="institutional-list">
+            <li><i class="fas fa-users"></i><span>Dirección colegiada</span></li>
+            <li><i class="fas fa-lightbulb"></i><span>Filosofía Personalizante y Humanizadora</span></li>
+          </ul>
+          <ul class="institutional-list">
+            <li><i class="fas fa-female"></i><span>Formación femenina</span></li>
+            <li><i class="fas fa-heart"></i><span>Bienestar estudiantil</span></li>
+            <li><i class="fas fa-handshake"></i><span>Apoyo interinstitucional</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Política de Calidad -->
+      <div class="institutional-card institutional-section-spacing" data-aos="fade-up" data-aos-delay="400">
+        <h4 class="institutional-title">Política de Calidad</h4>
+        <div class="quality-policy">
+          <p>Estamos comprometidos con el fortalecimiento de la significatividad, pertinencia, inclusión y eficiencia de
+            nuestro proyecto Educativo Institucional, la calidez de la comunidad educativa y el mejoramiento continuo de
+            nuestros procesos.</p>
+        </div>
+      </div>
+
+      <!-- Objetivos de Calidad -->
+      <div class="institutional-card institutional-section-spacing" data-aos="fade-up" data-aos-delay="500">
+        <h4 class="institutional-title">Objetivos de Calidad</h4>
+        <div class="institutional-items">
+          <ul class="institutional-list">
+            <li><i class="fas fa-chart-line"></i><span>Mejoramiento continuo con dirección colegiada.</span></li>
+            <li><i class="fas fa-user-graduate"></i><span>Promover el perfil de mujer y sociedad mediante el Enfoque
+                Personalizante.</span></li>
+          </ul>
+          <ul class="institutional-list">
+            <li><i class="fas fa-life-ring"></i><span>Mejorar la calidad de vida de las estudiantes y dinamizar la
+                comunidad.</span></li>
+            <li><i class="fas fa-shield-alt"></i><span>Administrar recursos con honradez, transparencia y
+                eficiencia.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Valores y Principios -->
+      <div class="row g-4">
+        <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="institutional-card h-100">
+            <h4 class="institutional-title">Valores Institucionales</h4>
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="value-item"><i class="fas fa-heart"></i><span>Amor</span></div>
+                <div class="value-item"><i class="fas fa-check-circle"></i><span>Verdad</span></div>
+                <div class="value-item"><i class="fas fa-dove"></i><span>Libertad</span></div>
+                <div class="value-item"><i class="fas fa-balance-scale"></i><span>Justicia</span></div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="value-item"><i class="fas fa-hands-helping"></i><span>Respeto</span></div>
+                <div class="value-item"><i class="fas fa-user-check"></i><span>Responsabilidad</span></div>
+                <div class="value-item"><i class="fas fa-hands"></i><span>Solidaridad</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="700">
+          <div class="institutional-card h-100">
+            <h4 class="institutional-title">Principios Institucionales</h4>
+            <div class="principle-item"><span class="principle-number">01</span><span>Educar en el amor con amor</span>
+            </div>
+            <div class="principle-item"><span class="principle-number">02</span><span>Educar en la verdad con
+                verdad</span></div>
+            <div class="principle-item"><span class="principle-number">03</span><span>Educar en la justicia con
+                justicia</span></div>
+            <div class="principle-item"><span class="principle-number">04</span><span>Educar en la libertad con
+                libertad</span></div>
+            <div class="principle-item"><span class="principle-number">05</span><span>Aproximarse a la ciencia con
+                conciencia</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-white" id="contacto">
+    <div class="footer-content">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4" data-aos="fade-up">
+            <h3 class="footer-title d-flex align-items-center">
+              <img src="imagenes/logo-iem.png" alt="Escudo I.E.M. María Goretti" class="footer-logo">
+              I.E.M. María Goretti
+            </h3>
+            <p class="mb-4 footer-description">La IEM María Goretti es una obra ubicada en el Municipio de Pasto,
+              liderada y dinamizada
+              por los Hermanos Menores Capuchinos, que promueve la educación y formación de niñas y jóvenes con base
+              en principios humanos, espirituales y sociales.</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/people/IEM-Mar%C3%ADa-Goretti-Oficial-Pasto/61564223562211/"
+                target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/iemmariagoretti/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.youtube.com/playlist?list=PLTj569CPY9FNJQFdTpmgAVB3Fp6ReDNna" target="_blank"
+                aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="footer-title">Información de Contacto</h4>
+            <div class="contact-info">
+              <p>
+                <i class="fas fa-map-marker-alt me-2" style="color: var(--accent-blue-light);"></i>
+                Av. las Américas 15A-53<br>
+                Pasto, Nariño, Colombia
+              </p>
+              <p>
+                <i class="fas fa-phone me-2" style="color: var(--accent-blue-light);"></i>
+                3104980939
+              </p>
+              <p>
+                <i class="fas fa-envelope me-2" style="color: var(--accent-blue-light);"></i>
+                mgpasto@iemmariagoretti.edu.co
+              </p>
+              <p>
+                <i class="fas fa-clock me-2" style="color: var(--accent-blue-light);"></i>
+                Lunes a Viernes: 6:45 AM - 12:45 PM
+                3:00 PM - 5:00 PM <br>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <h4 class="footer-title">Enlaces Rápidos</h4>
+            <div class="row">
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a href="#noticias">
+                      <i class="fas fa-newspaper me-2" style="color: var(--accent-blue-light);"></i>Noticias
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="radio-improved.html">
+                      <i class="fas fa-radio me-2" style="color: var(--accent-blue-light);"></i>Estación Gorettiana
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a href="https://elibro.net/es/lc/unicesmag/inicio">
+                      <i class="fas fa-book me-2" style="color: var(--accent-blue-light);"></i>Biblioteca
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="https://cachiri.sapred.com/sapred_inicio/">
+                      <i class="fas fa-shield-alt me-2" style="color: var(--accent-blue-light);"></i>SAPRED
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a
+                      href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w">
+                      <i class="fas fa-question-circle me-2" style="color: var(--accent-blue-light);"></i>PQR
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.2);">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <p class="mb-2">&copy; 2026 I.E.M. María Goretti | Todos los derechos reservados</p>
+            <p class="mb-0"><small>NIT: 900034371-9</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+
+    window.addEventListener('scroll', function () {
+      const navbar = document.getElementById('mainNavbar');
+      const scrollTop = document.getElementById('scrollTop');
+
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+        scrollTop.classList.add('visible');
+      } else {
+        navbar.classList.remove('scrolled');
+        scrollTop.classList.remove('visible');
+      }
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const navbarHeight = document.querySelector('.navbar').offsetHeight;
+          const targetPosition = target.offsetTop - navbarHeight - 20;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    document.getElementById('scrollTop').addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('mouseenter', function () {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+      });
+
+      card.addEventListener('mouseleave', function () {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    function loadDynamicContent(containerId, type) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = `
+    <div class="text-center py-5">
+      <div class="loading-spinner"></div>
+      <p class="mt-3">Cargando ${type}...</p>
+    </div>`;
+
+      fetch(`/api/airtable.php?tipo=${type}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          let content = "";
+          let modals = "";
+
+          if (!data.records || data.records.length === 0) {
+            content = `
+        <div class="text-center py-5">
+          <div class="loading-spinner"></div>
+          <p class="mt-3">No hay ${type} disponibles</p>
+        </div>`;
+          } else if (type === 'noticias') {
+            data.records.forEach((record, index) => {
+              const item = record.fields;
+              if (!item.titulo || !item.descripcion || !item.icono) return;
+
+              const escapeHTML = str => str.replace(/[&<>"']/g, match => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+              })[match]);
+
+              const title = escapeHTML(item.titulo);
+              const description = escapeHTML(item.descripcion);
+              const icon = escapeHTML(item.icono);
+              const detalle = item.detalle ? escapeHTML(item.detalle) : description;
+              const fecha = item.fecha ? `<small class="text-muted">${escapeHTML(new Date(item.fecha).toLocaleDateString())}</small>` : '';
+              const modalId = `noticiaModal${index}`;
+
+              content += `
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="${100 * (index + 1)}">
+            <div class="card-modern text-center" data-bs-toggle="modal" data-bs-target="#${modalId}">
+              <div class="card-body">
+                <div class="card-icon">
+                  <i class="fas fa-${icon}"></i>
+                </div>
+                <h5 class="fw-bold mb-3">${title}</h5>
+                <p class="text-muted">${description}</p>
+                ${fecha}
+              </div>
+            </div>
+          </div>`;
+
+              modals += `
+          <div class="modal fade" id="${modalId}" tabindex="-1" aria-labelledby="${modalId}Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="${modalId}Label">${title}</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                  <p>${detalle}</p>
+                  ${fecha ? `<p><small class="text-muted">Fecha: ${fecha}</small></p>` : ''}
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>`;
+            });
+            document.body.insertAdjacentHTML('beforeend', modals);
+          } else if (type === 'eventos') {
+            data.records.forEach((record, index) => {
+              const item = record.fields;
+              if (!item.titulo || (!item.texto && !item.descripcion) || (!item.archivo && !item.imagen)) return;
+
+              const escapeHTML = str => str.replace(/[&<>"']/g, match => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+              })[match]);
+
+              const title = escapeHTML(item.titulo);
+              const description = escapeHTML(item.texto || item.descripcion);
+              const mediaUrl = item.archivo || (item.imagen ? item.imagen[0].url : '');
+
+              let media;
+              if (mediaUrl && (mediaUrl.includes('.mp4') || mediaUrl.includes('.webm'))) {
+                media = `<video class="d-block w-100" autoplay muted loop><source src="${mediaUrl}" type="video/mp4"></video>`;
+              } else if (mediaUrl) {
+                media = `<img src="${mediaUrl}" class="d-block w-100" alt="${title}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 400 300\\'%3E%3Crect fill=\\'%23ddd\\' width=\\'400\\' height=\\'300\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' fill=\\'%23999\\'%3EImagen no disponible%3C/text%3E%3C/svg%3E'">`;
+              } else {
+                media = '';
+              }
+
+              content += `
+          <div class="carousel-item ${index === 0 ? 'active' : ''}">
+            ${media}
+            <div class="carousel-caption">
+              <h5 class="mb-3">${title}</h5>
+              <p>${description}</p>
+            </div>
+          </div>`;
+            });
+          }
+          container.innerHTML = content;
+
+          if (type === 'eventos') {
+            const carouselElement = container.closest('.carousel');
+            if (carouselElement && window.bootstrap) {
+              new bootstrap.Carousel(carouselElement);
+            }
+          }
+        })
+        .catch(error => {
+          console.error(`Error detallado al cargar ${type}:`, error);
+          container.innerHTML = `
+      <div class="text-center py-5">
+        <div class="loading-spinner"></div>
+        <p class="mt-3">Error al cargar ${type}: ${error.message}</p>
+        <button class="btn btn-outline-primary mt-3" onclick="location.reload()">
+          <i class="fas fa-redo me-2"></i>Recargar
+        </button>
+      </div>`;
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      loadDynamicContent('noticias-content', 'noticias');
+      loadDynamicContent('eventos-content', 'eventos');
+
+      const elementsToAnimate = document.querySelectorAll('.card-modern, .btn-hero, .mission-card');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      elementsToAnimate.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.6s ease-out';
+        observer.observe(el);
+      });
+    });
+
+    document.querySelectorAll('.btn-hero').forEach(button => {
+      button.addEventListener('click', function (e) {
+        const ripple = document.createElement('span');
+        ripple.style.cssText = `
+          position: absolute;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.4);
+          transform: scale(0);
+          animation: ripple 0.6s linear;
+          pointer-events: none;
+        `;
+
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+
+        this.appendChild(ripple);
+
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes ripple {
+        to { transform: scale(4); opacity: 0; }
+      }
+      .btn-hero { position: relative; overflow: hidden; }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="Horarios de atención para padres de familia y acudientes - I.E.M. María Goretti">
+
+  <title>Horario de Atención - I.E.M. María Goretti</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- AOS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <!-- Estilos generales -->
+  <link rel="stylesheet" href="css/styles.css">
+
+
+  <style>
+
+    /* =====================================================
+       VARIABLES
+       ===================================================== */
+
+    :root {
+
+      --primary-red: #DC2626;
+      --primary-red-dark: #B91C1C;
+      --primary-red-light: #F87171;
+
+      --accent-blue: #1E3C9C;
+      --accent-blue-dark: #16308A;
+      --accent-blue-light: #4A6CD4;
+
+      --fs-navbar-brand: 1.3rem;
+
+      /* AJUSTE DEL TÍTULO */
+      --fs-hero-title: clamp(4rem, 5.2vw, 5.5rem);
+
+      --fs-hero-subtitle: clamp(0.95rem, 1.1vw, 1.1rem);
+
+      --fs-section-title: clamp(1.75rem, 2.6vw, 2.25rem);
+      --fs-block-title: 1.3rem;
+      --fs-card-title: 1rem;
+      --fs-card-body: 0.92rem;
+      --fs-doc-title: 1.15rem;
+      --fs-doc-body: 0.95rem;
+
+      --background-white: #FFFFFF;
+      --neutral-light: #F8FAFC;
+      --neutral-gray: #E2E8F0;
+
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 8px 20px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 15px 35px rgba(15, 23, 42, 0.12);
+      --shadow-xl: 0 20px 45px rgba(15, 23, 42, 0.15);
+
+    }
+
+
+    /* =====================================================
+       CONFIGURACIÓN GENERAL
+       ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      font-family: 'Inter', sans-serif;
+
+      background: var(--background-white);
+      color: var(--text-dark);
+
+      overflow-x: hidden;
+      line-height: 1.6;
+
+      padding-top: 84px;
+
+    }
+
+
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
+    .navbar {
+
+      height: 84px;
+
+      padding: 0 1rem;
+
+      background: linear-gradient(
+        135deg,
+        var(--accent-blue) 0%,
+        var(--accent-blue-dark) 100%
+      );
+
+      border-bottom: 3px solid #EF3340;
+
+      box-shadow: none;
+
+      transition: all 0.3s ease;
+
+    }
+
+
+    .navbar .container-fluid {
+
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+
+    }
+
+
+    .navbar-brand {
+
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+
+      color: white !important;
+
+      transition: transform 0.3s ease;
+
+      display: flex;
+      align-items: center;
+
+    }
+
+
+    .navbar-brand:hover {
+      transform: scale(1.02);
+    }
+
+
+    .logo-escudo {
+
+      width: 52px;
+      height: 52px;
+
+      object-fit: contain;
+
+      border-radius: 50%;
+
+      margin-right: 14px;
+
+    }
+
+
+    .navbar-brand span {
+
+      font-size: var(--fs-navbar-brand) !important;
+      font-weight: 700;
+
+      white-space: nowrap;
+
+    }
+
+
+    .navbar-nav {
+
+      gap: 0.35rem;
+
+    }
+
+
+    .navbar-nav .nav-link {
+
+      color: rgba(255, 255, 255, 0.92) !important;
+
+      font-size: 0.9rem;
+      font-weight: 600;
+
+      padding: 0.5rem 0.8rem !important;
+
+      border-radius: 8px;
+
+      transition: all 0.3s ease;
+
+      white-space: nowrap;
+
+    }
+
+
+    .navbar-nav .nav-link:hover {
+
+      background: rgba(255, 255, 255, 0.10);
+
+      color: white !important;
+
+      transform: none;
+
+    }
+
+
+    .dropdown-menu {
+
+      background: var(--accent-blue);
+
+      border: none;
+      border-radius: 12px;
+
+      padding: 0.5rem;
+
+      box-shadow: var(--shadow-xl);
+
+    }
+
+
+    .dropdown-item {
+
+      color: white;
+
+      padding: 0.75rem 1rem;
+
+      border-radius: 8px;
+
+      font-weight: 500;
+
+      transition: all 0.3s ease;
+
+    }
+
+
+    .dropdown-item:hover {
+
+      background: var(--primary-red);
+
+      color: white;
+
+      transform: translateX(5px);
+
+    }
+
+
+    /* El fondo del hero, el título/subtítulo y la muñeca ya
+       vienen de css/styles.css (mismo diseño en todas las
+       páginas institucionales del sitio). */
+
+
+    /* =====================================================
+       TABLET
+       ===================================================== */
+
+    @media (max-width: 1300px) {
+
+      .navbar-brand span {
+        font-size: 1.55rem !important;
+      }
+
+
+      .navbar-nav {
+        gap: 0;
+      }
+
+
+      .navbar-nav .nav-link {
+
+        font-size: 0.85rem;
+
+        padding: 0.5rem 0.55rem !important;
+
+      }
+
+
+    }
+
+
+    /* =====================================================
+       TABLET PEQUEÑA
+       ===================================================== */
+
+    @media (max-width: 1100px) {
+
+      .navbar {
+
+        height: 72px;
+
+      }
+
+
+      body {
+
+        padding-top: 72px;
+
+      }
+
+
+      .logo-escudo {
+
+        width: 44px;
+        height: 44px;
+
+      }
+
+
+      .navbar-brand span {
+
+        font-size: 1.15rem !important;
+
+      }
+
+
+    }
+
+
+    /* =====================================================
+       MENÚ MÓVIL
+       ===================================================== */
+
+    @media (max-width: 991px) {
+
+      .navbar {
+
+        height: auto;
+
+        min-height: 64px;
+
+        padding: 0.5rem 1rem;
+
+      }
+
+
+      body {
+
+        padding-top: 64px;
+
+      }
+
+
+      .navbar-collapse {
+
+        background: var(--accent-blue-dark);
+
+        margin-top: 0.8rem;
+
+        padding: 1rem;
+
+        border-radius: 12px;
+
+      }
+
+
+      .navbar-nav {
+
+        align-items: flex-start;
+
+      }
+
+
+      .navbar-nav .nav-link {
+
+        width: 100%;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       MÓVIL PEQUEÑO
+       ===================================================== */
+
+    @media (max-width: 576px) {
+
+      .navbar-brand span {
+
+        font-size: 1.05rem !important;
+
+      }
+
+
+      .logo-escudo {
+
+        width: 48px !important;
+
+        height: 48px !important;
+
+        margin-right: 8px;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       SECCIÓN PRINCIPAL
+       ===================================================== */
+
+    .horarios-section {
+
+      padding: 5rem 0;
+
+      background: linear-gradient(
+        180deg,
+        var(--neutral-light) 0%,
+        var(--background-white) 100%
+      );
+
+    }
+
+
+    .horarios-intro {
+
+      max-width: 800px;
+
+      margin: 0 auto 3.5rem;
+
+      text-align: center;
+
+    }
+
+
+    .horarios-intro h2 {
+
+      font-family: 'Poppins', sans-serif;
+
+      font-size: var(--fs-section-title);
+
+      font-weight: 700;
+
+      margin-bottom: 1rem;
+
+      color: var(--text-dark);
+
+    }
+
+
+    .horarios-intro h2 span {
+
+      color: var(--primary-red);
+
+    }
+
+
+    .horarios-intro p {
+
+      color: #64748B;
+
+      font-size: 1.05rem;
+
+    }
+
+
+    /* =====================================================
+       AVISO DE SEGURIDAD
+       ===================================================== */
+
+    .security-alert {
+
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 1rem;
+
+      padding: 1.5rem;
+
+      margin-bottom: 3.5rem;
+
+      background: #EFF6FF;
+
+      border-left: 5px solid var(--accent-blue);
+
+      border-radius: 16px;
+
+      box-shadow: var(--shadow-sm);
+
+    }
+
+
+    .security-alert-icon {
+
+      width: 50px;
+      height: 50px;
+
+      min-width: 50px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: var(--accent-blue);
+
+      color: white;
+
+      font-size: 1.3rem;
+
+    }
+
+
+    .security-alert h4 {
+
+      font-family: 'Poppins', sans-serif;
+
+      font-size: 1.05rem;
+
+      font-weight: 700;
+
+      color: var(--accent-blue-dark);
+
+      margin-bottom: 0.4rem;
+
+    }
+
+
+    .security-alert p {
+
+      margin: 0;
+
+      color: #475569;
+
+    }
+
+
+    /* =====================================================
+       TÍTULOS DE BLOQUES
+       ===================================================== */
+
+    .block-title {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 0.9rem;
+
+      margin-bottom: 2rem;
+
+    }
+
+
+    .block-title-icon {
+
+      width: 50px;
+      height: 50px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 12px;
+
+      background: var(--primary-red);
+
+      color: white;
+
+      font-size: 1.3rem;
+
+    }
+
+
+    .block-title h3 {
+
+      font-family: 'Poppins', sans-serif;
+
+      font-size: var(--fs-block-title);
+
+      font-weight: 700;
+
+      margin: 0;
+
+      color: var(--text-dark);
+
+    }
+
+
+    /* =====================================================
+       TARJETAS DE HORARIOS
+       ===================================================== */
+
+    .schedule-card {
+
+      position: relative;
+
+      height: 100%;
+
+      padding: 1.5rem;
+
+      background: white;
+
+      border: 1px solid var(--neutral-gray);
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow-md);
+
+      transition: all 0.3s ease;
+
+    }
+
+
+    .schedule-card::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 5px;
+      height: 100%;
+
+      background: var(--primary-red);
+
+    }
+
+
+    .schedule-card:hover {
+
+      transform: translateY(-6px);
+
+      box-shadow: var(--shadow-lg);
+
+    }
+
+
+    .schedule-card h4 {
+
+      font-family: 'Poppins', sans-serif;
+
+      font-size: var(--fs-card-title);
+
+      font-weight: 700;
+
+      margin-bottom: 0.7rem;
+
+      color: var(--text-dark);
+
+    }
+
+
+    .schedule-time {
+
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 0.5rem;
+
+      color: var(--primary-red);
+
+      font-size: var(--fs-card-body);
+
+      font-weight: 600;
+
+    }
+
+
+    .schedule-time i {
+
+      margin-top: 0.2rem;
+
+      color: var(--accent-blue);
+
+    }
+
+
+    /* =====================================================
+       DOCUMENTOS
+       ===================================================== */
+
+    .documents-area {
+
+      margin-top: 4.5rem;
+
+      padding-top: 4.5rem;
+
+      border-top: 1px solid var(--neutral-gray);
+
+    }
+
+
+    .document-card {
+
+      height: 100%;
+
+      padding: 2.3rem;
+
+      text-align: center;
+
+      background: linear-gradient(
+        135deg,
+        #FFFFFF,
+        #F8FAFC
+      );
+
+      border: 1px solid var(--neutral-gray);
+
+      border-radius: 22px;
+
+      box-shadow: var(--shadow-md);
+
+      transition: all 0.35s ease;
+
+    }
+
+
+    .document-card:hover {
+
+      transform: translateY(-8px);
+
+      box-shadow: var(--shadow-xl);
+
+    }
+
+
+    .document-icon {
+
+      width: 78px;
+      height: 78px;
+
+      margin: 0 auto 1.4rem;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 20px;
+
+      background: linear-gradient(
+        135deg,
+        var(--primary-red),
+        var(--primary-red-dark)
+      );
+
+      color: white;
+
+      font-size: 2rem;
+
+    }
+
+
+    .document-card h3 {
+
+      font-family: 'Poppins', sans-serif;
+
+      font-size: var(--fs-doc-title);
+
+      font-weight: 700;
+
+      margin-bottom: 0.8rem;
+
+      color: var(--text-dark);
+
+    }
+
+
+    .document-card p {
+
+      color: #64748B;
+
+      font-size: var(--fs-doc-body);
+
+      margin-bottom: 1.6rem;
+
+    }
+
+
+    .document-btn {
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 0.6rem;
+
+      padding: 0.9rem 1.4rem;
+
+      border-radius: 10px;
+
+      background: var(--primary-red);
+
+      color: white;
+
+      font-weight: 600;
+
+      text-decoration: none;
+
+      transition: all 0.3s ease;
+
+    }
+
+
+    .document-btn:hover {
+
+      background: var(--primary-red-dark);
+
+      color: white;
+
+      transform: translateY(-2px);
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .footer {
+
+      background: linear-gradient(
+        135deg,
+        var(--primary-red),
+        var(--primary-red-dark)
+      );
+
+      color: white;
+
+    }
+
+
+    .footer-title {
+
+      font-family: 'Poppins', sans-serif;
+
+      font-weight: 700;
+
+      margin-bottom: 1.2rem;
+
+    }
+
+
+    .footer a {
+
+      color: rgba(255, 255, 255, 0.88);
+
+      text-decoration: none;
+
+      transition: color 0.3s ease;
+
+      cursor: pointer;
+
+      position: relative;
+
+      z-index: 10;
+
+    }
+
+
+    .footer a:hover {
+
+      color: white;
+
+      cursor: pointer;
+
+    }
+
+
+    .social-icons a {
+
+      width: 45px;
+      height: 45px;
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      margin-right: 0.5rem;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.15);
+
+      color: white;
+
+      transition: all 0.3s ease;
+
+    }
+
+
+    .social-icons a:hover {
+
+      background: white;
+
+      color: var(--primary-red);
+
+      transform: translateY(-4px);
+
+    }
+
+
+    /* =====================================================
+       RESPONSIVE SECCIÓN INTERNA
+       ===================================================== */
+
+    @media (max-width: 768px) {
+
+      .horarios-section {
+
+        padding: 3.5rem 0;
+
+      }
+
+
+      .security-alert {
+
+        flex-direction: column;
+
+      }
+
+
+      .documents-area {
+
+        margin-top: 3rem;
+
+        padding-top: 3rem;
+
+      }
+
+    }
+
+
+    @media (max-width: 576px) {
+
+      .schedule-card {
+
+        padding: 1.3rem;
+
+      }
+
+
+      .document-card {
+
+        padding: 2rem 1.4rem;
+
+      }
+
+
+      .block-title h3 {
+
+        font-size: 1.25rem;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body id="inicio">
+
+
+  <!-- =====================================================
+       NAVBAR
+       ===================================================== -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+
+    <div class="container-fluid">
+
+
+      <!-- Logo -->
+
+      <a class="navbar-brand py-2 d-flex align-items-center" href="index.html">
+
+        <img
+          src="imagenes/logo-iem.png"
+          alt="Logo María Goretti"
+          class="logo-escudo">
+
+        <span>
+          I.E.M. María Goretti
+        </span>
+
+      </a>
+
+
+      <!-- Botón móvil -->
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Alternar navegación">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+
+      <!-- Menú -->
+
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarNav">
+
+        <ul class="navbar-nav">
+
+
+          <!-- Institución -->
+
+          <li class="nav-item dropdown">
+
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+
+              Institución
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" href="teleología.html">
+                  Teleología
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="padre-fundador.html">
+                  Fundador
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="simbolo.html">
+                  Símbolos
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="Santos-patronos.html">
+                  Santos Patronos
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- DOCUMENTOS -->
+
+          <li class="nav-item dropdown nav-item-large">
+
+            <a
+              class="nav-link dropdown-toggle px-lg-2 py-2"
+              href="#"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+
+              Documentos
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="documentos.html">
+
+                  Documentos Institucionales
+
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="horario-padres.html">
+
+                  Horario Padres
+
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- Comunidad -->
+
+          <li class="nav-item dropdown">
+
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+
+              Comunidad
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="obra-goretti.html">
+
+                  Obra Gorettiana
+
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="pastoral.html">
+
+                  Pastoral
+
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="Egresadas.html">
+
+                  Egresadas
+
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="MetaApp.html">
+
+                  MetaAPP
+
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w"
+                  target="_blank">
+
+                  PQRF
+
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="radio-improved.html">
+
+                  Estación Gorettiana
+
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- Proyectos -->
+
+          <li class="nav-item dropdown">
+
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+
+              Proyectos
+
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="bilinguismo.html">
+
+                  Bilingüismo
+
+                </a>
+              </li>
+
+              <!-- Próximamente: proyecto Emprendimiento <li>
+                <a
+                  class="dropdown-item"
+                  href="emprendimiento.html">
+
+                  Emprendimiento
+
+                </a>
+              </li> -->
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="mujer.html">
+
+                  Mujer Constructora
+
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="semillas.html">
+
+                  Semillas de amor
+
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="pileo.html">
+
+                  PILEO
+
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="QHERIDA.html">
+
+                  Qherida Mujer
+
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="cada-minuto.html">
+
+                  Que cada minuto cuente
+
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- Biblioteca -->
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              href="https://elibro.net/es/lc/unicesmag/inicio"
+              target="_blank">
+
+              Biblioteca
+
+            </a>
+
+          </li>
+
+
+          <!-- SAPRED -->
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              href="https://cachiri.sapred.com/sapred_inicio/"
+              target="_blank">
+
+              SAPRED
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <header class="hero">
+
+    <!-- TEXTO -->
+
+    <div
+      class="hero-content"
+      data-aos="fade-right"
+      data-aos-duration="900">
+
+      <h1>
+        Horarios de Atención
+      </h1>
+
+      <p class="hero-subtitle">
+
+        Consulte los horarios de atención para padres de
+        familia y acudientes.
+
+      </p>
+
+    </div>
+
+
+    <!-- MUÑECA -->
+
+    <div
+      class="hero-image-container"
+      data-aos="fade-left"
+      data-aos-duration="1000">
+
+      <img
+        class="hero-image"
+        src="imagenes/fondo h-padres.png"
+        alt="Estudiante consultando horarios">
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+       ===================================================== -->
+
+  <main>
+
+    <section
+      class="horarios-section"
+      id="horarios">
+
+      <div class="container">
+
+
+        <!-- Introducción -->
+
+        <div
+          class="horarios-intro"
+          data-aos="fade-up">
+
+          <h2>
+
+            Atención a
+            <span>Padres y Acudientes</span>
+
+          </h2>
+
+          <p>
+
+            Consulte los horarios de atención de las diferentes
+            dependencias de la Institución Educativa Municipal
+            María Goretti.
+
+          </p>
+
+        </div>
+
+
+        <!-- Aviso -->
+
+        <div
+          class="security-alert"
+          data-aos="fade-up">
+
+          <div class="security-alert-icon">
+
+            <i class="fas fa-shield-halved"></i>
+
+          </div>
+
+          <div>
+
+            <h4>
+              Información importante para el ingreso
+            </h4>
+
+            <p>
+
+              Por la seguridad de nuestras estudiantes, para ingresar
+              a la institución es necesario presentar un documento de
+              identidad en la portería. Si se moviliza en motocicleta,
+              recuerde retirarse el casco mientras circule al interior
+              de la institución.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Título -->
+
+        <div
+          class="block-title"
+          data-aos="fade-up">
+
+          <div class="block-title-icon">
+
+            <i class="fas fa-building"></i>
+
+          </div>
+
+          <h3>
+
+            Horarios de atención administrativa
+
+          </h3>
+
+        </div>
+
+
+        <!-- TARJETAS -->
+
+        <div class="row g-4">
+
+
+          <!-- Rectoría -->
+
+          <div class="col-md-6 col-lg-4">
+
+            <div class="schedule-card">
+
+              <h4>Rectoría</h4>
+
+              <div class="schedule-time">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+
+                  Lunes a viernes<br>
+                  8:00 a 11:00 a. m.
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Coordinación Preescolar -->
+
+          <div class="col-md-6 col-lg-4">
+
+            <div class="schedule-card">
+
+              <h4>
+                Coordinación Preescolar y Básica Primaria
+              </h4>
+
+              <div class="schedule-time">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+
+                  Lunes a viernes<br>
+                  7:30 a 9:30 a. m.
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Coordinación Secundaria -->
+
+          <div class="col-md-6 col-lg-4">
+
+            <div class="schedule-card">
+
+              <h4>
+                Coordinación Básica Secundaria y Media
+              </h4>
+
+              <div class="schedule-time">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+
+                  Lunes a viernes<br>
+                  7:30 a 9:30 a. m.
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Recaudos -->
+
+          <div class="col-md-6 col-lg-4">
+
+            <div class="schedule-card">
+
+              <h4>Recaudos</h4>
+
+              <div class="schedule-time">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+
+                  Lunes a viernes<br>
+                  7:00 a 11:00 a. m.
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Secretaría Académica -->
+
+          <div class="col-md-6 col-lg-4">
+
+            <div class="schedule-card">
+
+              <h4>Secretaría Académica</h4>
+
+              <div class="schedule-time">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+
+                  Lunes a viernes<br>
+                  7:30 a 11:30 a. m.
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Secretarías -->
+
+          <div class="col-md-6 col-lg-4">
+
+            <div class="schedule-card">
+
+              <h4>
+                Secretarías de Coordinación
+              </h4>
+
+              <div class="schedule-time">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+
+                  Lunes a viernes<br>
+                  7:00 a 11:30 a. m.
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Gestión Administrativa -->
+
+          <div class="col-md-6 col-lg-4">
+
+            <div class="schedule-card">
+
+              <h4>
+                Líder Gestión Administrativa
+              </h4>
+
+              <div class="schedule-time">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+
+                  Lunes a viernes<br>
+                  7:00 a 12:00 m.
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Recursos Educativos -->
+
+          <div class="col-md-6 col-lg-4">
+
+            <div class="schedule-card">
+
+              <h4>
+                Recursos Educativos
+              </h4>
+
+              <div class="schedule-time">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+
+                  Lunes a viernes<br>
+                  7:00 a 12:00 m.
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Proveedores -->
+
+          <div class="col-md-6 col-lg-4">
+
+            <div class="schedule-card">
+
+              <h4>
+                Ingreso Proveedores de Cafetería
+              </h4>
+
+              <div class="schedule-time">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+
+                  Lunes a viernes<br>
+                  8:30 a 9:30 a. m.<br>
+                  2:00 a 4:00 p. m.
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Gestión Comunitaria -->
+
+          <div class="col-md-6 col-lg-4">
+
+            <div class="schedule-card">
+
+              <h4>
+                Líder Gestión Comunitaria
+              </h4>
+
+              <div class="schedule-time">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+
+                  Lunes a viernes<br>
+                  7:30 a 12:30 m.
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Biblioteca -->
+
+          <div class="col-md-6 col-lg-4">
+
+            <div class="schedule-card">
+
+              <h4>Biblioteca</h4>
+
+              <div class="schedule-time">
+
+                <i class="fas fa-clock"></i>
+
+                <span>
+
+                  Lunes a viernes<br>
+                  6:45 a. m. a 12:30 p. m.
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             DOCUMENTOS
+             ================================================= -->
+
+        <div class="documents-area">
+
+
+          <div
+            class="horarios-intro"
+            data-aos="fade-up">
+
+            <h2>
+
+              Consulta de
+              <span>Horarios</span>
+
+            </h2>
+
+            <p>
+
+              Acceda a los horarios correspondientes a la atención
+              de docentes y a la jornada escolar.
+
+            </p>
+
+          </div>
+
+
+          <div class="row g-4 justify-content-center">
+
+
+            <!-- DOCENTES -->
+
+            <div
+              class="col-md-6 col-lg-5"
+              data-aos="fade-up">
+
+              <div class="document-card">
+
+                <div class="document-icon">
+
+                  <i class="fas fa-chalkboard-user"></i>
+
+                </div>
+
+                <h3>
+                  Atención de Docentes
+                </h3>
+
+                <p>
+
+                  Consulte el horario de atención de los docentes
+                  a padres de familia.
+
+                </p>
+
+                <a
+                  href="horarios-padres-2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="document-btn">
+
+                  <i class="fas fa-file-pdf"></i>
+
+                  Ver horario de docentes
+
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <!-- HORARIO ESCOLAR -->
+
+            <div
+              class="col-md-6 col-lg-5"
+              data-aos="fade-up"
+              data-aos-delay="100">
+
+              <div class="document-card">
+
+                <div class="document-icon">
+
+                  <i class="fas fa-school"></i>
+
+                </div>
+
+                <h3>
+                  Horario Escolar
+                </h3>
+
+                <p>
+
+                  Consulte el horario escolar de Básica Secundaria
+                  y Media.
+
+                </p>
+
+                <a
+                  href="horarios-secundaria-2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="document-btn">
+
+                  <i class="fas fa-file-pdf"></i>
+
+                  Ver horario escolar
+
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer
+    class="footer text-white py-5"
+    id="contacto">
+
+    <div class="container">
+
+      <div class="row g-4">
+
+
+        <!-- Información -->
+
+        <div class="col-lg-4">
+
+          <h3 class="footer-title d-flex align-items-center">
+
+            <img
+              src="imagenes/logo-iem.png"
+              alt="Escudo I.E.M. María Goretti"
+              class="footer-logo">
+
+            I.E.M. María Goretti
+
+          </h3>
+
+          <p class="mb-4">
+
+            La IEM María Goretti es una obra ubicada en el Municipio
+            de Pasto, liderada y dinamizada por los Hermanos Menores
+            Capuchinos, que promueve la educación y formación de niñas
+            y jóvenes con base en principios humanos, espirituales
+            y sociales.
+
+          </p>
+
+
+          <div class="social-icons">
+
+            <a
+              href="https://www.facebook.com/people/IEM-Mar%C3%ADa-Goretti-Oficial-Pasto/61564223562211/"
+              target="_blank">
+
+              <i class="fab fa-facebook-f"></i>
+
+            </a>
+
+            <a
+              href="https://www.instagram.com/iemmariagoretti/"
+              target="_blank">
+
+              <i class="fab fa-instagram"></i>
+
+            </a>
+
+            <a
+              href="https://www.youtube.com/playlist?list=PLTj569CPY9FNJQFdTpmgAVB3Fp6ReDNna"
+              target="_blank">
+
+              <i class="fab fa-youtube"></i>
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Contacto -->
+
+        <div class="col-lg-4">
+
+          <h4 class="footer-title">
+            Información de Contacto
+          </h4>
+
+          <div class="contact-info">
+
+            <p>
+
+              <i
+                class="fas fa-map-marker-alt me-2"
+                style="color: var(--accent-blue-light);">
+              </i>
+
+              Av. las Américas 15A-53
+              <br>
+              Pasto, Nariño, Colombia
+
+            </p>
+
+            <p>
+
+              <i
+                class="fas fa-phone me-2"
+                style="color: var(--accent-blue-light);">
+              </i>
+
+              3104980939
+
+            </p>
+
+            <p>
+
+              <i
+                class="fas fa-envelope me-2"
+                style="color: var(--accent-blue-light);">
+              </i>
+
+              mgpasto@iemmariagoretti.edu.co
+
+            </p>
+
+            <p>
+
+              <i
+                class="fas fa-clock me-2"
+                style="color: var(--accent-blue-light);">
+              </i>
+
+              Lunes a Viernes: 6:45 AM - 12:45 PM
+              <br>
+              3:00 PM - 5:00 PM
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Enlaces -->
+
+        <div class="col-lg-4">
+
+          <h4 class="footer-title">
+            Enlaces Rápidos
+          </h4>
+
+          <div class="row">
+
+            <div class="col-6">
+
+              <ul class="list-unstyled">
+
+                <li class="mb-2">
+
+                  <a href="index.html#noticias">
+
+                    <i
+                      class="fas fa-newspaper me-2"
+                      style="color: var(--accent-blue-light);">
+                    </i>
+
+                    Noticias
+
+                  </a>
+
+                </li>
+
+                <li class="mb-2">
+
+                  <a href="radio-improved.html">
+
+                    <i
+                      class="fas fa-radio me-2"
+                      style="color: var(--accent-blue-light);">
+                    </i>
+
+                    Estación Gorettiana
+
+                  </a>
+
+                </li>
+
+              </ul>
+
+            </div>
+
+
+            <div class="col-6">
+
+              <ul class="list-unstyled">
+
+                <li class="mb-2">
+
+                  <a
+                    href="https://elibro.net/es/lc/unicesmag/inicio"
+                    target="_blank">
+
+                    <i
+                      class="fas fa-book me-2"
+                      style="color: var(--accent-blue-light);">
+                    </i>
+
+                    Biblioteca
+
+                  </a>
+
+                </li>
+
+                <li class="mb-2">
+
+                  <a
+                    href="https://cachiri.sapred.com/sapred_inicio/"
+                    target="_blank">
+
+                    <i
+                      class="fas fa-shield-alt me-2"
+                      style="color: var(--accent-blue-light);">
+                    </i>
+
+                    SAPRED
+
+                  </a>
+
+                </li>
+
+                <li class="mb-2">
+
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScjcSbvZFzpR55eh0PVLoXOD5a2OJKDYzb37m9QA3yEqujEcA/viewform?vc=0&c=0&w">
+
+                    <i
+                      class="fas fa-question-circle me-2"
+                      style="color: var(--accent-blue-light);">
+                    </i>
+
+                    PQRF
+
+                  </a>
+
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <hr
+        class="my-4"
+        style="border-color: rgba(255, 255, 255, 0.25);">
+
+
+      <div class="row align-items-center">
+
+        <div class="col-md-8">
+
+          <p class="mb-2">
+
+            &copy; 2026 I.E.M. María Goretti |
+            Todos los derechos reservados
+
+          </p>
+
+          <p class="mb-0">
+
+            <small>
+              NIT: 900034371-9
+            </small>
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- Bootstrap -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+
+  <!-- AOS -->
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js">
+  </script>
+
+
+  <!-- Inicializar animaciones -->
+
+  <script>
+
+    AOS.init({
+
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+
+    });
+
+  </script>
+
+</body>
+
+</html>
