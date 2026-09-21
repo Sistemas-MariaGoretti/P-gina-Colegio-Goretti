@@ -11,3 +11,18 @@ desktop.ini
 
 # Node (por si en algún momento se usa alguna herramienta de build)
 node_modules/
+
+# Copias del servidor en vivo bajadas de cPanel para analizarlas
+# (DB.php contiene credenciales reales de la base de datos: NUNCA debe subirse a git)
+INICIO/DB.php
+INICIO/celebraciones.html
+INICIO/convocatorias.html
+INICIO/curiculares.html
+INICIO/listado_celebraciones.html
+INICIO/listado_convocatoria.html
+INICIO/listado_curriculares.html
+INICIO/listado_noticia.html
+INICIO/noticia.html
+
+# Paquete zip para subir a cPanel (se regenera cuando hace falta, no es código fuente)
+INICIO_para_cpanel.zip
