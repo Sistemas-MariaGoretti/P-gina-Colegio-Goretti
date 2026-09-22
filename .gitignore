@@ -26,3 +26,7 @@ INICIO/noticia.html
 
 # Paquete zip para subir a cPanel (se regenera cuando hace falta, no es código fuente)
 INICIO_para_cpanel.zip
+
+# Copia local del panel de administracion (vive en el servidor como admin/, no es parte del sitio en git)
+ADMIN/
+INICIO/ADMIN/
