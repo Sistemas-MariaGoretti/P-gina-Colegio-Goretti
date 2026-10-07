@@ -645,6 +645,27 @@ body {
   margin: 15px auto 0;
 }
 
+/* Imagen de las publicaciones (noticias, comunicados, convocatorias y
+   celebraciones): proporción 4:3 (1024 x 768) sin recortar la pieza. */
+.card-modern img.card-img-top {
+  width: 100%;
+  height: auto;
+
+  aspect-ratio: 4 / 3;
+
+  object-fit: contain;
+
+  margin: 0;
+
+  background-color: var(--background-white);
+}
+
+/* Los comunicados son cuadrados (1080 x 1080). */
+#contenedor-curriculares img.card-img-top,
+#contenedor-curriculares-listado img.card-img-top {
+  aspect-ratio: 1 / 1;
+}
+
 a.card-modern:hover,
 .card-modern:not(a):hover {
   transform: translateY(-7px);
