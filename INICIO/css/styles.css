@@ -666,6 +666,14 @@ body {
   aspect-ratio: 1 / 1;
 }
 
+/* Las convocatorias y celebraciones son verticales (1080 x 1350). */
+#contenedor-convocatorias1 img.card-img-top,
+#contenedor-convocatorias img.card-img-top,
+#contenedor-celebraciones img.card-img-top,
+#contenedor-celebraciones-listado img.card-img-top {
+  aspect-ratio: 4 / 5;
+}
+
 a.card-modern:hover,
 .card-modern:not(a):hover {
   transform: translateY(-7px);
