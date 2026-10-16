@@ -171,7 +171,7 @@ async function cargarDetalleNoticia() {
     contenedor.innerHTML = `
       <h1 class="mb-4">${noticia.titulo}</h1>
       <img src="${noticia.imagen}" class="img-fluid mb-4">
-      <p>${noticia.contenido}</p>
+      <p style="white-space: pre-line;">${noticia.contenido}</p>
 
       ${galeria ? `<h4 class="mt-5">Galería</h4><div class="row">${galeria}</div>` : ""}
     `;
@@ -341,7 +341,7 @@ async function cargarDetalleCurricular() {
 
       <img src="${item.imagen}" class="img-fluid mb-4">
 
-      <p>${item.contenido}</p>
+      <p style="white-space: pre-line;">${item.contenido}</p>
 
       ${galeria ? `<h4 class="mt-5">Galería</h4><div class="row">${galeria}</div>` : ""}
     `;
@@ -513,7 +513,7 @@ async function cargarDetalleConvocatoria() {
 
       <img src="${item.imagen}" class="img-fluid mb-4">
 
-      <p>${item.contenido}</p>
+      <p style="white-space: pre-line;">${item.contenido}</p>
 
       ${galeria ? `<h4 class="mt-5">Galería</h4><div class="row">${galeria}</div>` : ""}
     `;
@@ -665,7 +665,7 @@ async function cargarDetalleCelebracion() {
 
       <img src="${item.imagen}" class="img-fluid mb-4">
 
-      <p>${item.contenido}</p>
+      <p style="white-space: pre-line;">${item.contenido}</p>
 
       ${galeria ? `<h4 class="mt-5">Galería</h4><div class="row">${galeria}</div>` : ""}
     `;
