@@ -1741,3 +1741,69 @@ a.card-modern:hover .card-icon,
     box-shadow: none;
   }
 }
+
+/* =========================================================
+   ENTIDADES GORETTIANAS (TODOS LOS TAMAÑOS)
+   La regla general .card-modern img les daba 190px de alto y
+   ancho libre, así que cada logo quedaba de un ancho distinto,
+   y la fila no bajaba de línea: en pantallas medianas (pantalla
+   dividida, tabletas) se salía por los lados. Aquí todos los
+   recuadros son iguales y pasan a otra fila cuando no caben.
+   ========================================================= */
+
+.entidades-scroll {
+  flex-wrap: wrap;
+
+  overflow-x: visible;
+}
+
+.entidades-scroll > div {
+  flex: 0 0 150px;
+}
+
+.entidades-scroll .link-image {
+  width: 130px;
+  height: 130px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   ENTIDADES GORETTIANAS EN CELULARES
+   En pantallas pequeñas las 5 entidades no caben en una
+   fila: como estaba centrada, la parte que se salía por la
+   izquierda quedaba escondida y los recuadros se aplastaban.
+   Aquí se acomodan en filas de 3, todas visibles.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .entidades-scroll {
+    flex-wrap: wrap;
+
+    overflow-x: visible;
+
+    gap: 1.25rem 0.75rem !important;
+  }
+
+  .entidades-scroll > div {
+    flex: 0 0 calc((100% - 1.5rem) / 3);
+
+    min-width: 0;
+  }
+
+  .entidades-scroll .link-image {
+    width: 100%;
+    max-width: 90px;
+    height: 70px;
+
+    margin: 0;
+  }
+
+  .entidades-scroll p {
+    font-size: 0.85rem;
+
+    line-height: 1.3;
+  }
+}

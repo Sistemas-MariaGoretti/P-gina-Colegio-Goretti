@@ -21,3 +21,6 @@ INICIO/DB.php
 # Copia local del panel de administracion (vive en el servidor como admin/, no es parte del sitio en git)
 ADMIN/
 INICIO/ADMIN/
+
+# Respaldo local de originales (fotos PNG, video sin comprimir): no es parte del sitio
+respaldo-originales/

@@ -32,6 +32,28 @@ function handleImageError(img) {
   };
 }
 
+// Devuelve una ruta de imagen segura para poner en el HTML;
+// si no hay imagen o no es válida, usa el logo del colegio
+function urlImagen(url) {
+  return isValidImageUrl(url) ? escapeHTML(url) : 'imagenes/logo-iem.png';
+}
+
+// Lee el número de la publicación de la dirección (?id=123);
+// devuelve null si no es un número
+function idDeLaUrl() {
+  const id = new URLSearchParams(window.location.search).get('id');
+  return /^\d+$/.test(id || '') ? id : null;
+}
+
+// Pide datos al servidor y avisa si respondió con error
+async function obtenerJSON(url) {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`El servidor respondió ${res.status} para ${url}`);
+  }
+  return res.json();
+}
+
 // Fetch con reintentos
 async function fetchWithRetry(url, retries = 3, delay = 1000) {
   for (let i = 0; i < retries; i++) {
@@ -79,8 +101,7 @@ async function cargarNoticias() {
 
   try {
 
-    const res = await fetch("admin/obtener_publicaciones.php?tipo=1");
-    const noticias = await res.json();
+    const noticias = await obtenerJSON("admin/obtener_publicaciones.php?tipo=1");
 
     contenedor.innerHTML = "";
 
@@ -92,16 +113,16 @@ async function cargarNoticias() {
       tarjeta.innerHTML = `
         <div class="card card-modern h-100 shadow-sm">
 
-<img src="${noticia.imagen || 'imagenes/logo-iem.png'}" 
+<img src="${urlImagen(noticia.imagen)}" 
 class="card-img-top" 
-alt="${noticia.titulo}">
+alt="${escapeHTML(noticia.titulo)}">
 
           <div class="card-body d-flex flex-column">
 
-            <h5>${noticia.titulo}</h5>
-            <p>${noticia.descripcion}</p>
+            <h5>${escapeHTML(noticia.titulo)}</h5>
+            <p>${escapeHTML(noticia.descripcion)}</p>
 
-            <a href="noticia.html?id=${noticia.id}" 
+            <a href="noticia.html?id=${encodeURIComponent(noticia.id)}" 
                class="btn btn-primary btn-sm mt-auto">
               Leer más
             </a>
@@ -141,15 +162,18 @@ async function cargarDetalleNoticia() {
   const contenedor = document.getElementById("detalle-noticia");
   if (!contenedor) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+  const id = idDeLaUrl();
+
+  if (!id) {
+    contenedor.innerHTML = "<p>Noticia no encontrada</p>";
+    return;
+  }
 
   contenedor.innerHTML = "<p>Cargando...</p>";
 
   try {
 
-    const res = await fetch(`admin/obtener_publicaciones.php?id=${id}`);
-    const noticia = await res.json();
+    const noticia = await obtenerJSON(`admin/obtener_publicaciones.php?id=${id}`);
 
     if (!noticia || noticia.error) {
       contenedor.innerHTML = "<p>Noticia no encontrada</p>";
@@ -162,16 +186,16 @@ async function cargarDetalleNoticia() {
       noticia.imagenes.forEach(img => {
         galeria += `
           <div class="col-md-4 mb-3">
-            <img src="${img}" class="img-fluid rounded shadow">
+            <img src="${urlImagen(img)}" class="img-fluid rounded shadow" alt="Foto de la galería: ${escapeHTML(noticia.titulo)}">
           </div>
         `;
       });
     }
 
     contenedor.innerHTML = `
-      <h1 class="mb-4">${noticia.titulo}</h1>
-      <img src="${noticia.imagen}" class="img-fluid mb-4">
-      <p style="white-space: pre-line;">${noticia.contenido}</p>
+      <h1 class="mb-4">${escapeHTML(noticia.titulo)}</h1>
+      ${noticia.imagen ? `<img src="${urlImagen(noticia.imagen)}" class="img-fluid mb-4" alt="${escapeHTML(noticia.titulo)}">` : ""}
+      <p style="white-space: pre-line;">${escapeHTML((noticia.contenido || "").trim() || noticia.descripcion || "")}</p>
 
       ${galeria ? `<h4 class="mt-5">Galería</h4><div class="row">${galeria}</div>` : ""}
     `;
@@ -191,8 +215,7 @@ async function cargarListadoNoticias() {
 
   try {
 
-    const res = await fetch("admin/obtener_publicaciones.php?tipo=1");
-    const noticias = await res.json();
+    const noticias = await obtenerJSON("admin/obtener_publicaciones.php?tipo=1");
 
     contenedor.innerHTML = "";
 
@@ -204,17 +227,17 @@ async function cargarListadoNoticias() {
       tarjeta.innerHTML = `
         <div class="card card-modern h-100 shadow-sm">
 
-          <img src="${noticia.imagen || 'https://via.placeholder.com/400x250'}" 
+          <img src="${urlImagen(noticia.imagen)}" 
                class="card-img-top" 
-               alt="${noticia.titulo}">
+               alt="${escapeHTML(noticia.titulo)}">
 
           <div class="card-body d-flex flex-column">
 
-            <h5 class="card-title">${noticia.titulo}</h5>
+            <h5 class="card-title">${escapeHTML(noticia.titulo)}</h5>
 
-            <p class="card-text">${noticia.descripcion}</p>
+            <p class="card-text">${escapeHTML(noticia.descripcion)}</p>
 
-            <a href="noticia.html?id=${noticia.id}" 
+            <a href="noticia.html?id=${encodeURIComponent(noticia.id)}" 
                class="btn btn-primary btn-sm mt-auto">
               Leer más
             </a>
@@ -244,8 +267,7 @@ async function cargarCurriculares() {
 
   try {
 
-    const res = await fetch("admin/obtener_publicaciones.php?tipo=2");
-    const curriculares = await res.json();
+    const curriculares = await obtenerJSON("admin/obtener_publicaciones.php?tipo=2");
 
     contenedor.innerHTML = "";
 
@@ -257,16 +279,16 @@ async function cargarCurriculares() {
       tarjeta.innerHTML = `
         <div class="card card-modern h-100 shadow-sm">
 
-          <img src="${item.imagen || 'imagenes/logo-iem.png'}"
+          <img src="${urlImagen(item.imagen)}"
                class="card-img-top"
-               alt="${item.titulo}">
+               alt="${escapeHTML(item.titulo)}">
 
           <div class="card-body d-flex flex-column">
 
-            <h5>${item.titulo}</h5>
-            <p>${item.descripcion}</p>
+            <h5>${escapeHTML(item.titulo)}</h5>
+            <p>${escapeHTML(item.descripcion)}</p>
 
-            <a href="curiculares.html?id=${item.id}" 
+            <a href="curiculares.html?id=${encodeURIComponent(item.id)}" 
                class="btn btn-primary btn-sm mt-auto">
               Ver comunicado
             </a>
@@ -309,15 +331,18 @@ async function cargarDetalleCurricular() {
   const contenedor = document.getElementById("detalle-curricular");
   if (!contenedor) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+  const id = idDeLaUrl();
+
+  if (!id) {
+    contenedor.innerHTML = "<p>Comunicado no encontrado</p>";
+    return;
+  }
 
   contenedor.innerHTML = "<p>Cargando...</p>";
 
   try {
 
-    const res = await fetch(`admin/obtener_publicaciones.php?id=${id}`);
-    const item = await res.json();
+    const item = await obtenerJSON(`admin/obtener_publicaciones.php?id=${id}`);
 
     if (!item || item.error) {
       contenedor.innerHTML = "<p>Comunicado no encontrado</p>";
@@ -330,18 +355,18 @@ async function cargarDetalleCurricular() {
       item.imagenes.forEach(img => {
         galeria += `
           <div class="col-md-4 mb-3">
-            <img src="${img}" class="img-fluid rounded shadow">
+            <img src="${urlImagen(img)}" class="img-fluid rounded shadow" alt="Foto de la galería: ${escapeHTML(item.titulo)}">
           </div>
         `;
       });
     }
 
     contenedor.innerHTML = `
-      <h1 class="mb-4">${item.titulo}</h1>
+      <h1 class="mb-4">${escapeHTML(item.titulo)}</h1>
 
-      <img src="${item.imagen}" class="img-fluid mb-4">
+      ${item.imagen ? `<img src="${urlImagen(item.imagen)}" class="img-fluid mb-4" alt="${escapeHTML(item.titulo)}">` : ""}
 
-      <p style="white-space: pre-line;">${item.contenido}</p>
+      <p style="white-space: pre-line;">${escapeHTML((item.contenido || "").trim() || item.descripcion || "")}</p>
 
       ${galeria ? `<h4 class="mt-5">Galería</h4><div class="row">${galeria}</div>` : ""}
     `;
@@ -362,8 +387,7 @@ async function cargarListadoCurriculares() {
 
   try {
 
-    const res = await fetch("admin/obtener_publicaciones.php?tipo=2");
-    const curriculares = await res.json();
+    const curriculares = await obtenerJSON("admin/obtener_publicaciones.php?tipo=2");
 
     contenedor.innerHTML = "";
 
@@ -375,16 +399,17 @@ async function cargarListadoCurriculares() {
       tarjeta.innerHTML = `
         <div class="card card-modern h-100 shadow-sm">
 
-          <img src="${item.imagen || 'https://via.placeholder.com/400x250'}" 
-               class="card-img-top">
+          <img src="${urlImagen(item.imagen)}" 
+               class="card-img-top"
+               alt="${escapeHTML(item.titulo)}">
 
           <div class="card-body d-flex flex-column">
 
-            <h5>${item.titulo}</h5>
+            <h5>${escapeHTML(item.titulo)}</h5>
 
-            <p>${item.descripcion}</p>
+            <p>${escapeHTML(item.descripcion)}</p>
 
-            <a href="curiculares.html?id=${item.id}" 
+            <a href="curiculares.html?id=${encodeURIComponent(item.id)}" 
                class="btn btn-primary btn-sm mt-auto">
               Ver comunicado
             </a>
@@ -416,8 +441,7 @@ async function cargarConvocatorias() {
 
   try {
 
-    const res = await fetch("admin/obtener_publicaciones.php?tipo=3");
-    const convocatorias = await res.json();
+    const convocatorias = await obtenerJSON("admin/obtener_publicaciones.php?tipo=3");
 
     contenedor.innerHTML = "";
 
@@ -429,16 +453,16 @@ async function cargarConvocatorias() {
       tarjeta.innerHTML = `
         <div class="card card-modern h-100 shadow-sm">
 
-          <img src="${item.imagen || 'imagenes/logo-iem.png'}"
+          <img src="${urlImagen(item.imagen)}"
               class="card-img-top"
-              alt="${item.titulo}">
+              alt="${escapeHTML(item.titulo)}">
 
           <div class="card-body d-flex flex-column">
 
-            <h5>${item.titulo}</h5>
-            <p>${item.descripcion}</p>
+            <h5>${escapeHTML(item.titulo)}</h5>
+            <p>${escapeHTML(item.descripcion)}</p>
 
-            <a href="convocatorias.html?id=${item.id}"
+            <a href="convocatorias.html?id=${encodeURIComponent(item.id)}"
                class="btn btn-primary btn-sm mt-auto">
               Ver convocatoria
             </a>
@@ -481,15 +505,18 @@ async function cargarDetalleConvocatoria() {
   const contenedor = document.getElementById("detalle-convocatoria");
   if (!contenedor) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+  const id = idDeLaUrl();
+
+  if (!id) {
+    contenedor.innerHTML = "<p>Convocatoria no encontrada</p>";
+    return;
+  }
 
   contenedor.innerHTML = "<p>Cargando...</p>";
 
   try {
 
-    const res = await fetch(`admin/obtener_publicaciones.php?id=${id}`);
-    const item = await res.json();
+    const item = await obtenerJSON(`admin/obtener_publicaciones.php?id=${id}`);
 
     if (!item || item.error) {
       contenedor.innerHTML = "<p>Convocatoria no encontrada</p>";
@@ -502,18 +529,18 @@ async function cargarDetalleConvocatoria() {
       item.imagenes.forEach(img => {
         galeria += `
           <div class="col-md-4 mb-3">
-            <img src="${img}" class="img-fluid rounded shadow">
+            <img src="${urlImagen(img)}" class="img-fluid rounded shadow" alt="Foto de la galería: ${escapeHTML(item.titulo)}">
           </div>
         `;
       });
     }
 
     contenedor.innerHTML = `
-      <h1 class="mb-4">${item.titulo}</h1>
+      <h1 class="mb-4">${escapeHTML(item.titulo)}</h1>
 
-      <img src="${item.imagen}" class="img-fluid mb-4">
+      ${item.imagen ? `<img src="${urlImagen(item.imagen)}" class="img-fluid mb-4" alt="${escapeHTML(item.titulo)}">` : ""}
 
-      <p style="white-space: pre-line;">${item.contenido}</p>
+      <p style="white-space: pre-line;">${escapeHTML((item.contenido || "").trim() || item.descripcion || "")}</p>
 
       ${galeria ? `<h4 class="mt-5">Galería</h4><div class="row">${galeria}</div>` : ""}
     `;
@@ -532,8 +559,7 @@ async function cargarListadoConvocatorias() {
 
   try {
 
-    const res = await fetch("admin/obtener_publicaciones.php?tipo=3");
-    const convocatorias = await res.json();
+    const convocatorias = await obtenerJSON("admin/obtener_publicaciones.php?tipo=3");
 
     contenedor.innerHTML = "";
 
@@ -545,17 +571,17 @@ async function cargarListadoConvocatorias() {
       tarjeta.innerHTML = `
         <div class="card card-modern h-100 shadow-sm">
 
-          <img src="${item.imagen || 'https://via.placeholder.com/400x250'}" 
+          <img src="${urlImagen(item.imagen)}" 
                class="card-img-top" 
-               alt="${item.titulo}">
+               alt="${escapeHTML(item.titulo)}">
 
           <div class="card-body d-flex flex-column">
 
-            <h5 class="card-title">${item.titulo}</h5>
+            <h5 class="card-title">${escapeHTML(item.titulo)}</h5>
 
-            <p class="card-text">${item.descripcion}</p>
+            <p class="card-text">${escapeHTML(item.descripcion)}</p>
 
-            <a href="convocatoria.html?id=${item.id}" 
+            <a href="convocatorias.html?id=${encodeURIComponent(item.id)}" 
                class="btn btn-primary btn-sm mt-auto">
               Ver convocatoria
             </a>
@@ -587,8 +613,7 @@ async function cargarCelebraciones() {
 
   try {
 
-    const res = await fetch("admin/obtener_publicaciones.php?tipo=4");
-    const celebraciones = await res.json();
+    const celebraciones = await obtenerJSON("admin/obtener_publicaciones.php?tipo=4");
 
     contenedor.innerHTML = "";
 
@@ -600,15 +625,15 @@ async function cargarCelebraciones() {
       tarjeta.innerHTML = `
         <div class="card card-modern w-100 shadow-sm">
 
-          <img src="${item.imagen || 'imagenes/logo-iem.png'}"
+          <img src="${urlImagen(item.imagen)}"
                class="card-img-top"
-               alt="${item.titulo}">
+               alt="${escapeHTML(item.titulo)}">
 
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title">${item.titulo}</h5>
-            <p class="card-text">${item.descripcion}</p>
+            <h5 class="card-title">${escapeHTML(item.titulo)}</h5>
+            <p class="card-text">${escapeHTML(item.descripcion)}</p>
 
-            <a href="celebraciones.html?id=${item.id}" 
+            <a href="celebraciones.html?id=${encodeURIComponent(item.id)}" 
                class="btn btn-primary btn-sm mt-auto">
               Ver celebración
             </a>
@@ -633,15 +658,18 @@ async function cargarDetalleCelebracion() {
   const contenedor = document.getElementById("detalle-celebracion");
   if (!contenedor) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+  const id = idDeLaUrl();
+
+  if (!id) {
+    contenedor.innerHTML = "<p>Celebración no encontrada</p>";
+    return;
+  }
 
   contenedor.innerHTML = "<p>Cargando...</p>";
 
   try {
 
-    const res = await fetch(`admin/obtener_publicaciones.php?id=${id}`);
-    const item = await res.json();
+    const item = await obtenerJSON(`admin/obtener_publicaciones.php?id=${id}`);
 
     if (!item || item.error) {
       contenedor.innerHTML = "<p>Celebración no encontrada</p>";
@@ -654,18 +682,18 @@ async function cargarDetalleCelebracion() {
       item.imagenes.forEach(img => {
         galeria += `
           <div class="col-md-4 mb-3">
-            <img src="${img}" class="img-fluid rounded shadow">
+            <img src="${urlImagen(img)}" class="img-fluid rounded shadow" alt="Foto de la galería: ${escapeHTML(item.titulo)}">
           </div>
         `;
       });
     }
 
     contenedor.innerHTML = `
-      <h1 class="mb-4">${item.titulo}</h1>
+      <h1 class="mb-4">${escapeHTML(item.titulo)}</h1>
 
-      <img src="${item.imagen}" class="img-fluid mb-4">
+      ${item.imagen ? `<img src="${urlImagen(item.imagen)}" class="img-fluid mb-4" alt="${escapeHTML(item.titulo)}">` : ""}
 
-      <p style="white-space: pre-line;">${item.contenido}</p>
+      <p style="white-space: pre-line;">${escapeHTML((item.contenido || "").trim() || item.descripcion || "")}</p>
 
       ${galeria ? `<h4 class="mt-5">Galería</h4><div class="row">${galeria}</div>` : ""}
     `;
@@ -685,8 +713,7 @@ async function cargarListadoCelebraciones() {
 
   try {
 
-    const res = await fetch("admin/obtener_publicaciones.php?tipo=4");
-    const celebraciones = await res.json();
+    const celebraciones = await obtenerJSON("admin/obtener_publicaciones.php?tipo=4");
 
     contenedor.innerHTML = "";
 
@@ -698,14 +725,15 @@ async function cargarListadoCelebraciones() {
       tarjeta.innerHTML = `
         <div class="card card-modern w-100 shadow-sm">
 
-          <img src="${item.imagen || 'https://via.placeholder.com/400x250'}" 
-               class="card-img-top">
+          <img src="${urlImagen(item.imagen)}" 
+               class="card-img-top"
+               alt="${escapeHTML(item.titulo)}">
 
           <div class="card-body d-flex flex-column">
-            <h5>${item.titulo}</h5>
-            <p>${item.descripcion}</p>
+            <h5>${escapeHTML(item.titulo)}</h5>
+            <p>${escapeHTML(item.descripcion)}</p>
 
-            <a href="celebraciones.html?id=${item.id}" 
+            <a href="celebraciones.html?id=${encodeURIComponent(item.id)}" 
                class="btn btn-primary btn-sm mt-auto">
               Ver celebración
             </a>

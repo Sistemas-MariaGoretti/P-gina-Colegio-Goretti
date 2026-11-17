@@ -38,7 +38,7 @@
     crossorigin="anonymous" />
 
   <!-- Estilos principales -->
-  <link rel="stylesheet" href="css/styles.css?v=3" />
+  <link rel="stylesheet" href="css/styles.css?v=4" />
 
   <!-- =========================================================
        AJUSTES DE SEGURIDAD PARA LA NAVBAR
@@ -229,6 +229,315 @@
       background: #004aad;
       color: white;
       transform: translateY(-50%) scale(1.1);
+    }
+
+    /* En celular la frase sale debajo de la foto, en una franja
+       azul, para no tapar la imagen. En computador no cambia. */
+    @media (max-width: 767.98px) {
+
+      .slide img {
+        height: 50vh;
+      }
+
+      .texto-carrusel {
+        position: static;
+        transform: none;
+        max-width: none;
+        width: 100%;
+        border-radius: 0;
+        padding: 16px 18px;
+        font-size: 17px;
+        line-height: 1.45;
+        background: linear-gradient(90deg, #1E3A8A, #1E40AF);
+        backdrop-filter: none;
+        border-bottom: 4px solid #DC2626;
+      }
+
+      /* Las flechas quedan a la mitad de la foto (50vh / 2) */
+      .prev,
+      .next {
+        top: 25vh;
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+      }
+
+      .prev {
+        left: 10px;
+      }
+
+      .next {
+        right: 10px;
+      }
+
+    }
+
+
+    /* =========================================================
+       TARJETAS EN CARRUSEL (SOLO CELULAR)
+       Noticias, Comunicados, Convocatorias y Celebraciones se
+       pasan con el dedo o con las flechas y puntitos que agrega
+       el script del final. En computador siguen en fila de 3.
+       ========================================================= */
+
+    .controles-tarjetas {
+      display: none;
+    }
+
+    @media (max-width: 767.98px) {
+
+      #contenedor-noticias1,
+      #contenedor-curriculares,
+      #contenedor-convocatorias1,
+      #contenedor-celebraciones {
+        position: relative;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+
+      #contenedor-noticias1::-webkit-scrollbar,
+      #contenedor-curriculares::-webkit-scrollbar,
+      #contenedor-convocatorias1::-webkit-scrollbar,
+      #contenedor-celebraciones::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Cada tarjeta ocupa casi toda la pantalla y se asoma la siguiente */
+      #contenedor-noticias1 > div,
+      #contenedor-curriculares > div,
+      #contenedor-convocatorias1 > div,
+      #contenedor-celebraciones > div {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+      }
+
+      /* La descripción se corta en 3 líneas; completa en "Leer más" */
+      #contenedor-noticias1 .card-body p,
+      #contenedor-curriculares .card-body p,
+      #contenedor-convocatorias1 .card-body p,
+      #contenedor-celebraciones .card-body p {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      #contenedor-noticias1 .card-modern:hover,
+      #contenedor-curriculares .card-modern:hover,
+      #contenedor-convocatorias1 .card-modern:hover,
+      #contenedor-celebraciones .card-modern:hover {
+        transform: none;
+      }
+
+      .controles-tarjetas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 12px;
+      }
+
+      .controles-tarjetas[hidden] {
+        display: none;
+      }
+
+      .flecha-tarjetas {
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 50%;
+        background: #1E40AF;
+        color: white;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .puntos-tarjetas {
+        display: flex;
+        gap: 8px;
+      }
+
+      .puntos-tarjetas button {
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background: #cbd5e1;
+      }
+
+      .puntos-tarjetas button.activo {
+        background: #DC2626;
+        transform: scale(1.3);
+      }
+
+    }
+
+
+    /* =========================================================
+       UNIFORME OFICIAL
+       Foto fija con las mismas medidas del carrusel de lugares.
+       ========================================================= */
+
+    .uniforme-foto {
+      max-width: 1100px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(30, 64, 175, .15);
+      background: #000;
+    }
+
+    .uniforme-foto img,
+    .uniforme-espacio {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+    }
+
+    /* Espacio de muestra: se quita cuando llegue la foto */
+    .uniforme-espacio {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 1.1rem;
+    }
+
+
+    /* =========================================================
+       CARRUSEL DE LUGARES (CONOCE NUESTRO COLEGIO)
+       Las fotos son 16:9 y traen el nombre del lugar escrito
+       encima, así que la caja usa la misma proporción para que
+       se vean completas, sin recortar el texto.
+       ========================================================= */
+
+    .lugares-carrusel {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(30, 64, 175, .15);
+      background: #000;
+    }
+
+    .lugares-pista {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+
+    .lugares-slide {
+      min-width: 100%;
+    }
+
+    .lugares-slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+    }
+
+    .lugares-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.75);
+      color: #333;
+      border: none;
+      font-size: 24px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+
+    .lugares-prev {
+      left: 15px;
+    }
+
+    .lugares-next {
+      right: 15px;
+    }
+
+    .lugares-btn:hover {
+      background: #004aad;
+      color: white;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .lugares-puntos {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+
+    .lugares-puntos button {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+    }
+
+    .lugares-puntos button.activo {
+      background: #fff;
+      transform: scale(1.3);
+    }
+
+    /* Borde visible cuando se maneja con el teclado */
+    .lugares-carrusel:focus-visible {
+      outline: 3px solid #004aad;
+      outline-offset: 4px;
+    }
+
+    /* Quien pidió reducir el movimiento en su equipo: sin deslizamiento */
+    @media (prefers-reduced-motion: reduce) {
+
+      .lugares-pista {
+        transition: none;
+      }
+
+    }
+
+    @media (max-width: 576px) {
+
+      .lugares-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+      }
+
+      .lugares-puntos {
+        gap: 5px;
+        bottom: 6px;
+      }
+
+      .lugares-puntos button {
+        width: 7px;
+        height: 7px;
+      }
+
     }
 
   </style>
@@ -549,6 +858,10 @@
 
           </li>
 
+
+          <li class="nav-item nav-item-large">
+            <a class="nav-link px-lg-2 py-2" href="revista-digital.html">Revista Digital</a>
+          </li>
 
           <!-- =================================================
                BIBLIOTECA
@@ -1114,6 +1427,422 @@
 
 
   <!-- =========================================================
+       CONOCE NUESTRO COLEGIO (CARRUSEL DE LUGARES)
+       ========================================================= -->
+
+  <section
+    class="section"
+    id="nuestros-espacios">
+
+    <div class="container">
+
+      <div class="row mb-5">
+
+        <div class="col-12 text-center">
+
+          <h2 class="section-title">
+            CONOCE NUESTRAS INSTALACIONES 
+          </h2>
+
+          <p class="section-subtitle">
+            Recorre los espacios de nuestra sede Primaria y Bachillerato
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="lugares-carrusel"
+        id="lugaresCarrusel"
+        tabindex="0"
+        aria-label="Lugares del colegio. Use las flechas del teclado para cambiar de foto">
+
+        <div class="lugares-pista" id="lugaresPista">
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/vista-panoramica.jpg"
+            alt="Vista panorámica de la I.E.M. María Goretti"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/entrada-principal.jpg"
+            alt="Entrada principal del colegio"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/zona-deportiva-primaria.jpg"
+            alt="Zona deportiva de la sede primaria"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/biblioteca-primaria.jpg"
+            alt="Biblioteca de la sede primaria"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/aulas-primaria.jpg"
+            alt="Aulas de clase de la sede primaria"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/zona-juegos-primaria.jpg"
+            alt="Zona de juegos de la sede primaria"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/coliseo-guillermo-de-castellana.jpg"
+            alt="Coliseo Guillermo de Castellana"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/biblioteca-bachillerato.jpg"
+            alt="Biblioteca de la sede bachillerato"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/zona-deportiva-bachillerato.jpg"
+            alt="Zona deportiva de la sede bachillerato"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/laboratorios-quimica-fisica.jpg"
+            alt="Laboratorios de química y física"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/informatica-bachillerato.jpg"
+            alt="Zona de informática de la sede bachillerato"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/auditorio-san-pio.jpg"
+            alt="Auditorio San Pío"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/cafeteria.jpg"
+            alt="Cafetería del colegio"
+            loading="lazy">
+        </div>
+
+        <div class="lugares-slide">
+          <img
+            src="imagenes/lugares/oratorio.jpg"
+            alt="Oratorio del colegio"
+            loading="lazy">
+        </div>
+
+        </div>
+
+
+        <button
+          class="lugares-btn lugares-prev"
+          type="button"
+          onclick="moverLugar(-1)"
+          aria-label="Foto anterior">
+
+          ❮
+
+        </button>
+
+
+        <button
+          class="lugares-btn lugares-next"
+          type="button"
+          onclick="moverLugar(1)"
+          aria-label="Foto siguiente">
+
+          ❯
+
+        </button>
+
+
+        <div class="lugares-puntos" id="lugaresPuntos"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       UNIFORME OFICIAL
+       ========================================================= -->
+
+  <section
+    class="section"
+    id="uniforme-oficial">
+
+    <div class="container">
+
+      <div class="row mb-5">
+
+        <div class="col-12 text-center">
+
+          <h2 class="section-title">
+            Uniforme oficial
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="uniforme-foto">
+
+        <div class="uniforme-espacio">
+          Aquí va la foto del uniforme
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       JAVASCRIPT DEL CARRUSEL DE LUGARES
+       ========================================================= -->
+
+  <script>
+
+    let indiceLugar = 0;
+
+    const carruselLugares = document.getElementById("lugaresCarrusel");
+
+    const pistaLugares = document.getElementById("lugaresPista");
+
+    const totalLugares = pistaLugares.children.length;
+
+    const puntosLugares = document.getElementById("lugaresPuntos");
+
+    let autoplayLugares;
+
+    // Segundos que se queda cada foto
+
+    const TIEMPO_POR_FOTO = 6000;
+
+
+
+    const reducirMovimiento =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // true mientras el mouse está encima del carrusel
+
+    let mouseEncima = false;
+
+
+    // Un punto por cada foto, para saltar directo a ella
+
+    for (let i = 0; i < totalLugares; i++) {
+
+      const punto = document.createElement("button");
+
+      punto.type = "button";
+
+      punto.setAttribute("aria-label", `Ver foto ${i + 1}`);
+
+      punto.addEventListener("click", () => irALugar(i));
+
+      puntosLugares.appendChild(punto);
+
+    }
+
+
+    function detenerAutoplayLugares() {
+
+      clearInterval(autoplayLugares);
+
+    }
+
+
+    function iniciarAutoplayLugares() {
+
+      detenerAutoplayLugares();
+
+
+
+      if (mouseEncima || document.hidden || reducirMovimiento) {
+
+        return;
+
+      }
+
+      autoplayLugares = setInterval(() => {
+
+        irALugar(indiceLugar + 1, true);
+
+      }, TIEMPO_POR_FOTO);
+
+    }
+
+
+    function irALugar(nuevo, automatico = false) {
+
+
+
+      if (!automatico) {
+
+        iniciarAutoplayLugares();
+
+      }
+
+
+      indiceLugar = (nuevo + totalLugares) % totalLugares;
+
+      pistaLugares.style.transform =
+        `translateX(-${indiceLugar * 100}%)`;
+
+      [...puntosLugares.children].forEach((p, i) =>
+        p.classList.toggle("activo", i === indiceLugar));
+
+
+
+
+      const siguiente =
+        pistaLugares.children[(indiceLugar + 1) % totalLugares]
+          .querySelector("img");
+
+      siguiente.loading = "eager";
+
+    }
+
+
+    function moverLugar(direccion) {
+
+      irALugar(indiceLugar + direccion);
+
+    }
+
+
+    // Pausa mientras el mouse está encima del carrusel
+
+    carruselLugares.addEventListener("mouseenter", () => {
+
+      mouseEncima = true;
+
+      detenerAutoplayLugares();
+
+    });
+
+    carruselLugares.addEventListener("mouseleave", () => {
+
+      mouseEncima = false;
+
+      iniciarAutoplayLugares();
+
+    });
+
+
+    // Pausa cuando la persona cambia a otra pestaña del navegador
+
+    document.addEventListener("visibilitychange", () => {
+
+      if (document.hidden) {
+
+        detenerAutoplayLugares();
+
+      } else {
+
+        iniciarAutoplayLugares();
+
+      }
+
+    });
+
+
+    // Flechas del teclado (cuando el carrusel está seleccionado)
+
+    carruselLugares.addEventListener("keydown", (e) => {
+
+      if (e.key === "ArrowLeft") {
+
+        e.preventDefault();
+
+        moverLugar(-1);
+
+      } else if (e.key === "ArrowRight") {
+
+        e.preventDefault();
+
+        moverLugar(1);
+
+      }
+
+    });
+
+
+    // Deslizar con el dedo en celulares y tabletas
+
+    let toqueInicioX = 0;
+
+    let toqueInicioY = 0;
+
+    carruselLugares.addEventListener("touchstart", (e) => {
+
+      toqueInicioX = e.touches[0].clientX;
+
+      toqueInicioY = e.touches[0].clientY;
+
+    }, { passive: true });
+
+    carruselLugares.addEventListener("touchend", (e) => {
+
+      const distanciaX = e.changedTouches[0].clientX - toqueInicioX;
+
+      const distanciaY = e.changedTouches[0].clientY - toqueInicioY;
+
+
+
+      if (Math.abs(distanciaX) > 50 &&
+          Math.abs(distanciaX) > Math.abs(distanciaY)) {
+
+        moverLugar(distanciaX < 0 ? 1 : -1);
+
+      }
+
+    });
+
+
+    // Iniciar carrusel al cargar
+
+    irALugar(0, true);
+
+    iniciarAutoplayLugares();
+
+  </script>
+
+
+  <!-- =========================================================
        INSTITUCIONES GORETTIANAS
        ========================================================= -->
 
@@ -1143,13 +1872,6 @@
           <div class="card-modern text-center">
 
             <div class="card-body p-5">
-
-              <img
-                src="imagenes/amg.png"
-                alt="Asociación Escolar María Goretti"
-                class="mb-4"
-                style="max-width: 120px; border-radius: 20px;">
-
 
               <h3 class="mb-4">
                 Entidades Gorettianas
@@ -1665,7 +2387,80 @@
   </script>
 
 
-  <script src="script.js?v=3" defer></script>
+  <script src="script.js?v=5" defer></script>
+
+
+  <!-- =========================================================
+       FLECHAS Y PUNTITOS DE LAS TARJETAS (SOLO SE VEN EN CELULAR)
+       Las tarjetas llegan después desde el servidor, por eso se
+       vuelven a armar los puntitos cada vez que cambian.
+       ========================================================= -->
+
+  <script>
+    function prepararCarruselTarjetas(id) {
+      const pista = document.getElementById(id);
+      if (!pista) return;
+
+      const controles = document.createElement("div");
+      controles.className = "controles-tarjetas";
+      controles.innerHTML = `
+        <button type="button" class="flecha-tarjetas" aria-label="Anterior">❮</button>
+        <div class="puntos-tarjetas"></div>
+        <button type="button" class="flecha-tarjetas" aria-label="Siguiente">❯</button>`;
+      pista.after(controles);
+
+      const [anterior, siguiente] = controles.querySelectorAll(".flecha-tarjetas");
+      const puntos = controles.querySelector(".puntos-tarjetas");
+
+      // Solo las tarjetas, no el texto "Cargando..."
+      const tarjetas = () => [...pista.children].filter(el => el.tagName === "DIV");
+
+      // La tarjeta cuyo centro está más cerca del centro de la pista
+      const actual = () => {
+        const centro = pista.scrollLeft + pista.clientWidth / 2;
+        let mejor = 0;
+        tarjetas().forEach((t, i, todas) => {
+          const distancia = Math.abs(t.offsetLeft + t.offsetWidth / 2 - centro);
+          const distanciaMejor = Math.abs(todas[mejor].offsetLeft + todas[mejor].offsetWidth / 2 - centro);
+          if (distancia < distanciaMejor) mejor = i;
+        });
+        return mejor;
+      };
+
+      const ir = (i) => {
+        const t = tarjetas()[i];
+        if (t) pista.scrollTo({ left: t.offsetLeft - (pista.clientWidth - t.offsetWidth) / 2 });
+      };
+
+      const marcar = () => {
+        const i = actual();
+        [...puntos.children].forEach((p, j) => p.classList.toggle("activo", j === i));
+      };
+
+      const armar = () => {
+        const total = tarjetas().length;
+        controles.hidden = total < 2;
+        puntos.innerHTML = "";
+        for (let i = 0; i < total; i++) {
+          const punto = document.createElement("button");
+          punto.type = "button";
+          punto.setAttribute("aria-label", `Ver publicación ${i + 1}`);
+          punto.onclick = () => ir(i);
+          puntos.appendChild(punto);
+        }
+        marcar();
+      };
+
+      anterior.onclick = () => ir(Math.max(0, actual() - 1));
+      siguiente.onclick = () => ir(Math.min(tarjetas().length - 1, actual() + 1));
+      pista.addEventListener("scroll", marcar, { passive: true });
+      new MutationObserver(armar).observe(pista, { childList: true });
+      armar();
+    }
+
+    ["contenedor-noticias1", "contenedor-curriculares", "contenedor-convocatorias1", "contenedor-celebraciones"]
+      .forEach(prepararCarruselTarjetas);
+  </script>
 
 
   <!-- =========================================================
